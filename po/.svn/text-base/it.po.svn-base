@@ -1,0 +1,863 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2001-07-02 04:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+
+#: AnimailMain.py:32
+#, c-format
+msgid "animail: No mail for %s in %s"
+msgstr ""
+
+#: AnimailMain.py:34
+#, c-format
+msgid "1 message for %s in %s"
+msgstr ""
+
+#: AnimailMain.py:36
+msgid "%d messages for %s in %s"
+msgstr "%d messages for %s in %s"
+
+#: AnimailMain.py:83
+msgid "Starting..."
+msgstr "Iniciando..."
+
+#: AnimailMain.py:95
+msgid "Connecting..."
+msgstr "Conectando..."
+
+#: AnimailMain.py:149
+msgid "Trying to connect (%s)"
+msgstr "Intentando conectar (%s)"
+
+#: AnimailMain.py:165
+msgid "Getting information"
+msgstr "Obteniendo información"
+
+#: AnimailMain.py:169
+msgid "You have %d new messages (%s)"
+msgstr "Tiene %d mensajes nuevos (%s)"
+
+#: AnimailMain.py:181
+msgid "No new messages (%s)"
+msgstr "No hay mensajes nuevos (%s)"
+
+#: AnimailMain.py:183 AnimailMain.py:200 AnimailMain.py:203
+msgid "No more messages"
+msgstr "No hay mensajes nuevos"
+
+#: AnimailMain.py:208
+msgid "Exiting..."
+msgstr "Saliendo..."
+
+#: AnimailMain.py:223
+msgid "Connection error: "
+msgstr "Error de conexión: "
+
+#: AnimailMain.py:227
+msgid "Protocol Error: "
+msgstr "Error de protocolo: "
+
+#: AnimailMain.py:237
+msgid "Timeout expired: "
+msgstr "Timeout agotado"
+
+#: AnimailMain.py:241
+msgid "Configuration error: "
+msgstr "Error de configuración: "
+
+#: AnimailMain.py:245
+msgid "IMAP error: "
+msgstr "Error de IMAP: "
+
+#: configlib.py:51
+#, c-format
+msgid "Critical Error: Can't deliver mail to unexistent mbox!! (%s)"
+msgstr "Error Crítico: ¡¡No puedo guardar mensajes en un buzón inexistente!! (%s)"
+
+#: configlib.py:54
+#, c-format
+msgid "Critical Error: Destination mbox (%s) can't be a symlink"
+msgstr "Error Crítico: El buzón de destino (%s) no puede ser un enlace simbólico"
+
+#: configlib.py:61
+#, c-format
+msgid "Error trying to open the filter file (%s):"
+msgstr "Error intentando abrir el archivo de filtros (%s)"
+
+#: configlib.py:101
+msgid ""
+"#By server options\n"
+"\n"
+msgstr ""
+"#Opciones por servidor\n"
+"\n"
+
+#: configlib.py:103
+msgid "Server: "
+msgstr "Servidor: "
+
+#: configlib.py:104
+msgid "UserName: "
+msgstr "NombreUsuario: "
+
+#: configlib.py:106
+msgid "Port: "
+msgstr "Puerto: "
+
+#: configlib.py:108
+msgid "ResendTo: "
+msgstr "ReenviarA: "
+
+#: configlib.py:110
+msgid "Protocol: "
+msgstr "Protocolo: "
+
+#: configlib.py:112
+msgid "KeepOnServer: No"
+msgstr "MantenerEnServidor: No"
+
+#: configlib.py:114
+msgid "KeepOnServer: Yes"
+msgstr "MantenerEnServidor: Si"
+
+#: configlib.py:115
+msgid "Password: "
+msgstr "Clave: "
+
+#: configlib.py:118
+msgid ""
+"# Global Options\n"
+"\n"
+msgstr ""
+"# Opciones Globales\n"
+"\n"
+
+#: configlib.py:120
+msgid "UseLocalMTA: Yes"
+msgstr "UsarMTALocal: Si"
+
+#: configlib.py:122
+msgid "SMTPPort: "
+msgstr "PuertoSMTP: "
+
+#: configlib.py:124
+msgid "MaxSize: "
+msgstr "TamañoMaximo: "
+
+#: configlib.py:126
+msgid "MaxNumber: "
+msgstr "NumeroMaximo: "
+
+#: configlib.py:128
+msgid "MBoxfile: "
+msgstr "ArchivoBuzon: "
+
+#: configlib.py:130
+msgid "DownloadOrder: FirstSmall"
+msgstr "OrdenDeTransferencia: PrimeroPequeños"
+
+#: configlib.py:132
+msgid "DownloadOrder: FirstBig"
+msgstr "OrdenDeTransferencia: PrimeroGrandes"
+
+#: configlib.py:134
+msgid "UseRegExp: Yes"
+msgstr "UsarExpReg: Si"
+
+#: configlib.py:138
+msgid "MoreTime: "
+msgstr "MasTiempo: "
+
+#: configlib.py:140
+msgid "Mailer: "
+msgstr "Mailer: "
+
+#: configlib.py:145
+msgid "Colorize: Yes"
+msgstr ""
+
+#: configlib.py:147
+msgid "Colorize: No"
+msgstr ""
+
+#: configlib.py:190
+msgid "option --download-order supplied with invalid value."
+msgstr "valor erroneo dado para la opción --download-order."
+
+#: configlib.py:206
+msgid "option --max-to-download suplied with invalid value."
+msgstr "valor erroneo dado para la opción --max-to-download."
+
+#: configlib.py:234
+#, c-format
+msgid "%s:error: %s"
+msgstr "%s:error: %s"
+
+#: configlib.py:252
+msgid ""
+"WARNING: Config file don't exists or it's empty. Please configure Animail"
+msgstr "ADVERTENCIA: El archivo de configuración no existe o está vacío. Configure el programa, por favor."
+
+#: configlib.py:257
+#, c-format
+msgid "I can't create the config file (%s)!"
+msgstr "No puedo crear el archivo de configuración (%s)"
+
+#: configlib.py:263
+#, c-format
+msgid "I can't read the config file (%s)!"
+msgstr "No puedo leer el archivo de configuración (%s)"
+
+#: configlib.py:284
+msgid "Error, the field '"
+msgstr "Error, el campo '"
+
+#: configlib.py:284
+msgid "'in the config file is empty"
+msgstr "'del archivo de configuración está vacío"
+
+#: configlib.py:382
+#, c-format
+msgid "Error in download order config (%s)"
+msgstr "Error en configuración de orden de transferencia (%s)"
+
+#: configlib.py:413
+#, c-format
+msgid "Error in config file (%s)"
+msgstr "Error en archivo de configuración (%s)"
+
+#: configlib.py:414
+msgid "I don't understand: '"
+msgstr "No entiendo: '"
+
+#: general.py:85
+msgid "Unknow"
+msgstr "Indeterminado"
+
+#: GUI.py:22
+msgid "Download"
+msgstr "Descargar"
+
+#: GUI.py:24 GUI.py:281
+msgid "Configure"
+msgstr "Configurar"
+
+#: GUI.py:26 GUI.py:970
+msgid "Exit"
+msgstr "Salir"
+
+#: GUI.py:36
+msgid "Server:"
+msgstr "Servidor:"
+
+#: GUI.py:47
+msgid "Message:"
+msgstr "Mensaje:"
+
+#: GUI.py:58
+msgid "From:"
+msgstr "Origen:"
+
+#: GUI.py:69
+msgid "Size:"
+msgstr "Tamaño:"
+
+#: GUI.py:288
+msgid "Deliver"
+msgstr "Entrega"
+
+#: GUI.py:293
+msgid "Deliver messages to local SMTP"
+msgstr "Entregar mensajes al SMTP local"
+
+#: GUI.py:295
+msgid ""
+"Enable this to deliver the downloaded messages to a local SMTP server, and "
+"left the responsability of the final per-user deliver to it. Note that you "
+"need to have a local SMTP server installed and running standalone or from "
+"inetd. If you don't know what I'm speaking about made this test: Type in a "
+"console 'telnet localhost 25' if you get a greeting from the server enable "
+"this option, else don't enable it and use a mailbox file"
+msgstr "Active esta opción para entregar los mensajes descargados a un servidor SMTP local, y dejarle la responsabilidad final de la entrega a los usuarios. Esta es la opción recomendada. Notese usted necesita tener un servidor SMTP local instalado y funcionando (bien como servidor residente, bien desde el Inetd). Si no sabe de que estoy hablando haga esta prueba: Escriba en una terminal 'telnet localhost 25'. Si recibe un mensaje con una fecha, active esta opción, sino no la active y utilice un archivo buzón."
+
+#: GUI.py:300
+msgid "Port "
+msgstr "Puerto "
+
+#: GUI.py:305
+msgid ""
+"Port to connect with the local SMTP server. Except in very strange "
+"situations, it will be 25"
+msgstr "Puerto al que conectar con el servidor SMTP local. Excepto en situaciones muy raras, debería ser 25."
+
+#: GUI.py:320
+msgid "Use an MBox file"
+msgstr "Usar un archivo Buzón"
+
+#: GUI.py:322
+msgid ""
+"If you don't want (or can't) deliver the messages to a local SMTP server, "
+"this options allows you to download the messages to a file with mailbox "
+"format"
+msgstr "Si no quiere (o no puede) entregar los mensajes a un servidor SMTP local, esta opción le permitirá descargar los mensajes a un archivo con formato 'mailbox' que podrá ser leido por la mayoría de los clientes de correo."
+
+#: GUI.py:326
+msgid "File "
+msgstr "Archivo "
+
+#: GUI.py:330 GUI.py:605
+msgid "Find"
+msgstr "Buscar"
+
+#: GUI.py:348
+msgid "Accept Config"
+msgstr "Aceptar Configuración"
+
+#: GUI.py:352
+msgid "Undo Changes"
+msgstr "Deshacer Cambios"
+
+#: GUI.py:356 GUI.py:858
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: GUI.py:376
+msgid "Servers"
+msgstr "Servidores"
+
+#: GUI.py:381
+msgid "Server"
+msgstr "Servidor"
+
+#: GUI.py:390
+msgid "Port"
+msgstr "Puerto"
+
+#: GUI.py:395
+msgid ""
+"What port we have to connect in the remote mail server. If you don't know "
+"what i'm speaking about just left the default value (110)"
+msgstr ""
+"A que puerto debemos conectar en el servidor de correo remoto. Si no sabe de "
+"que le estoy hablando deje el valor por defecto (110)"
+
+#: GUI.py:404
+msgid "Protocol "
+msgstr "Protocolo "
+
+#: GUI.py:409
+msgid ""
+"Mail Protocol used to communicate with the server, usually POP3 or IMAP4"
+msgstr ""
+"Protocolo de Correo que usaremos para comunicar con el servidor,normalmente "
+"POP3 o IMAP4"
+
+#: GUI.py:418
+msgid "User "
+msgstr "Usuario "
+
+#: GUI.py:428
+msgid "Password "
+msgstr "Clave "
+
+#: GUI.py:440
+msgid "Resend messages from this server"
+msgstr "Reenviar mensajes de este servidor"
+
+#: GUI.py:442
+msgid ""
+"If you want the messages downloaded from this server to be forwarded to "
+"another user on this system or to an email adress out of this system, push "
+"this button and fill the adress entry. You can only forward messages to a "
+"destination adress in another system if the 'Deliver messages to local SMTP' "
+"option is enabled"
+msgstr "Si quiere que los mensajes descargados de este servidor sean redirigidos a otro usuario en este sistema, o a una dirección de correo fuera del sistema, pulse este botón y rellene la caja de texto con la dirección o nombre de usuario especificado. Sólo podrá redirigir mensajes a direcciones externas al sistema si la está activada la opción 'Entregar mensajes a un servidor SMTP local'."
+
+#: GUI.py:445
+msgid "To the adress"
+msgstr "A la dirección"
+
+#: GUI.py:466 GUI.py:815
+msgid "Add"
+msgstr "Añadir"
+
+#: GUI.py:469 GUI.py:819
+msgid "Modify"
+msgstr "Modificar"
+
+#: GUI.py:472 GUI.py:823
+msgid "Delete"
+msgstr "Borrar"
+
+#: GUI.py:500
+msgid "Download order"
+msgstr "Orden de transferencia"
+
+#: GUI.py:504
+msgid "By server arrival order"
+msgstr "Por llegada al servidor"
+
+#: GUI.py:507
+msgid ""
+"This option download the messages in the same order they arrived to the "
+"remote mail server"
+msgstr "Esta opción hará que los mensajes se transfieran en el mismo orden en el que llegaron al servidor de correo remoto."
+
+#: GUI.py:511
+msgid "First smaller messages"
+msgstr "Primero los mensajes pequeños"
+
+#: GUI.py:515
+msgid ""
+"This option allows downloading first the smaller messages (so, for example, "
+"you can start reading them while that big 2Mb message is being downloaded)"
+msgstr "Esta opción hará que se descarguen primero los mensajes más pequeños, de modo que, por ejemplo, pueda empezar a leer su correo mientras se descargan los archivos de mayor tamaño."
+
+#: GUI.py:520
+msgid "First bigger messages"
+msgstr "Primero los mensajes mayores"
+
+#: GUI.py:523
+msgid ""
+"This options allows downloading first the bigger messages (so, for example, "
+"you can take first the messages which probably have interesting files "
+"attached to them)"
+msgstr "Esta opción hará que se descarguen primero los mensajes mayores, de modo que, por ejemplo, pueda obtener primero los mensajes que tengan archivos adjuntos interesantes."
+
+#: GUI.py:534
+msgid "Limits"
+msgstr "Límites"
+
+#: GUI.py:539
+msgid "Max number of messages to download (0 to deactive)"
+msgstr ""
+"Número máximo de mensajes a descargar\n"
+"(0 desactiva)"
+
+#: GUI.py:549
+msgid ""
+"Max size of a message, \n"
+"in bytes(0 to deactivate)"
+msgstr ""
+"Tamaño máximo de los mensajes\n"
+"en bytes (0 desactiva)"
+
+#: GUI.py:559
+msgid "Use filters"
+msgstr "Utilizar filtros"
+
+#: GUI.py:561
+msgid ""
+"This enables the header filtering options. It allows you to especify regular "
+"expresions to apply to the message headers. If the regular expresion match "
+"the header, the message is deleted from the server. This is an anti-spam "
+"(unsolicited mail) feature. If you enable this option, you should edit the "
+"filters clicking in the 'Edit Filters' button."
+msgstr "Esta opción activa el filtrado de cabeceras. Permite especificar expresiones regulares que se aplicarán a las cabeceras de los mensajes y si concuerdan el mensaje será borrado del servidor remoto sin llegar a descargarlo. Esta es una medida anti-spam (correo no solicitado). Si activa esta opción deberáeditar los filtros pulsando en el botón 'Editar Filtros'."
+
+#: GUI.py:563
+msgid "Edit filters"
+msgstr "Editar filtros"
+
+#: GUI.py:581
+msgid "Misc"
+msgstr "Varios"
+
+#: GUI.py:583
+msgid "Keep messages on server"
+msgstr "Mantener mensajes en el servidor"
+
+#: GUI.py:585
+msgid ""
+"Usually, when you download the messages to your computer, they get deleted "
+"from the remote mail server. This options allows you to left the messages on "
+"the server."
+msgstr "Normalmente cuando usted descarga los mensajes a su ordenador se borran del servidor de correo remoto. Esta opción permitirá dejar los mensajes en el servidor."
+
+#: GUI.py:589
+msgid ""
+"Maximun operation time\n"
+"with each server, in seconds\n"
+" (0 to deactivate)"
+msgstr ""
+"Máximo tiempo de operación\n"
+"con cada servidor, en segundos\n"
+"(0 desactiva)"
+
+#: GUI.py:593
+msgid ""
+"You can set a timeout so if the remote mail server hangs or it takes too "
+"much time to deliver the messages, the program jumps to the next server. The "
+"timeout is specified in seconds."
+msgstr "Puede especificar un tiempo máximo de operación por cada servidor, de modo de modo que si este tarda mucho en entregar los mensajes o tiene problemas el programa salte al siguiente servidor. El tiempo máximo se especifica en segundos."
+
+#: GUI.py:600
+msgid "Program to Read Email "
+msgstr "Lector de Correo "
+
+#: GUI.py:603
+msgid ""
+"Program executed when te Read Mail button of the operation summary window is "
+"clicked"
+msgstr "Define el programa que se executará cuando pulsemos el botón Leer Correo en la ventana de resumen de la operación"
+
+#: GUI.py:689
+msgid "Select Mailbox"
+msgstr "Elija Archivo Buzón"
+
+#: GUI.py:698
+msgid "Select Mailer"
+msgstr "Elija Lector de Correo"
+
+#: GUI.py:791
+msgid "Filters Config"
+msgstr ""
+
+#: GUI.py:799
+msgid "Filters"
+msgstr "Filtros "
+
+#: GUI.py:850 GUI.py:955 GUI.py:960
+msgid "Accept"
+msgstr "Aceptar"
+
+#: GUI.py:854
+msgid "Undo"
+msgstr "Deshacer"
+
+#: GUI.py:941
+msgid "Summary"
+msgstr "Resumen"
+
+#: GUI.py:960
+msgid "Error"
+msgstr "Error"
+
+#: GUI.py:960
+msgid "No Mailer specified"
+msgstr "No ha especificado lector"
+
+#: GUI.py:966
+msgid "Read"
+msgstr "Leer"
+
+#: imap.py:61 pop3.py:32
+msgid "Looking header %d, %d left (%s)"
+msgstr "Examinando cabecera %d, quedan: %d (%s)"
+
+#: imap.py:70 pop3.py:40
+msgid "Server address not given!!"
+msgstr "¡¡Dirección de servidor no especificada!!"
+
+#: imap.py:93 pop3.py:92
+msgid "Getting message list (%s)"
+msgstr "Obteniendo lista de mensajes (%s)"
+
+#: imap.py:111 pop3.py:113
+msgid "Message number limit reached"
+msgstr "Límite en número de mensajes alacanzado"
+
+#: imap.py:129 pop3.py:154
+#, c-format
+msgid "From: %s"
+msgstr "Origen: %s"
+
+#: imap.py:159
+msgid "Downloading message %d, Left: %d (%s)"
+msgstr "Descargando mensaje %d, Quedan: %d (%s)"
+
+#: imap.py:179 pop3.py:171
+msgid "Downloaded: "
+msgstr "Descargado: "
+
+#: imap.py:208
+msgid "Deleting marked messages...\n"
+msgstr "Eliminando mensajes marcados...\n"
+
+#: logger.py:114
+msgid ""
+"\n"
+"####### Operation summary #######\n"
+"\n"
+msgstr ""
+"\n"
+"####### Resumen de la operación #######\n"
+"\n"
+
+#: logger.py:120
+msgid ""
+"\n"
+"--- Server: "
+msgstr ""
+"\n"
+"--- Servidor: "
+
+#: logger.py:125
+msgid "* Total messages: "
+msgstr "* Total de mensajes: "
+
+#: logger.py:131
+msgid "* Total volume on server: "
+msgstr "* Volumen total en el servidor: "
+
+#: logger.py:136
+msgid "* Filtered messages: "
+msgstr "* Mensajes filtrados: "
+
+#: logger.py:142
+msgid "\tTotal filtered volume: "
+msgstr "\tVolumen total de mensajes filtrados: "
+
+#: logger.py:147
+msgid "* Downloaded messages: "
+msgstr "* Mensajes descargados: "
+
+#: logger.py:153
+msgid "\tDownloaded Volume: "
+msgstr "\tVolumen descargado: "
+
+#: logger.py:159
+msgid ""
+"\n"
+"* Patterns of filtered messages:\n"
+msgstr ""
+"\n"
+"* Patrones del los mensajes filtrados:\n"
+
+#: logger.py:170
+msgid "* Origin of downloaded messages:\n"
+msgstr "* Origen de los mensajes descargados:\n"
+
+#: logger.py:181
+msgid "* Incidents:\n"
+msgstr "* Incidencias:\n"
+
+#: mailserver.py:111
+msgid "Sending to the local SMTP"
+msgstr "Enviando mensaje al SMTP local"
+
+#: mailserver.py:143
+#, c-format
+msgid "Failure writing to mbox file '%s' (%s)"
+msgstr ""
+
+#: mailserver.py:159 mailserver.py:161
+msgid "already exist"
+msgstr ""
+
+#: mailserver.py:179
+msgid "failure writing file "
+msgstr ""
+
+#: mailserver.py:184
+#, c-format
+msgid "failure renaming '%s' to '%s'"
+msgstr ""
+
+#: mailserver.py:202
+#, c-format
+msgid "Message %d size exceed limit (%d), deleting it"
+msgstr "El mensaje %d excede el tamaño maximo (%d), eliminandolo"
+
+#: mailserver.py:205
+#, c-format
+msgid "Message %d deleted, size limit reached"
+msgstr "Eliminando mensaje %d, mayor que el tamaño máximo"
+
+#: mailserver.py:209
+#, c-format
+msgid "Deleting message %d, size limit reached"
+msgstr "Eliminando mensaje %d, mayor que el tamaño máximo"
+
+#: mailserver.py:217
+#, c-format
+msgid "Looking header %d"
+msgstr "Examinando cabecera %d"
+
+#: mailserver.py:231 mailserver.py:240
+#, c-format
+msgid "Deleting message %d: Header match %s"
+msgstr "Eliminando mensaje %d: Concuerda con %s"
+
+#: mailserver.py:296
+#, c-format
+msgid "Starting message %d download"
+msgstr "Iniciando la descarga del mensaje %d"
+
+#: mailserver.py:300
+#, c-format
+msgid "Downloading message %d (%.2f %s), Left: %d"
+msgstr "Descargando mensaje %d (%.2f %s), Quedan: %d"
+
+#: mailserver.py:310
+msgid "\rDownloaded: "
+msgstr "\rDescargado: "
+
+#: mailserver.py:320
+msgid ""
+"\n"
+"Deleting message"
+msgstr ""
+"\n"
+"Eliminando mensaje"
+
+#: mailserver.py:323
+msgid "Deleting message"
+msgstr "Eliminando mensaje"
+
+#: mailserver.py:327
+msgid ""
+"The local SMTP rejected this message so it won't be deleted from the mail "
+"server:"
+msgstr "El SMTP local rechazó este mensaje por lo que no se eliminará del servidor remoto"
+
+#: mailserver.py:334
+msgid ""
+"Socket error sending to the local SMTP, it won't be deleted from the mail "
+"server:"
+msgstr "Error en socket enviando al SMTP local, no se borrará del servidor remoto"
+
+#: mailserver.py:341
+msgid ""
+"CRITICAL ERROR. There was an error delivering to MBox, aborting, message "
+"won't be deleted from the mail server: "
+msgstr ""
+
+#: mailserver.py:345
+msgid ""
+"CRITICAL ERROR. There was an error delivering to Maildir, aborting, message "
+"won't be deleted from the mail server: "
+msgstr ""
+
+#: pop3.py:156
+msgid "Downloading message %d, Left %d (%s)"
+msgstr "Descargando mensaje %d, Quedan: %d (%s)"
+
+#: smtp.py:34
+msgid "Closing SMTP connection"
+msgstr "Cerrando conexión SMTP"
+
+#: smtp.py:36
+msgid "SMTP Error: Already Closed"
+msgstr "Error de SMTP: Ya estaba cerrado"
+
+#: smtp.py:42
+msgid "ISAY: (Sending the message to the SMTP)"
+msgstr "ISAY: (Enviando el mensaje al SMTP)"
+
+#~ msgid "Reconnecting to interrupted server %s"
+#~ msgstr "Reconectando al servidor interrumpido %s"
+
+#~ msgid ""
+#~ "I had to reconnect to the server, the \n"
+#~ "downloaded messages counters may be wrong"
+#~ msgstr ""
+#~ "Hubo que reconectar al servidor\n"
+#~ "\tlos contadores pueden estar mal"
+
+#~ msgid "Reconnecting to %s"
+#~ msgstr "Reconectando a %s"
+
+#~ msgid "Keyboard interrupt"
+#~ msgstr "Interrupción de teclado"
+
+#~ msgid "Reconnect: Yes"
+#~ msgstr "Reconectar: Si"
+
+#~ msgid "\rDownloaded: 100%\n"
+#~ msgstr "\rDescargado: 100%\n"
+
+#~ msgid "Downloaded: %3.0f%%"
+#~ msgstr "Descargado: %3.0f%%"
+
+#~ msgid ""
+#~ "\n"
+#~ "\n"
+#~ "\t<--------- Timeout expired --------->\n"
+#~ "\n"
+#~ msgstr ""
+#~ "\n"
+#~ "\n"
+#~ "\t<--------- Timeout agotado --------->\n"
+#~ "\n"
+
+#~ msgid "Pop3Server: "
+#~ msgstr "ServidorPop3:"
+
+#~ msgid "POPPort: "
+#~ msgstr "PuertoPOP: "
+
+#~ msgid "Really deleting messages...\n"
+#~ msgstr "Eliminando mensajes realmente..."
+
+#~ msgid "Revert"
+#~ msgstr "Deshacer Cambios"
+
+#~ msgid "Adress"
+#~ msgstr "Dirección"
+
+#~ msgid ""
+#~ "Warning: Regular expresion filtering activated but no regular expresions "
+#~ "given"
+#~ msgstr "Advertencia: Filtrado de cabeceras activado, pero ninguna expresión regular dada"
+
+#~ msgid "Looking headers"
+#~ msgstr "Examinando cabeceras"
+
+#~ msgid "Error in connection"
+#~ msgstr "Error en conexión"
+
+#~ msgid ""
+#~ "Connection Error (socket):\n"
+#~ " %s"
+#~ msgstr ""
+#~ "Error en conexión (socket):\n"
+#~ " %s"
+
+#~ msgid ""
+#~ "Server comunication error:\n"
+#~ " %s"
+#~ msgstr ""
+#~ "Error de comunicación con el servidor:\n"
+#~ " %s"
+
+#~ msgid ""
+#~ "Timeout expired for\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Timeout agotado para\n"
+#~ "%s"
+
+#~ msgid "Configuration Error: %s"
+#~ msgstr "Error de configuración: %s"
+
+#~ msgid "Error in conection"
+#~ msgstr "Error en conexión"
+
+#~ msgid ""
+#~ "Connection error (socket):\n"
+#~ " %s"
+#~ msgstr ""
+#~ "Error de conexión (socket):\n"
+#~ " %s"
+
+#~ msgid ""
+#~ "There is an error in the comunication with the server, his message is:\n"
+#~ " %s"
+#~ msgstr ""
+#~ "Error de comunicación con el servidor:\n"
+#~ " %s"
+
+#~ msgid "Save"
+#~ msgstr "Guardar"

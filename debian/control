@@ -1,0 +1,11 @@
+Source: animail21
+Section: mail
+Priority: optional
+Maintainer: Juan Jose Alvarez <juanjux@yahoo.es>
+Standards-Version: 3.0.1
+
+Package: animail21
+Architecture: all
+Depends: python2.3 | python2.4 | python2.5
+Description: POP3/IMAP4/SSL Mail Retrieval utility with featuritis
+ Really.

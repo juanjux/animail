@@ -1,0 +1,67 @@
+INFORMACIÓN IMPORTANTE CON RESPECTO A LAS VERSIONES 1.1.26 Y SUPERIORES
+-----------------------------------------------------------------------
+
+En estas versiones se han introducido una serie de cambios importantes;
+este documento intenta explicar cuales han sido y que hacer en el caso
+de que afecten al usuario.
+
+1. Cambio en el formato del archivo de configuración
+
+Como el 90% de los problemas que los usuarios de Animail tenían eran con
+el archivo de configuración se ha cambiado el formato para hacerlo mucho
+más claro y para que el parser del Animail pueda detectar fácilmente los
+errores más comunes. El cambio no es muy grande, pero si lo suficiente
+como para que sea incompatible;
+
+a) Las opciones de cada servidor van entre las etiquetas <servidor> y
+</servidor>.
+
+b) Las opciones globales van entre las etiquetas <global> y </global>.
+De momento no puede haber opciones fuera de un grupo de servidor o de
+opciones globales (en el futuro es probable que haya más secciones).
+
+c) Se ha cambiado la opción "UsarExpReg:Si/No" (o UseRegExp:Yes/no) por
+"Filterfile: [ruta a archivo]" o "FicheroFiltros: [ruta a archivo]".
+Esta opción especifica donde se encuentra el fichero en el que tenemos
+nuestros filtros, y si no existe no se activa el filtrado.
+
+d) Se ha añadido, dentro de las opciones de servidor, la opción "Alias:
+[texto]" que nos permite especificar por cada servidor un nombre
+cualquiera independientemente de la dirección del servidor (por ejemplo,
+para pop.terra.es podemos ponerle un alias 'Terra'). Ese texto se
+utilizará en todas las cadenas en las que antes se mostraba la dirección
+del servidor.
+
+e) Dentro de las opciones de <servidor> 'Servidor:' ahora es 'Direccion:'
+
+Se ha incluido un script que toma un .animailrc en formato anterior al
+1.1.25 (incluyendo las versiones 1.0) y saca por la salida estándar un
+fichero con las opciones automáticamente traducidas.
+
+
+2. Eliminación de la interfaz gráfica Gtk
+
+La interfaz Gtk estaba dando muchos problemas desde que Animail se hizo
+multihilo, y además no la estaba usando mucha gente por lo que se ha
+eliminado. En contrapartida se ha incluido el script config_animail que
+muestra una interfaz gráfica Qt desde la que poder configurar
+cómodamente el Animail. También se ha incluido el script 'ganimail' que
+busca entre las terminales gráficas que tenemos instaladas en nuestro
+sistema y ejecuta Animail en alguna de ellas, útil para poder ejecutar
+Animail desde un icono de escritorio sin tener que abrir una terminal
+nosotros mismos.
+
+Es posible que en un futuro cercano se añada una interfaz Qt al Animail.
+
+3. La documentación se ha actualizado para reflejar los cambios y ahora
+tiene formato HTML.
+
+4. Ya existe soporte para IMAP4 con SSL, para ello:
+
+Protocolo: IMAP4
+SSL: Si
+
+5. Exige que el archivo ~/.animailrc tenga permisos 600. Si no los tenía
+antes (mal hecho) la solución es cambiarlos con: chmod 600 ~/.animailrc.
+
+6. AÑADIR INFORMACIÓN SOBRE EL FILTRADO HTML Y LAS AUTORESPUESTAS.

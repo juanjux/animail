@@ -1,0 +1,859 @@
+# translation of animail.po to Deutsch
+# Copyright (C) 2004 Free Software Foundation, Inc.
+# Christoph Thielecke <crissi99@gmx.de>, 2004.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: animail\n"
+"POT-Creation-Date: 2003-12-07 02:02+0100\n"
+"PO-Revision-Date: 2004-07-08 20:19+0200\n"
+"Last-Translator: Christoph Thielecke <crissi99@gmx.de>\n"
+"Language-Team: Deutsch <de@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.3.1\n"
+
+#: AnimailMain.py:31
+#, c-format
+msgid "animail: No mail for %s in %s"
+msgstr "animail: Keine Mail für %s in %s"
+
+#: AnimailMain.py:33
+#, c-format
+msgid "1 message for %s in %s"
+msgstr "1 Nachricht für %s in %s"
+
+#: AnimailMain.py:35
+#, c-format
+msgid "%d messages for %s in %s"
+msgstr "%d Nachrichten für %s in %s"
+
+#: AnimailMain.py:145
+#, c-format
+msgid "Trying to connect (%s)"
+msgstr "Verbindungsaufbau (%s)"
+
+#: AnimailMain.py:147 AnimailMain.py:276
+#, c-format
+msgid "Authentificating (%s)"
+msgstr "Authentisierung (%s)"
+
+#: AnimailMain.py:150
+#, c-format
+msgid "Retrieving stats (%s)"
+msgstr "Statistiken werden empfangen (%s)"
+
+#: AnimailMain.py:158
+#, c-format
+msgid "You have %d new messages (%s)"
+msgstr "Sie haben %d neue Nachrichten (%s)"
+
+#: AnimailMain.py:161
+#, c-format
+msgid "Creating messages list (%s)"
+msgstr "Nachrichtenliste wird erstellt (%s)"
+
+#: AnimailMain.py:163
+#, c-format
+msgid "No new messages (%s)"
+msgstr "Keine neuen Nachrichten (%s)"
+
+#: AnimailMain.py:203
+msgid "No more messages"
+msgstr "Keine weiteren Nachrichten"
+
+#: AnimailMain.py:207
+msgid "Exiting..."
+msgstr "Programm wird beendet..."
+
+#: AnimailMain.py:216
+#, c-format
+msgid "Connection error (%s): "
+msgstr "Verbindungsfehler (%s): "
+
+#: AnimailMain.py:219
+#, c-format
+msgid "SSL connection error (%s): "
+msgstr "SSL-Verbindungsfehler (%s): "
+
+#: AnimailMain.py:222
+#, c-format
+msgid "Temporary name resolution error (%s): "
+msgstr "Temporärer Fehler bei der Namensauflösung (%s): "
+
+#: AnimailMain.py:225
+#, c-format
+msgid "Name resolution error (%s): "
+msgstr "Fehler bei der Namensauflösung (%s): "
+
+#: AnimailMain.py:228
+#, c-format
+msgid "Protocol Error (%s): "
+msgstr "Protokollfehler (%s): "
+
+#: AnimailMain.py:231
+#, c-format
+msgid "Timeout expired (%s): "
+msgstr "Zeit abgelaufen (%s): "
+
+#: AnimailMain.py:234
+#, c-format
+msgid "Configuration error (%s): "
+msgstr "Konfigurationsfehler (%s): "
+
+#: AnimailMain.py:237
+#, c-format
+msgid "IMAP error (%s): "
+msgstr "IMAP-Fehler (%s): "
+
+#: AnimailMain.py:243
+msgid "Thread exited"
+msgstr "Thread beendet"
+
+#: AnimailMain.py:246
+#, c-format
+msgid "Unhandled exception (%s)! This is probably a bug, please"
+msgstr "Unbehandelte Ausnahme (%s)! This ist wahrscheinlich ein Fehler, bitte"
+
+#: AnimailMain.py:247
+msgid "send an email to <juanjux@yahoo.es> with the following message:"
+msgstr "eine E-Mail an <juanjux@yahoo.es> senden, mit folgendem Inhalt:"
+
+#: AnimailMain.py:265
+#, c-format
+msgid "Trying to clean downloaded messages from %s"
+msgstr "Es wird versucht, die heruntergeladenen Nachrichten von %s zu löschen"
+
+#: AnimailMain.py:271
+#, c-format
+msgid "Waiting %d seconds before connecting again to the server"
+msgstr "Es wird %d Sekunden gewartet, bevor erneut eine neue Verbindung zum Server aufgebaut wird"
+
+#: AnimailMain.py:274
+#, c-format
+msgid "(Re)Connecting to %s"
+msgstr "(Erneuter) Verbindungsaufbau zu %s"
+
+#: AnimailMain.py:279
+#, c-format
+msgid "Starting downloaded messages deletion (%s)"
+msgstr "Löschen der heruntergeladenen Nachrichten wird gestartet (%s)"
+
+#: AnimailMain.py:282
+msgid "Something bad happened again! Bye server bye..."
+msgstr "Etwas böses ist erneut passiert! Bye Server Bye..."
+
+#: AnimailMain.py:285
+msgid "The exception text was:"
+msgstr "Der Ausnahmetext war:"
+
+#: AnimailMain.py:309
+#, c-format
+msgid "Warning: Error opening the replied messages list file! (%s)"
+msgstr "Warnung: Fehler beim Öffnen der Liste der empfangenen Nachrichten! (%s)"
+
+#: AnimailMain.py:317 AnimailMain.py:330 AnimailMain.py:346
+msgid ""
+"Warning: Could not get the system TMP directory for checking the lockfile, "
+"continuing anyway"
+msgstr "Warnung: Das System-TMP-Verzeichnis für das Überprüfen der Sperrdatei bekommen, es wird fortgesetzt"
+
+#: AnimailMain.py:323
+#, c-format
+msgid ""
+"Error: Another Animail session seems to be active. If not (check with ps aux|"
+"grep animail) delete the file  %s"
+msgstr "Fehler: Eine andere Animail-Situng schein aktiv zu sein. Wenn nicht (mit ps aux | grep animail), die Datei %s löschen"
+
+#: AnimailMain.py:340
+#, c-format
+msgid "Warning: Could not create the lockfile: %s"
+msgstr "Warnung: Sperrdatei kann nicht erstellt werden: %s"
+
+#: AnimailMain.py:354
+#, c-format
+msgid "Error trying to delete the lockfile %s: %s continuing anyway"
+msgstr "Fehler beim Löschen der Sperrdatei %s: %s es wird fortgesetzt"
+
+#: configlib.py:107
+#, c-format
+msgid "Critical Error: Can't deliver mail to unexistent mbox!! (%s)"
+msgstr "Kritischer Fehler: Mail kann nicht an ein nicht existierendes Postfach ausgeliefert werden!! (%s)"
+
+#: configlib.py:110
+#, c-format
+msgid "Critical Error: Destination mbox (%s) can't be a symlink"
+msgstr "Kritischer Fehler: Zielpostfach (%s) kann keine symbolische Verknüpfung sein"
+
+#: configlib.py:118
+#, c-format
+msgid "Error trying to open the filter file (%s):"
+msgstr "Fehler beim Öffnen der Filderdatei (%s):"
+
+#: configlib.py:130
+msgid "Error compiling regular expression from the filters file\n"
+msgstr "Fehler beim Kompilieren des regulären Ausdrucks von Filterdatei\n"
+
+#: configlib.py:131 configlib.py:150
+#, c-format
+msgid "the offending regex was: %s"
+msgstr "der fehlerhafte Regex war: %s"
+
+#: configlib.py:138
+#, c-format
+msgid "Error trying to open the accept file (%s):"
+msgstr "Fehler beim Öffnen der Akzeptierendatei (%s):"
+
+#: configlib.py:149
+msgid "Error compiling regular expression from the accepted file\n"
+msgstr "Fehler beim Kompilieren des regulären Ausdrucks von Akzeptierendatei\n"
+
+#: configlib.py:201
+msgid "option --download-order supplied with invalid value."
+msgstr "Option --download-order mit einem ungültigem Wert geliefert."
+
+#: configlib.py:217
+msgid "option --max-to-download suplied with invalid value."
+msgstr "option --max-to-download suplied mit einem ungültigem Wert geliefert."
+
+#: configlib.py:245
+#, c-format
+msgid "%s:error: %s"
+msgstr "%s: Fehler: %s"
+
+#: configlib.py:317
+#, c-format
+msgid "Error: %s/.animail is not a directory!"
+msgstr "Fehler: %s animail ist kein Verzeichnis!"
+
+#: configlib.py:323
+#, c-format
+msgid "Config file %sanimailrc not found!"
+msgstr "Konfigurationsdatei %sanimailrc nicht gefunden!"
+
+#: configlib.py:327
+#, c-format
+msgid "Warning: animailrc file should be on %sanimailrc (current location is in %s)"
+msgstr "Warnung: animailrc-Datei sollte %sanimailrc sein (aktueller Ort ist %s)"
+
+#: configlib.py:330
+#, c-format
+msgid "Warning: animailrc file should be on %sanimailrc (current location is %s)"
+msgstr "Warnung: animailrc-Datei sollte %sanimailrc sein (aktueller Ort ist %s)"
+
+#: configlib.py:336
+#, c-format
+msgid "Error trying to open the config file %s: %s"
+msgstr "Fehler beim Öffnen der Konfigurationsdatei %s: %s"
+
+#: configlib.py:340
+msgid "ERROR: For security reasons the animailrc config file must have 600 perms!"
+msgstr "FEHLER: Aus Sicherheitsgründen muß die animailrc-Konfigurationsdatei die Rechte 600 haben!"
+
+#: configlib.py:341
+msgid "(to change the permissions you can do: chmod 600 animailrc)"
+msgstr "(um die Rechte zu ändern: chmod 600 animailrc)"
+
+#: configlib.py:345
+msgid "WARNING: Config file don't exists or it's empty. Please configure Animail"
+msgstr "WARNUNG: Konfigurationsdatei existiert nicht oder ist leer. Bitte Animail konfigurieren"
+
+#: configlib.py:350
+#, c-format
+msgid "I can't read the config file (%s)!"
+msgstr "Konfigurationsdatei (%s) kann nicht gelesen werden!"
+
+#: configlib.py:383
+#, c-format
+msgid "Error (line %d), the parameter of '%s' is empty"
+msgstr "Fehler: (Zeile %d), der Parameter von '%s' ist leer"
+
+#: configlib.py:393
+#, c-format
+msgid "Config file error (line %d): <server> inside another <server>"
+msgstr "Konfigurationsdateifehler (Zeile %d): <server> innerhalb von <server>"
+
+#: configlib.py:397
+#, c-format
+msgid "Config file error (line %d): <global> inside <server>"
+msgstr "Konfigurationsdateifehler (Zeile %d): <global> innerhalb von <server>"
+
+#: configlib.py:401
+#, c-format
+msgid "Config file error (line %d): </global> inside <server>"
+msgstr "Konfigurationsdateifehler (Zeile %d): </server> innerhalb von <server>"
+
+#: configlib.py:405
+#, c-format
+msgid "Config file error (line %d): <postfilter> inside <server>"
+msgstr "Konfigurationsdateifehler (Zeile %d): <postfilter> innerhalb von <server>"
+
+#: configlib.py:409
+#, c-format
+msgid "Config file error (line %d): </postfilter> inside <server>"
+msgstr "Konfigurationsdateifehler (Zeile %d): </postfilter> innerhalb von <server>"
+
+#: configlib.py:455 configlib.py:464 configlib.py:474 configlib.py:487
+#: configlib.py:496
+#, c-format
+msgid "Error (line %d), more than one delivery option in the same <server> block"
+msgstr "Fehler (Zeile %d), mehr als eine Auslieferungsoption im gleichem <server>-Block"
+
+#: configlib.py:536
+#, c-format
+msgid "Error in config file [server section, line %d] (%s)"
+msgstr "Konfigurationsdateifehler [Serversektion, Zeile %d] (%s)"
+
+#: configlib.py:538 configlib.py:886
+msgid "I don't understand: "
+msgstr "Kann nicht erkannt werden: "
+
+#: configlib.py:539
+msgid "(Maybe a <global> or <postfilter> command in a <server> section?)"
+msgstr "Möglicherweise ein <global> oder<postfilter>-Kommando in einer <server>-Sektion?)"
+
+#: configlib.py:544
+#, c-format
+msgid "Config file error (line %d): <global> inside another <global>"
+msgstr "Konfigurationsdateifehler (Zeile %d): <global> innerhalb von <global>"
+
+#: configlib.py:548
+#, c-format
+msgid "Config file error (line %d): <server> inside <global>"
+msgstr "Konfigurationsdateifehler (Zeile %d): <server> innerhalb von <global>"
+
+#: configlib.py:552
+#, c-format
+msgid "Config file error (line %d): </server> inside <global>"
+msgstr "Konfigurationsdateifehler (Zeile %d): </server> innerhalb von <global>"
+
+#: configlib.py:556
+#, c-format
+msgid "Config file error (line %d): <postfilter> inside <global>"
+msgstr "Konfigurationsdateifehler (Zeile %d): <postfilter> innerhalb von <global>"
+
+#: configlib.py:560
+#, c-format
+msgid "Config file error (line %d): </postfilter> inside <global>"
+msgstr "Konfigurationsdateifehler (Zeile %d): </postfilter> innerhalb von <global>"
+
+#: configlib.py:596 configlib.py:608 configlib.py:638 configlib.py:650
+#: configlib.py:666
+#, c-format
+msgid "Error (line %d), more than one delivery option in the same <Global> block"
+msgstr "Fehler (Zeile %d), mehr als eine Auslieferungsoption im gleichem <Global>-Block"
+
+#: configlib.py:633
+#, c-format
+msgid "Error in download order config (%s), line %d"
+msgstr "Fehler in Konfigurationsdatei der Herunterladenordnung (%s), Zeile %d"
+
+#: configlib.py:707
+#, c-format
+msgid "Error in 'NotInAcceptFile' config (%s), line %d"
+msgstr "Fehler in 'NotInAcceptFile'-Konfigurationsdatei (%s), Zeile %d"
+
+#: configlib.py:737
+#, c-format
+msgid "Couldn't open or create the postfiltered messages log mbox file (%s)!!!"
+msgstr "Öffnen oder erstellen der nachträglich gefilterte Nachrichten-Logdatei (%s) fehlgeschlagen!!"
+
+#: configlib.py:738
+msgid "Please check the permissions of the file and his directory"
+msgstr "Bitte Berechtigungen der Datei und des Verzeichnisses prüfen"
+
+#: configlib.py:744 configlib.py:755
+#, c-format
+msgid "Error in config file [global section, line %d] (%s)"
+msgstr "Fehler in Konfigurationsdatei [global-Sektion, Zeile %d] (%s)"
+
+#: configlib.py:745
+msgid "The value of SMTPSpamCodes must be a comma separated list of numeric"
+msgstr "Der Wert von SMTPSpamCodes muß eine durch Kommas getrennte Liste von Zahlen sein"
+
+#: configlib.py:746
+msgid "three digit codes; either some code includes a non-numeric character"
+msgstr "Dreistelliger Zahlencode; einige Codes enthalten ein nichtnumerisches Zeichen"
+
+#: configlib.py:747
+msgid "or some code is not three-digits length (or both)"
+msgstr "oder einige Codes haben nicht die Länge 3 (oder beides)"
+
+#: configlib.py:756 configlib.py:855
+msgid "I don't understand: '"
+msgstr "Kann nicht erkannt werden: '"
+
+#: configlib.py:757
+msgid "(Maybe a <server> or <postfilter> command in a <global> section?)"
+msgstr "Möglicherweise ein <server> oder<postfilter> Kommando in einer <global>-Sektion?)"
+
+#: configlib.py:762
+#, c-format
+msgid "Config file error (line %d): <postfilter> inside another <postfilter>"
+msgstr "Konfigurationsdateifehler (Zeile %d): <postfilter> in anderem <postfilter>"
+
+#: configlib.py:765
+#, c-format
+msgid "Config file error (line %d): <server> inside <postfilter>"
+msgstr "Konfigurationsdateifehler (Zeile %d): <server> in <postfilter>"
+
+#: configlib.py:769
+#, c-format
+msgid "Config file error (line %d): </server> inside <postfilter>"
+msgstr "Konfigurationsdateifehler (Zeile %d): </server> in <postfilter>"
+
+#: configlib.py:772
+#, c-format
+msgid "Config file error (line %d): <global> inside <postfilter>"
+msgstr "Konfigurationsdateifehler (Zeile %d): <global> in <postfilter>"
+
+#: configlib.py:775
+#, c-format
+msgid "Config file error (line %d): </global> inside <postfilter>"
+msgstr "Konfigurationsdateifehler (Zeile %d): </global> in <postfilter>"
+
+#: configlib.py:796 configlib.py:805
+#, c-format
+msgid "Error in configfile [postfilter section, line %d]:"
+msgstr "Konfigurationsdateifehler [postfilter-Sektion, Zeile %d]:"
+
+#: configlib.py:797
+msgid "the argument for KillerReturnValues must be a NUMBER or "
+msgstr "das Argument für KillerReturnValues muß eine ZAHL oder "
+
+#: configlib.py:798
+msgid "a comma separated list of NUMBERS"
+msgstr "eine durch Komma getrennte Liste von ZAHLEN sein"
+
+#: configlib.py:806
+msgid "invalid regular expression as argumento to KillerProgramOutput"
+msgstr "ungültiger regulärer Ausdruck als Argument von KillerProgramOutput"
+
+#: configlib.py:824
+#, c-format
+msgid "Error in configfile [postfiler section, line %d]:"
+msgstr "Konfigurationsdateifehler [postfilter-Sektion, Zeile %d]:"
+
+#: configlib.py:828
+msgid "No Path given to the post-filter"
+msgstr "Kein Pfad zum post-Filter angegeben"
+
+#: configlib.py:834
+msgid "No PostFilterName given to this filter"
+msgstr "Kein PostFilterName für diesen Filter angegeben"
+
+#: configlib.py:845
+msgid "Both KillerReturnValues and KillerProgramOutput non specified"
+msgstr "KillerReturnValues und KillerProgramOutput nicht angegeben"
+
+#: configlib.py:846
+msgid "You must specify at least one of them"
+msgstr "Es muß mindestens eines angegeben werden"
+
+#: configlib.py:854
+#, c-format
+msgid "Error in config file [postfilter section, line %d] (%s)"
+msgstr "Konfigurationsdateifehler [postfilter-Sektion, Zeile %d] (%s)"
+
+#: configlib.py:856
+msgid "(Maybe a <server> or <global> command in a <postfilter> section?)"
+msgstr "(Möglicherweise ein <server> oder<global>-Kommando in einer <postfilter>-Sektion?)"
+
+#: configlib.py:875
+#, c-format
+msgid "Config file error (line %d): </server> outside <server>"
+msgstr "Konfigurationsdateifehler (Zeile %d): </server> außerhalb von <server>"
+
+#: configlib.py:879
+#, c-format
+msgid "Config file error (line %d): </global> outside <global>"
+msgstr "Konfigurationsdateifehler (Zeile %d): </global> außerhalb von <global>"
+
+#: configlib.py:882
+#, c-format
+msgid "Config file error (line %d): </postfilter> outside <postfilter>"
+msgstr "Konfigurationsdateifehler (Zeile %d): </postfilter> außerhalb von <postfilter>"
+
+#: configlib.py:885
+#, c-format
+msgid "Error in config file (%s, line %d)"
+msgstr "Konfigurationsdateifehler (%s, Zeile %d)"
+
+#: configlib.py:887
+msgid "(Maybe a command outside of a <server> or <global> group?)"
+msgstr "Möglicherweise ein Kommando außerhalb einer <server> oder<global>-Gruppe?)"
+
+#: configlib.py:892
+msgid "Error in config file, 'reply to messages not in the accept file' enabled"
+msgstr "Konfigurationsdateifehler, 'Antwort an Nachrichten nicht in Akzeptieren-Datei' aktiviert"
+
+#: configlib.py:893
+msgid "but no ReplyAddress specified"
+msgstr "aber kein ReplyAddress angegeben"
+
+#: general.py:193
+msgid "ISAY: (Piping the message to the program)"
+msgstr "ISAY: (Nachricht wird zum Programm gepiped)"
+
+#: imap.py:91 pop3.py:51
+#, c-format
+msgid "Looking header %d (%s)"
+msgstr "Header wird angesehen %d (%s)"
+
+#: imap.py:100 pop3.py:59
+msgid "Server address not given!!"
+msgstr "Serveradresse nicht angegeben!"
+
+#: imap.py:106
+#, c-format
+msgid ""
+"SSL error while trying to connect to the server (%s), be sure that you have "
+"configured the correct port for IMAP4-SSL(usually 993)"
+msgstr "SSL-Fehler beim Verbindungsaufbau zum Server (%s) aufgetreten, bitte sicherstellen, daß der korrekte Port für IMAP4-SSL (üblicherweise 993) konfiguriert ist"
+
+#: imap.py:128 pop3.py:118
+#, c-format
+msgid "Getting message list (%s)"
+msgstr "Nachrichtenliste wird empfangen (%s)"
+
+#: imap.py:149 pop3.py:137
+msgid "Message number limit reached"
+msgstr "Grenze der Nachrichtenanzahl erreicht"
+
+#: imap.py:171 pop3.py:188
+#, c-format
+msgid "From: %s"
+msgstr "Von: %s"
+
+#: imap.py:212 pop3.py:200
+msgid "Downloaded: "
+msgstr "Heruntergeladen: "
+
+#: logger.py:122
+msgid ""
+"\n"
+"####### Operation summary #######\n"
+"\n"
+msgstr ""
+"\n"
+"####### Optionszusammenfassung #######\n"
+"\n"
+
+#: logger.py:128
+msgid ""
+"\n"
+"--- Server: "
+msgstr ""
+"\n"
+"--- Server: "
+
+#: logger.py:132
+msgid "* Total messages: "
+msgstr "* Meldungen gesamt: "
+
+#: logger.py:136
+msgid "* Total volume on server: "
+msgstr "* Speichernutzung auf dem Server: "
+
+#: logger.py:140
+msgid "* Filtered messages: "
+msgstr "* Gefilterte Meldungen: "
+
+#: logger.py:144
+msgid "\tTotal filtered volume: "
+msgstr "\tTotal Gefiltertertes Speichervolumen: "
+
+#: logger.py:148
+msgid "* Downloaded messages: "
+msgstr "* Heruntergeladene Nachrichten: "
+
+#: logger.py:152
+msgid "\tDownloaded Volume: "
+msgstr "\tHeruntergeladenes Volumen: "
+
+#: logger.py:156
+msgid "* Postergated messages: "
+msgstr "* Anstehende Nachrichten: "
+
+#: logger.py:160
+msgid "\tPostergated Volume: "
+msgstr "\tAnstehendes Volumen: "
+
+#: logger.py:165
+msgid ""
+"\n"
+"* Patterns of filtered messages:\n"
+msgstr ""
+"\n"
+"* Muster der gefilterten Nachrichten:\n"
+
+#: logger.py:173
+msgid "* Origin of downloaded messages:\n"
+msgstr "* Ursprung der heruntergeladenen Nachrichten:\n"
+
+#: logger.py:181
+msgid "* Origin of postergated messages:\n"
+msgstr "* Ursprung von anstehenden Nachrichten:\n"
+
+#: logger.py:189
+msgid "* Incidents:\n"
+msgstr "* Vorfälle:\n"
+
+#: mailserver.py:107
+#, c-format
+msgid ""
+"The SMTP rejected the message using a configured SMTPSpamCode (%d): Deleting "
+"it from the remote server (SMTP: %s)"
+msgstr "Der SMTP-Server lehnte die Nachricht mit einem konfiguriertem SMTPSpamCode (%d) ab: Es wird vom entfernten Server gelöscht (SMTP: %s)"
+
+#: mailserver.py:150
+#, c-format
+msgid "Failure writing to mbox file '%s' (%s)"
+msgstr "Fehler beim Schreiben der mbox-Datei '%s' (%s)"
+
+#: mailserver.py:160
+#, c-format
+msgid "Failure writing or opening the mbox file '%s' (%s)"
+msgstr "Fehler beim Schreiben oder Öffnen der mbox-Datei '%s' (%s)"
+
+#: mailserver.py:181
+#, c-format
+msgid "Maildir '%s' was not found"
+msgstr "Mailverzeichnis '%s' nicht gefunden"
+
+#: mailserver.py:193 mailserver.py:195
+msgid "already exist"
+msgstr "existiert bereits"
+
+#: mailserver.py:213
+msgid "failure writing file "
+msgstr "Fehler beim Schreiben der Datei "
+
+#: mailserver.py:218
+#, c-format
+msgid "failure renaming '%s' to '%s'"
+msgstr "Fehler beim Umbenennen von '%s' nach '%s'"
+
+#: mailserver.py:243
+#, c-format
+msgid "Message %d size exceed limit (%d), deleting it"
+msgstr "Nachricht %s überschreitet Grössenbeschränkung (%d), sie wird gelöscht"
+
+#: mailserver.py:245
+#, c-format
+msgid "Message %d deleted, size limit reached"
+msgstr "Nachricht %d gelöscht, Grössenbeschränkung erreicht"
+
+#: mailserver.py:266 mailserver.py:473
+#, c-format
+msgid "Ignoring message %d: DONTDELETETHISMESSAGE type message"
+msgstr "Nachricht %d wird ignoriert: DONTDELETETHISMESSAGE Nachricht schreiben"
+
+#: mailserver.py:275
+#, c-format
+msgid "We've an address confirmation from %s, recovering postergated messages"
+msgstr "Es existiert eine Adressbestätigung von %s, anstehende Nachrichten werden wiederhergestellt"
+
+#: mailserver.py:282
+#, c-format
+msgid "%s Address added to auto-accept file"
+msgstr "%s Adresse in automatisch Akzeptieren-Datei hinzugefügt"
+
+#: mailserver.py:286
+#, c-format
+msgid "SMTP Error delivering confirmation to %s, reply not sent: %s"
+msgstr "SMTP-Fehler beim Ausliefern der Bestätigung an %s, Antwort nicht gesendet: %s"
+
+#: mailserver.py:303
+#, c-format
+msgid "Deleting message %d: Don't match anything in accept file"
+msgstr "Nachricht %d wird gelöscht: Passt auf nichts in Akzeptieren-Datei"
+
+#: mailserver.py:324
+#, c-format
+msgid "Deleting message %d: Header match %s"
+msgstr "Nachricht %d wird gelöscht: Header passt auf %s"
+
+#: mailserver.py:334
+#, c-format
+msgid "Message %d (from %s) not in accept file: postergating it"
+msgstr "Nachricht %d (von %s) nicht in Akzeptieren-Datei: sie wird als anstehend markiert"
+
+#: mailserver.py:351
+#, c-format
+msgid "SMTP Error delivering reply to %s, reply not sent: %s"
+msgstr "SMTP-Fehler beim Ausliefern an %s. Antwort nicht gesendet: %s"
+
+#: mailserver.py:354
+#, c-format
+msgid "Message %d (from %s) not in accept file: ignoring it"
+msgstr "Nachricht %d (von %s) nicht in Akzeptieren-Datei: wird ignoriert"
+
+#: mailserver.py:381
+#, c-format
+msgid "%d mails recovered from %s"
+msgstr "%d Mails wiederhergestellt von %s"
+
+#: mailserver.py:384
+#, c-format
+msgid "Error trying to delete the delayed mbox of the address %s"
+msgstr "Fehler beim Löschen der verzögerten mbox von Adresse %s"
+
+#: mailserver.py:385
+msgid "The mailbox won't be deleted, if you want to read those messages"
+msgstr "Das Postfach wird nicht gelöscht, wenn Sie diese Nachrichten lesen wollen"
+
+#: mailserver.py:386
+#, c-format
+msgid "open it manually (.animail/animailDelayed/%s)"
+msgstr "manuell öffnen (.animail/animailDelayed/%s)"
+
+#: mailserver.py:387
+msgid "The error was: "
+msgstr "Der Fehler war: "
+
+#: mailserver.py:452
+#, c-format
+msgid "Downloading message %d (%.2f %s), Left: %d (%s)"
+msgstr "Herunterladen von Nachricht %d (% 2f %s), Verbleibend: %d (%s)"
+
+#: mailserver.py:462
+msgid "\rDownloaded: "
+msgstr "\rHeruntergeladen: "
+
+#: mailserver.py:508
+#, c-format
+msgid "Executing postfilter %s on message..."
+msgstr "Postfilter %s wird auf Nachricht angewendet..."
+
+#: mailserver.py:512
+#, c-format
+msgid "%s (Postfiltered by'%s')"
+msgstr "%s (Postgefiltert von '%s')"
+
+#: mailserver.py:521
+msgid "Deleting message"
+msgstr "Nachricht wird gelöscht"
+
+#: mailserver.py:525
+msgid ""
+"The local SMTP rejected this message so it won't be deleted from the mail "
+"server:"
+msgstr "Der lokale SMTP wies diese Nachricht zurück, sie wird nicht vom Mailserver gelöscht:"
+
+#: mailserver.py:532
+msgid ""
+"Socket error sending to the local SMTP, it won't be deleted from the mail "
+"server:"
+msgstr "Socketfehler beim Senden zum lokalen SMTP-Server, sie wird nicht vom Mailserver gelöscht:"
+
+#: mailserver.py:542
+msgid ""
+"CRITICAL ERROR. There was an error delivering to MBox, aborting, message "
+"won't be deleted from the mail server: "
+msgstr "KRITISCHER FEHLER: Es ist ein Fehler beim Ausliefern an die MBox aufgetreten, es wird abgebrochen, Nachricht wird nicht vom Mailserver gelöscht:"
+
+#: mailserver.py:546
+msgid ""
+"CRITICAL ERROR. There was an error delivering to Maildir, aborting, message "
+"won't be deleted from the mail server: "
+msgstr "KRITISCHER FEHLER: Es ist ein Fehler beim Ausliefern an Maildir aufgetreten, es wird abgebrochen, Nachricht wird nicht vom Mailserver gelöscht:"
+
+#: mailserver.py:550
+msgid "Socket error on SSL connection:"
+msgstr "Socketfehler bei SSL-Verbindung:"
+
+#: pop3.py:66
+#, c-format
+msgid ""
+"SSL error while trying to connect to the server (%s), be sure that you have "
+"configured the correct port for POP3-SSL(usually 995)"
+msgstr "SSL-Fehler beim Verbindungsversuch zum Server (%s), bitte sicherstellen, daß der richtige Port für POP3-SSL konfiguriert ist (üblicherweise 995)"
+
+#: pop3.py:146
+msgid "Deleting already downloaded messages from POP3 server..."
+msgstr "Bereits heruntergeladene Nachrichten werden vom POP3-Server gelöscht..."
+
+#: pop3.py:148
+#, c-format
+msgid "Deleting message %s"
+msgstr "Nachricht %s wird gelöscht"
+
+#: postfilter.py:41
+#, c-format
+msgid ""
+"Output of the post-filter '%s' was:\n"
+"%s"
+msgstr ""
+"Ausgabe des Postfilters '%s' war:\n"
+"%s"
+
+#: postfilter.py:47
+#, c-format
+msgid "Uh, something bad happened while trying to use the post-filter %s"
+msgstr "Uh, etwas böses ist passiert, während der Benutzung des Postfilters %s"
+
+#: postfilter.py:48
+msgid "Error was:\n"
+msgstr "Fehler war:\n"
+
+#: postfilter.py:51
+msgid "Not using filter"
+msgstr "Filter wird nicht benutzt"
+
+#: postfilter.py:56
+#, c-format
+msgid "Killer return code of filter %s matched for this message, won't be delivered"
+msgstr "Killer gab Rückgabecode von Filter %s zurück, der für diese Nachricht passt, wird nicht ausgeliefert"
+
+#: postfilter.py:62
+#, c-format
+msgid "Killer output from filter %s matched for this message, won't be delivered"
+msgstr "Killer-Ausgabe von Filter %s passt auf diese Nachricht, wird nicht ausgeliefert"
+
+#: postfilter.py:80
+#, c-format
+msgid "Warning: SavePostFilteredMails activated for this %s PostFilter but no"
+msgstr "Warnung: SavePostFilteredMails ist für diesen %s PostFilter aktiviert aber kein"
+
+#: postfilter.py:81
+msgid "PostFilteredMailsMBox configured: Won't save the email"
+msgstr "PostFilteredMailsMBox konfiguriert: EMail wird nicht gespeichert"
+
+#: postfilter.py:83
+#, c-format
+msgid "Saving message to %s..."
+msgstr "Nachricht wird in %s gespeichert..."
+
+#: postfilter.py:101
+#, c-format
+msgid "Sorry, couldn't save the filtered message to %s: %s"
+msgstr "Die gefilterte Nachricht an %s kann nicht gespeichert werden: %s"
+
+#: postfilter.py:109
+msgid "Error: In log_filtered_mail value is not 1, 2 or 3"
+msgstr "Fehler: log_filtered_mail-Wert ist nicht 1,2 oder 3"
+
+#: smtp.py:23
+#, c-format
+msgid "Reply succesfully send to %s"
+msgstr "Antworten erfolgreich an %s gesendet"
+
+#: smtp.py:43
+#, c-format
+msgid "Confirmation succesfully send to %s"
+msgstr "Bestätigung erfolgreich an %s gesendet"
+
+#: smtp.py:72
+msgid "Closing SMTP connection"
+msgstr "SMTP-Verbindung wird geschlossen"
+
+#: smtp.py:74
+msgid "SMTP Error: Already Closed"
+msgstr "SMTP-Fehler: Bereits geschlossen"
+
+#: smtp.py:82
+msgid "ISAY: (Sending the message to the SMTP)"
+msgstr "ISAY: (Nachricht wird an SMTP gesendet)"
+

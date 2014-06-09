@@ -1,0 +1,170 @@
+2.1.2
+-----------------
+- Still TODO: Reorganizar el look_message (también conocido como la
+  torre de babel).
+
+- Usar el módulo "email" para decodificación internacional
+  (decode_header, parseaddr, parsedate, formatdate, make_msgid, etc).
+-----------------
+
+- Use list comprensions where (and only where) it improves clearness of
+  the code.
+
+2.1.1
+- German translation added
+
+- Updated doc to new bogofilter
+
+2.1.0
+- Two small fixes for the config file parser.
+
+- Started using some Python 2.1, 2.2 and 2.3 features 
+  (including the object model, boolean type and other bits)
+- Printed text now wraps accordingly with the terminal width
+  or 80 if it can't determine the terminal width (using the
+  'tput cols' command at start).
+- Using the 'official' timeout support in the socket module 
+  instead of Timothy O'Malley (now obsolete, but great anyway)
+  timeoutsocket module.
+
+- Fixed a lot of bugs in IMAP. Now this protocol doesn't need to
+  reconect to failed servers because all message deletions are
+  synchronous.
+
+- Fixed some locking issues with the threads (this should fix the "some
+  servers seem to hang until the timeout expires" bug).
+
+- TODO: ¡Prefiltros, prefiltros y prefiltros! No entiendo como no se me
+  ha ocurrido antes esta idea...
+
+
+2.0.1 
+- Some minor fixes
+
+2.0
+- Spanish documentation updated
+
+2.0-rc3
+- More fixes.
+- More robust email address parsing (take_address and takefromm are
+  dead, long live to the rfc822 module!)
+
+
+2.0-rc2
+- Fixed a tempfile bug.
+
+2.0-rc1
+- Fixed the crazy-DNS problem that was halting the downloads of some
+  users (it was a stupid little curious error). The fix should also speedup
+  Animail a little for all users.
+- Implemented lockfiles so a user can't exec more than one instance of
+  Animail at a time.
+  
+2.0-pre19
+- Ignore the WU-IMAPD 'DONTDELETETHISMESSAGE' type messages.
+- Fix for a posibble misconfiguration on animailrc.
+- Added the option 'SMTPSpamCodes' to the config file that allows you to
+  set a list of SMTP Errors that will cause the offending message to be
+  deleted instead of being left undeleted. This is useful to use with
+  SMTP servers anti-spam features.
+
+2.0-pre18
+- Fixes and a new parameter for 'savepostfilteredemails': Stdout (save
+  only the stdout output of the program, never the stderr).
+
+- Documentation updates.
+
+2.0-pre17 
+- Fixes
+
+2.0-pre16
+- Fixes.
+
+2.0-pre15
+- Bug fixes.
+
+2.0-pre14
+- Added patch by Jose Luis Triviño <trivino@lcc.uma.es> that adds the 'ignore'
+  option to the NotInAcceptFile config command.
+
+2.0-pre13
+- Now Animail will use a socket timeout of 60 seconds if no timeout is specified. Use Timeout: 0 to disable
+  using a timeout on sockets.
+- Documentation and -h help fixes.
+
+2.0-pre12
+- Use Psyco to compile some methods, when available (can improve the
+  compiling of regular expressions lists by about 200%!)
+
+2.0-pre11
+- Bug fixes
+
+2.0-pre10
+- The 'Now I can filter everything' release
+- Added hooks to exec any program as a filter once the message is
+  downloaded and just before delivering it (like spamassassin,
+  bogofilter, etc...).
+- Fixes and improvements, specially on configfile.py
+  
+  Now that I've added a new big feature in a pre10 version I should burn on 
+  hell fixing bugs forever.
+- Updated documentation
+
+2.0-pre9
+- Guess what: Fixes
+
+2.0-pre8
+- Fixes
+
+2.0-pre7
+- Fixes
+
+2.0-pre6
+- For popular request, re-implemented the option to reconnect to failed
+  servers to delete already downloaded messages
+- Fixed a bug with IMAP4
+- Performance improvements on the config file parser
+  
+2.0-pre5
+- Fixed the evil 'IndexError' bug
+- Minor tweaks
+
+2.0-pre4
+- Makefile work.
+
+2.0-pre3
+- Better handling of broken messages with IMAP4.
+- i18n updates.
+
+2.0-pre2
+- Little fix for --version 
+- More work on the spanish documentacion
+- Indentation (finally!) follows the Python coding standarts (mostly ;)
+  so other Python programmers contributing to Animail will (hopefully)
+  be no more annoyed with my braindead ex-style of indenting code.
+
+2.0-pre1
+- Update to es.po
+- Small changes an fixes
+- Half-updated spanish documentation
+- INSTALL file with FreeBSD > 4.5 note
+- Makefile changes for xBSD
+
+1.1.32
+- New manual page
+- Bugfixes
+- -O (--only-from=) option to select a restricted number of servers to
+  download mails from on this run.
+
+1.1.31
+- Made unhandled exceptions (bug reports) go also to the syslog if 
+  configured.
+- Update the animailrc example file
+
+1.1.30
+- Bugfixes
+- Fixed the help shown with --help
+- New config option: OnlyOneReply (mades Animail only send a reply to
+  the first message from an address not in accept or in the filter
+  file).
+

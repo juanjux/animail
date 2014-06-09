@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="42"
+   name=""
+   committed-date="2003-08-10T21:51:37.692662Z"
+   url="file:///home/juanjux/svn/animail/trunk/docs/doc-es"
+   last-author="juanjux"
+   kind="dir"
+   uuid="0633dc62-ccbe-0310-82bd-f270b313dea3"
+   revision="44"/>
+<entry
+   committed-rev="10"
+   name="animailrc"
+   text-time="2002-10-27T04:04:13.000000Z"
+   committed-date="2002-10-27T04:03:46.131672Z"
+   checksum="V/6l2bA/e7Z/ONEntQYimA=="
+   last-author="juanjux"
+   kind="file"
+   prop-time="2002-10-27T04:04:13.000000Z"/>
+<entry
+   committed-rev="10"
+   name="animail-down"
+   text-time="2002-10-27T04:04:13.000000Z"
+   committed-date="2002-10-27T04:03:46.131672Z"
+   checksum="6V86fYIB71qYfKrBNeS26A=="
+   last-author="juanjux"
+   kind="file"
+   prop-time="2002-10-27T04:04:13.000000Z"/>
+<entry
+   committed-rev="10"
+   name="instalacion.txt"
+   text-time="2002-10-27T04:04:13.000000Z"
+   committed-date="2002-10-27T04:03:46.131672Z"
+   checksum="2s7FvwRm/H2N+wvV1YM3iQ=="
+   last-author="juanjux"
+   kind="file"
+   prop-time="2002-10-27T04:04:13.000000Z"/>
+<entry
+   committed-rev="57"
+   name="TODO.txt"
+   text-time="2003-12-02T07:48:39.000000Z"
+   committed-date="2003-12-02T07:52:37.723907Z"
+   checksum="2ae6279ddadba79da67962c9593febd6"
+   last-author="root"
+   kind="file"
+   prop-time="2002-10-27T04:04:13.000000Z"
+   revision="57"/>
+<entry
+   committed-rev="10"
+   name="changelog.txt"
+   text-time="2002-10-27T04:04:13.000000Z"
+   committed-date="2002-10-27T04:03:46.131672Z"
+   checksum="OiCqqt3FjAg+9QXFMcdakg=="
+   last-author="juanjux"
+   kind="file"
+   prop-time="2002-10-27T04:04:13.000000Z"/>
+<entry
+   committed-rev="47"
+   name="docs.html"
+   text-time="2003-11-17T20:58:49.000000Z"
+   committed-date="2003-11-17T21:00:48.775344Z"
+   checksum="39333ca56fb2e5945f6cc013cf4feefc"
+   last-author="root"
+   kind="file"
+   prop-time="2002-10-27T04:04:13.000000Z"
+   revision="47"/>
+<entry
+   committed-rev="10"
+   name="animail-up"
+   text-time="2002-10-27T04:04:13.000000Z"
+   committed-date="2002-10-27T04:03:46.131672Z"
+   checksum="RMxOv099Ak12Z62tgtApUw=="
+   last-author="juanjux"
+   kind="file"
+   prop-time="2002-10-27T04:04:13.000000Z"/>
+<entry
+   committed-rev="10"
+   name="IMPORTANTE-1.1.26+.txt"
+   text-time="2002-10-27T04:04:13.000000Z"
+   committed-date="2002-10-27T04:03:46.131672Z"
+   checksum="Nx99TiXSt0ed6LYjmnRLEw=="
+   last-author="juanjux"
+   kind="file"
+   schedule="delete"
+   prop-time="2002-10-27T04:04:13.000000Z"/>
+<entry
+   name="BUGS.txt"
+   kind="file"
+   deleted="true"
+   revision="45"/>
+</wc-entries>

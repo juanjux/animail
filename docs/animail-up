@@ -1,0 +1,9 @@
+#!/bin/sh
+# Checks & download mail every three minutes
+
+while true;
+do 
+	/usr/bin/animail -Bc; 
+	sendmail -q;
+	sleep 180;
+done	

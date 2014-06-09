@@ -1,0 +1,2 @@
+#!/bin/sh
+pychecker -loff -Toff AnimailMain.py configlib.py general.py imap.py imap.py imapslib.py logger.py mailserver.py pop3.py popslib.py smtp.py postfilter.py

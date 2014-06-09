@@ -1,0 +1,15 @@
+Es sencilla. Simplemente hay que hacer como root:
+
+make install
+
+Desinstalar: make uninstall  
+
+Para ejecutarlo necesitas un intérprete de Python. Este programa se
+desarrolló con una versión 2.0 del Python aunque puede funcionar en
+versiones más antiguas (no lo se seguro).
+
+Si estás instalando desde el paquete .tar.gz debes descomentar la línea:
+
+#       ln -s $(LIB)/animail /usr/bin/animail
+
+eliminando la almohadilla al principio de la misma.    

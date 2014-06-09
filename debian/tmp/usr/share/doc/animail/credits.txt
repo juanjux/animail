@@ -1,0 +1,41 @@
+Programming:
+	Juanjo Álvarez  <juanjux@yahoo.es> AIM & MSN Contact: juanjux/juanjux@hotmail.com
+		Main Programmer
+    Jorge Rodriguez <jorginius@mi.madritel.es>
+        Always interesting patches, bugfixes
+	Fermin Martínez <ferkys@softhome.net>
+		Good Ideas, good programming
+	
+Catalan translation:
+	Blai Costa
+	
+Some Beta-Testers:
+	Benjamín Albiñana 
+	Esteban Navarro 
+	Jose Luis Alcazar
+    Santiago J. Flores 
+    Vicente Fons 
+
+The module TimeoutSocket is (c) Timothy O'Malley <timo@alum.mit.edu>
+
+Some parts  of the code  (the  deliver_maildir method and  some  other
+bits)  are  taken  from  Charles  Cazabon <getmail@discworld.dyndns.org>
+GetMail.
+
+The subscription based mail filtering system (1.1.28 and up) is an
+adaptation of the system used in TMDA by Jason R. Mastaler
+(jason@mastaler.com)
+
+Questions, feature requests, bug reports, flames <juanjux@yahoo.es>
+
+
+**********************************************************************
+   If you like Animail I will enjoy a lot if you send me a postcard,
+   althought the license don't require it. My postal address is:
+
+   	Juanjo Álvarez Martínez
+	Silicio 21, 7B Escalera Izquierda.
+	Torrejon de Ardoz, 28850
+	Madrid, España (Spain)
+**********************************************************************
+	

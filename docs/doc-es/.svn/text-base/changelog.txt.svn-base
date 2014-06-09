@@ -1,0 +1,886 @@
+1.1.29.3
+- Sigo con las modificaciones internas. He añadido más comentarios a
+  algunos de los archivos (principalmente AnimailMain.py) para facilitar
+  la comprensión del código, y he hecho la interfaz de programación 
+  más cómoda y elegante de usar. Como efecto colateral lo he hecho un
+  pelín más rápido, sobre todo cuando no tengamos correo :)
+- Dejo de usar este changelog, paso a usar la versión en inglés del 
+  directorio superior. También comunico que hasta las versiones 2.0-pre
+  sólo voy a estar actualizando la documentación en inglés (es mucho
+  curro mantener dos versiones y actualizarlas a cada cambio).
+  
+
+1.1.29.2
+- Pequeñas modificaciones internas.
+
+1.1.29.1
+- Nada en especial, documentación en inglés.
+
+1.1.28-beta6
+- Ups ;^)
+
+1.1.28-beta5
+
+- Arreglillos con el Pychecker (bastantes).
+
+1.1.28-beta4
+
+- Ahora la localización por defecto del fichero de configuración es
+  ~/.animail/animailrc (si el directorio no existe lo crea). Si no lo
+  encuentra imprime una advertencia y sigue buscando primero
+  ~/.animailrc2 y luego ~/.animailrc
+
+- Lo mismo pasa con el animailDelayed para los archivos postergados; se
+  ha movido de ~/.animailDelayed a ~/.animail/animailDelayed
+
+- Arreglo un par de pequeños bugs
+
+1.1.28-beta2
+
+- Al terminar de hacer la entrega de un buzón de mensajes postpuestos 
+  borra dicho buzón
+
+1.1.28-beta1
+
+- Nuevo sistema de filtrado, documentado.
+
+- Arreglos
+
+1.1.27g
+
+- Bugs
+
+1.1.27f
+
+- Arreglado bug filtrando por tamaño
+- Ahora primero mira para el archivo de configuración $HOME/.animailrc2
+  y sino existe $HOME/.animailrc, de este modo se puede tener el Animail
+  1.1.x (o 2.0.x) conviviendo (o casi) con un 1.0.x en el mismo sistema.
+
+1.1.27e
+
+- Documentación (formato y actualización).
+
+1.1.27d
+
+- Bugs
+
+1.1.27c
+
+- Ahora además de poder poner una opción global para en tipo de entrega
+  (ya sabes, mbox, maildir, mtalocal, pipe) puede ponerse una opción por
+  cada servidor (la síntaxis es la misma que la global, sólo que dentro
+  del bloque <servidor> en lugar del bloque <global>.
+
+- Docu actualizada (¡gracias de nuevo a JLan!)
+
+1.1.27b
+
+- Solucionado un bug de sincronización (gracias a JLan)
+
+1.1.27
+
+- Si la versión por defecto es menor que 2.0 prueba en distintas rutas 
+  hasta que encuentra la versión adecuada.
+
+- Mejoro el multihilo (¡ahora debería ser aún más rápido!).
+
+- Cuando se produce una excepción en un hilo el programa no que queda
+  congelado esperando a que ese hilo termine; se imprime la excepción
+  con un mensaje adecuado y el hilo muere liberando todos los cerrojos
+  que pudiera tener abiertos (aún queda el problema de que el hilo muera
+  cuando descargamos mensajes a un mbox, un mensaje al menos quedará
+  corrupto en el mbox pero al menos no se habrá borrado del servidor).
+
+1.1.26
+
+- Actualizada la documentación.
+
+- Arreglo fallos importantes (en entrega a buzones mbox y maildir)
+
+- Nuevos alias: deliver_smtp:[si/no], deliver_mbox: [ruta],
+  deliver_pipe: [comando] y deliver_maildir: [ruta], de momento se
+  mantienen los comandos existentes para la entrega pero en un futuro
+  cercano se eliminarán.
+
+1.1.25
+
+- Cambio  el formato  del archivo de  configuración, modifico  el parser
+  (eso, junto al  nuevo formato, debería eliminar el 90%  de los problemas
+  que los nuevos usuarios tenían con el Animail).
+
+- Actualizo la documentación y los ejemplos.
+
+- Guardo un minuto de silencio por todas las versiones históricas del Animail 
+  perdidas por un desastre de mi disco duro :-X
+
+- Elimino la interfaz gráfica. Demasiados problemas con el multihilo
+  (¡malditas GTK!) y de todos modos no la estaba usando casi nadie.
+  Puede que en el futuro la reimplemente utilizando anygui (si no da
+  problemas con los hilos) y Qt. La ventana de configuración (que en mi
+  opinión si era muy útil) la implementaré a corto plazo como un
+  programa separado con PyQt.
+
+- Empiezo a crear el programa separado de configuración con Qt (por lo
+  tanto requiere pyqt para funcionar el programa de configuración, pero
+  no el Animail).
+
+- Por fin funciona el IMAP4-SSL :). Para usarlo se necesita tener
+  compilado el intérprete de Python con soporte SSL, o tener instalados
+  los paquetes necesarios según la distribución que usemos
+  (python-version-ssl en Debian).  
+ 
+- Añadida el parámetro de servidor 'Alias: loquesea' que permite dar
+  sobrenombres a los servidores, y que esos sobrenombres se utilicen en
+  la salida del programa (el sobrenombre puede incluir espacios).
+
+- Cambio el formato del fichero de configuración, e incluyo un programa
+  para actualizar la configuración de los formatos 1.0 o 1.1.24 a 1.1.25
+  automáticamente (update_config.py).
+  
+- UseRegExp:[si/no] y UsarExpReg:[si/no] se sustituyen ahora for
+  FilterFile:[fichero] o FicheroFiltros:[fichero]. Si no existe el
+  comando se entiende que no queremos realizar filtrado.
+  update_config.py lo traduce automáticamente. Obviamente ahora podremos
+  especificar un fichero de filtros en cualquier ruta.
+
+- Optimizaciones en el multihilo
+
+- Ahora exige que el .animailrc tenga permisos '600'
+
+1.1.24
+
+- Arreglo un pequeño bug con el uso de buzones
+
+- Actualizo la documentación.
+
+1.1.23
+
+- En la llamada al objeto padre Mailserver en los objetos pop3 e imap4
+  paso los parámetros del __init__ de la forma:
+  def __init__(self, *args):
+    aply(mailserver.MailServer.__init__, (self,) + args)
+
+  Que queda mucho más chula que la enorme ristra de parámetros.
+
+- Por petición popular se pueden poner almohadillas en el
+  .animailfilter para comentar las expresiones regulares.
+
+1.1.22
+
+- Ahora en el campo 'ReenviarA:' o 'Resendto:' del archivo de
+  configuración pueden especificarse varios destinatarios separados
+  por comas.
+
+1.1.21
+
+- Actualizo la documentación.
+
+- Arreglo un bug (no funcionaba con el syslog, -B, si se producía
+  alguna excepción durante el proceso).
+
+- Arreglo un bug en los manejadores de excepciones de mailserver.py
+
+- Más bugs bugs bugs corregidos con las excepciones (ya tocaba
+  actualizarlas...)
+
+1.1.20
+
+- Actualizada la documentación.
+
+- Arreglo un bug con la utilización del comando Sendmail para entregar
+  los mensajes.
+
+- Arreglado el bug que hacía que se zampara toda la CPU, ya sólo come
+  la que necesite. Además el manejo de los hilos es ahora mas seguro.
+
+- Arreglado el bug (producido al hacerlo multihilo) que dejaba en
+  blanco la etiqueta del servidor cuando se estaban descargando los
+  mensajes y cambio el 'conectando...' de la barra de estado por un
+  'conectando a [servidor]...'
+
+1.1.19
+
+- Por fin arreglo los bugs de las barritas
+
+- Ya de paso arreglo algunos bugs más...
+
+1.1.18
+
+- [Jorge] Forma de ordenar elementos más eficiente en general.py
+
+- [Jorge] Empieza a hacerse multihilo: Las operaciones con cada servidor van
+  en un hilo cada una, y aunque de momento sólo se paraleliza la
+  conexión a los servidores y la creación de listas de mensajes se
+  gana algo de tiempo (más cuantos más servidores tengamos, unos 10
+  segundos con 3 servidores y conexion ADSL). También, para preparar
+  la 'paralelización total' añado el nombre del servidor a cada
+  mensaje significativo. Más adelante la interfaz en modo texto sera
+  del estilo de la del APT de Debian, y en modo gráfico mostrará una
+  ventana por cada servidor. Además, la interfaz ya no se queda
+  congelada cuando está esperando datos de la red (y esto mola
+  seriamente).
+
+- Arreglo un bug que hacía que no diera tamaños menores de 1 Kb en el
+  resumen, ni diera fracciones en tamaños.
+
+1.1.17
+
+- Arreglo un bug que hacía que fallara con cualquier locale que no
+  fuera el español o el catalan.
+
+- Bug con la interfaz gráfica
+
+1.1.15
+
+Soporte SSL para el POP3. El IMAP4 debería estar funcionando en breve
+(con un poquito de suerte...).
+
+1.1.14
+
+- Bugsss
+
+1.1.13
+
+- Añado la opción -M o --fetchmail que hace lo mismo que -C pero con
+  una salida compatible con la del fetchmail -c de modo que programas
+  externos que entiendan la salida del fetchmail (por ejemplo gkrellm)
+  puedan utilizarlo para comprobar si hay correo nuevo.
+
+1.1.12
+
+- Bugs bugs bugs, el más destacable es que en la ventana de resumen
+  gráfica escribía las secuencias de escape (ahora colorize() tiene en
+  cuenta si estamos en ventana para ponerlas o no).
+
+- Añado la opción -C o --check para que sólo compruebe si hay correo,
+  y devuelva la información en un formato facil de analizar (y un
+  valor de retorno de 0 si no hay correo y 1 si sí lo hay).
+
+1.1.11
+
+- Opción 'Colorear' que colorea los mensajes de la consola con
+  secuencias de escape ANSI. Se activa por defecto.
+
+- Actualizo la traducción al castellano y al catalan como buenamente
+  puedo.
+
+1.1.10
+
+- Bug arreglados (la ventana de configuración vuelve a funcionar... más
+  o menos). Aún hay cosas sin reflejar en ella así que sigue siendo
+  recomendable no usarla de momento. En la próxima versión tendrá un
+  rediseño bastante fuerte.
+
+- Clarificación y pequeña reoganización del código para hacerlo más
+  legible en algunas partes, gracias a 'optimize' (mailserver.py) y a
+  meter más código de los hijos en el objeto padre mailserver.
+
+1.1.9
+
+- Arreglado un bug que hacía que no funcionara la ventana de
+  configuración.
+
+- Se elimina la opción de mantener mensajes en servidor de la línea de
+  comandos (debe especificarse en el archivo de configuración para cada
+  servidor).
+
+- Se arregla un bug, en realidad se implementa que 'MantenerEnServidor'
+  sea independiente a cada servidor.
+
+- Se actualiza la documentación
+
+1.1.8
+
+- Arreglado un bug bastante desagradable. Cuando descargábamos de un
+  servidor por IMAP sin utiizar los filtros ponía a todos los mensajes
+  descargados la cabecera del primero. Si es que...
+
+1.1.7
+
+- Arreglado bug grave: La versión anterior se comia las cabeceras con
+  IMAP4, es lo que pasa cuando metes tanto cambios...
+
+
+1.1.6
+
+- Opción 'UsarSendmail' y su parámetro 'ComandoSendmail' (por defecto
+  /usr/sbin/sendmail -bm) que permiten que el mensaje se envíe al spool
+  local utilizando el comando especificado en lugar de una comunicación por
+  medio del protocolo SMTP (en algunos casos esto puede producir un
+  aumento de rendimiento). Si se utiliza, se activa automáticamente
+  'UsarMTA' y se desactiva 'ArchivoBuzon' y 'Maildir' (ver más abajo).
+  La última de esas opciones que aparezca es la que se usa.
+
+- Arreglado un bug al entregar a buzón mbox que hacía que pusiera \r\n
+  como finalizadores de línea en lugar de los \n de Unix, no provocaba
+  fallos, pero afean los ^M :)
+
+- Más modularización: He sacado el código para hacer la entrega de los
+  mensajes de get_messages y get_message a métodos de la clase
+  MailServer: deliver_mbox, deliver_maildir y deliver_smtp.
+
+- Arreglado un 'asuntillo' (jeje) con la configuración de los puertos en IMAP4.
+
+- SOPORTE PARA BUZONES MAILDIR: La opción es 'Maildir:/ruta/al/maildir/'
+  la barra de final de directorio puede ponerse o no (pero HA de ser un
+  directorio). Como siempre, es exclusiva con las opciones UsarMTA y
+  Archivobuzon (se usará la última que aparezca en el archivo de
+  configuración).
+
+- Ahora el Timeout se aplica al socket en lugar de a la respuesta del
+  servidor, es decir, cuenta el tiempo sin recibir datos de la conexión
+  en lugar del tiempo sin recibir un comando completo, lo que lo hace
+  más fiable y preciso con servidores empanaetes.
+
+- Seguridad: Comprueba que el buzón especificado existe y que no se
+  trata de un enlace simbólico (previene de ataques symlink).
+
+- Documentación y traducción actualizadas para reflejar estos cambios.
+
+- Utiliza el modelo de gettext del Python 2.0
+
+1.1.5
+- BUG: La barra del servidor en la interfaz gráfica ya se actualiza
+  correctamente cuando descargamos de un servidor IMAP.
+- Optimizaciones en modo gráfico
+- Otros pequeños (y no tan pequeños) arreglos
+- Reorganización: He separado get_messages en dos partes, una
+  dependiente del protocolo (get_message) que va en cada clase derivada,
+  y el propio get_messages sin esa parte que va en la clase MailServer
+
+1.1.4
+
+- Captura la excepción de error de autentificación
+- Traducción actualizada
+
+1.1.3
+
+- Corregidos muuuuchos bugs en IMAP4 (aún quedan algunos).
+
+1.1.2
+
+- Soporte definitivo para IMAP4, algunos cambios menores para adaptar el
+  código al mismo, actualización de la traducción.
+
+1.1.1
+
+- He aislado las funciones de la interfaz gráfica llamadas desde fuera
+  de la propia interfaz gráfica para que no sean dependientes de las Gtk
+  (rodeando con unos wrapper el objeto de interfaz Gtk y llamando desde
+  fuera a esos wrappers en lugar de a las funciones originales). Con un
+  poquito más de trabajo, hacer que el Animail pueda cargar una u otra
+  interfaz dinámicamente es un juego de niños... que haré otro día.
+
+- Soporte prepreprepreprealfa para IMAP4 (no te preocupes, no te
+  funcionará).
+
+1.1.0
+
+- Primera versión inestable 'de la  nueva hornada' y primera versión que
+utiliza un estilo de numeración de versiones como el Kernel de Linux.
+
+- Adaptación al Python 2.0 (no funcionará sin el).
+
+1.0-Stable-Pre1
+
+- Acabo de traducir la documentación al inglés
+
+- El paquete Debian por fin tiene las dependencias adecuadas.
+
+1.58
+
+- Corregido un bug que hacía que el programa funcionase con el archivo
+  de configuración vacío.
+
+- Se arregla la disposición de los botones en la ventana de edición de
+  filtros: ya no da tanta vergüenza verlos.
+
+1.57
+
+- Ventana de configuración de filtros (MUY FEA).
+
+1.56
+
+- Widget de selección del protocolo en en la ventana de configuración.
+
+- Widget de selección de lector de correo (aunque aún no funcione
+  correctamente esa función).
+
+- Un par de bugs cazados (excepciones no capturadas).
+
+- Modificaciones en los nombres de algunos símbolos de GUI.py para
+  hacerlos más legibles (hboxn por hbox_función y similares), aunque no
+  de todos.
+
+- Actualización de la traducción al castellano.
+
+1.53-55
+
+- Pequeñas mejoras no visibles para el usuario, arreglos de fallos y
+  otros.
+
+1.52
+
+- Aplico los parches de Jorge, y su .spec para crear los rpms. El parche
+  y los paquetes los genero automaticamente con un par de scripts en
+  Python (autoconf/automake más adelante).
+
+1.49
+
+- Un fallo en la traducción
+
+- Un botón "Leer" en la ventana de resumen para poder ejecutar un lector
+  de correo al terminal.
+
+1.48
+
+- Corrijo bugs (probablemente de los últimos bugs que corrijo antes de
+  la primera versión estable) en la ventana de configuración.
+
+- Un bug en smtp.py
+
+1.47
+
+- Optimizaciones. En modo texto, con el -t, y sin filtrar cabeceras es
+  tan rápido como el Fetchmail (a veces más rápido, sí, yo tampoco me lo
+  explico). Con el -t y con filtrado de cabeceras es un 5% más lento con
+  cada uno. Esto en local: En internet son igual de lentos.
+
+- Ahora en la ventana de configuración ciertos widgets se activan y
+  desactivan dependiendo del estado de otros.
+
+1.46
+
+- Añado los tooltips (que majos).
+
+- Las opciones de usar smtp y usar archivo mbox son radiobuttons
+  excluyentes.
+
+1.45
+
+- ¡La ventana de configuración funciona! Bueno, casi, aún falta la
+  ventana de edición de filtros, y añadir los widgets para elegir
+  protocolo y el tiempo añadido. También hace falta darle un retoque a
+  algunas etiquetas que quedan muy cutres.
+
+1.44
+
+- Un bonito icono para la interfaz robado de los iconos del KDE. ¿Tendré
+  problemas de licencias? Ummm, puede que necesite un abogado.
+
+- Cada 200 líneas leidas del servidor remoto, o cada vez que se elimine
+  un mensaje hace un noop al smtp para que no se desconecte por timeout.
+  De todos modos antes de enviar el mensaje comprueba si la sesión está
+  activa y de no estarlo reconecta.
+
+- Actualización de la traducción al castellano.
+
+- Añado un botón "salir" a la ventana de resumen, de modo que al
+  terminar de descargar los mensajes pueda salirse directamente.
+
+- Bugs bugs bugs (pero esta vez suaves :-)
+
+1.43
+
+- bugs bugs bugs: Media linea de comandos no funcionaba (toma ya)
+
+1.42
+
+- Pequeña reorganización de imports (y pequeñas optimizaciones, sobre
+  todo en el tiempo de carga).
+
+- Ahora siempre mostrará el resumen por defecto a no ser que se le pase
+  la opción -l.
+
+- Posibilidad de dar opciones largas en la línea de comandos (por fin),
+  y documentación actualizada al respecto.
+
+- Arreglados algunos bugs con la entrega a archivo.
+
+- Algo de trabajo en la ventana de configuración, aunque todavía no es
+  operativa (ya queda menos).
+
+1.41
+
+- Alrededor de un 15% más rápido. Se acerca aún más al fetchmail...
+
+1.38
+- Wrapper alrededor del main para que byte-compile el archivo principal
+  y cargue más rápido.
+
+- Elimino el archivo basicas.py, muevo su contenido a general.py
+
+- Muchas líneas menos de código, misma funcionalidad
+
+- Ahora filtra mientras descarga con lo que además de parecer (sólo
+  parecer) que va más rápido (sólo se distingue una fase en lugar de
+  dos), me facilitará mucho las cosas al implementar el IMAP.
+
+- Arreglado un bug (bien, no era exactamente un bug, es el inetd que es
+  muy quisquilloso...) que se producía si el servidor de SMTP está en el
+  inetd y se le enviaban más de 40 mensajes en menos de un minuto.
+
+  Como efecto secundario de ese arreglo he hecho una optimización
+  bastante importante: Vuelve a ser (en mi máquina) casi tan rápido como
+  el fetchmail en local. ¡Yepa!
+
+1.37
+
+- Muchos pequeños cambios.  Empiezo a programar el soporte  IMAP4 (que aún
+  no está terminado ni es funcional), y elimino el icono por problemas con
+  la gdk-imlib.
+
+- Ahora  los  comandos  del  archivo  de  configuración  no  distinguen
+  mayúsculas  de  minúsculas,   ni  tampoco  los  valores   del  orden  de
+  transferencia o los  booleanos (respuestas Si/Yes/No/SI/YEs/NO/YES, etc,
+  son todas válidas).
+
+  En el  resto de  valores (nombres  de servidores,  usuarios y  demás) se
+  sigue diferenciando mayúsculas de minúsculas.
+
+- Arreglados un par de pequeños bugs en la configuración.
+
+- Una pequeña optimización al analizar el animailrc.
+
+- Actualizaciones a la documentación.
+
+1.33
+
+- Remodelación lingüistica. Cambio el nombre del programa de JFPop a
+  Animail en previsión del soporte IMAP4. Cambios comentarios y nombres
+  de variables al inglés para ponerlo en sourceforge. Ahora el idioma
+  por defecto es también el inglés (con traducción al español).
+
+1.32
+
+- Corrijo un bug cuando usabas expresiones regulares pero no tenías el
+  .jfpopfilters
+
+- Un par de bugs más cazados (creo)
+
+1.31
+
+- Análisis de cabeceras un poquito más rápido aún.
+
+- Pongo la opción reconectar (otra vez) con florituras: Esta vez no sólo
+  borra los mensajes ya descargados (basándose en el uidl de los
+  mismo) sino que además vuelve a intentar descargar los otros (sin
+  filtrar, se supone que ya ha filtrado antes). También añado la
+  opción "MasTiempo" para dar más tiempo de Timeout al hacer el 2º
+  intento.
+
+1.30
+
+- Elimino la opción 'DELE_Sincronizado', dado  que la mayoría de los
+  servidores actuales borran realmente al hacer el DELE, el
+  comportamiento de esta opción (borrar tras descargar el mensaje) pasa
+  a ser el único a la hora de borrar. También se elimina la opción
+  'Reconectar' por el mismo motivo.
+
+- Estadísticas más completas con la opción -l (volúmenes parciales).
+
+1.29
+
+- Bugs, bugs, bugs, cada vez más tontos.
+
+1.28
+
+- Corrijo un bug que provocaba una excepción si había algún error de
+  protocolo.
+
+- Optimizo (salvajemente) el filtrado de cabeceras.
+
+1.27
+
+- Una pequeña optimización (elimino general.verbose que no me suponía
+  ningún beneficio a utilizar el if optv: correspondiente).
+
+- Al pulsas el botón aceptar cuando ya estaba descargando ya no hace
+  otra conexión recursiva.
+
+- Añado la opción -l que crea un informe al final del proceso.
+
+1.26
+
+- Optimizo la velocidad de operación con interfaz gráfica. Las
+  optimizaciones sólo deberían notarse en red local de alta velocidad
+  (sino el cuello de botella es la propia conexión). En local la
+  operación con interfaz es ahora 3 veces más rápida que antes (aunque
+  sigue siendo 3 veces más lenta que en modo consola).
+
+- Captura errores de SMTP, y de producirse crea una copia de seguridad
+  del mensaje en el directorio del usuario.
+
+- Añado (por fin), autentificación APOP. Simplemente hay que indicar por
+  cada servidor (antes del campo Clave), 'Protocolo: APOP'. (No
+  probado).
+
+- Añado la opción DELE_Sincrono que permite que se borre cada mensaje
+  tras transferirlo en lugar de borrarlos todos al final.
+
+- Añado la opción -F, que hace que solo mire las cabeceras y aplique los
+  filtros, pero no descargue los mensajes (de este modo podemos, por
+  ejemplo, utilizar en un script JFPop para filtrar los mensajes y otro
+  MTA para transferirlos.
+
+1.25
+- Arreglo fallitos y nueva opción -c para evitar la interfaz
+
+1.24
+
+- Eliminada la opción optquien, a partir de ahora siempre se mostrará el
+  origen. El motivo para eliminarlo: Desactivarla no tiene ninguna
+  ventaja.
+
+
+1.23
+
+- Más pequeños arreglos
+
+1.22
+
+- Pequeños arreglos, y creo la ventana de configuración (que aún no es
+  funcional)
+
+1.21
+
+- Lo "oriento a objetos". Ahora si que debería ser fácil ampliarlo.
+
+- Es increible lo que puede dar de si una noche en vela: Le añado una
+  bonita interfaz gráfica con glade (que sale mágicamente si estamos en
+  X-Windows y tenemos las librerías gtk y libglade de python), y lo
+  internacionalizo (de momento sólo las traducciones que tenía en la
+  versión C, es decir, inglés y catalán).
+
+1.20
+
+- Cambio radical... reescribo el programa en Python. A tomar por saco
+  todas las optimizaciones en velocidad y consumo de memoria :-), al
+  menos hasta que algún Hiper-Gurú se curre un compilador.
+  A cambio tengo un programa muchísimo más robusto y fácil de mantener
+  (y ampliar).
+
+- Cuando se produce un fallo en un servidor ( o expira el timeout) al
+  final se reconecta para borrar los mensajes ya descargados.
+
+1.18.3
+
+- Corregido un bug en la gestión de las listas enlazadas de patrones que
+  el programa venía arrastrando desde hacía tiempo (este era dificil de
+  cazar).
+
+- Ahora dice antes el número de mensajes que hay en el servidor y
+  imprime un mensaje cuando se está recibiendo la lista de mensajes.
+
+- Ocupa 1/3 parte de la memoria que versiones anteriores y tiene algunas
+  pequeñas optimizaciones.
+
+1.18
+
+-  Elimino  algunas  variables  globales  y  muy  incómodas  pasando  la
+estructura  cabecerapop a  enviasmtp(), pidemensajes()  y auth()  lo que
+además reduce en unas 20 lineas el código.
+
+- Me cargo unos cuantos gotos gracias a la función errorservidor (en
+  realidad todos los que había).
+
+- Ahora pasa al siguiente servidor en cualquier error excepto con los
+  mallocs (que suelen ser mortales por naturaleza).
+
+- Nueva opción "Timeout" que especifica el tiempo máximo antes de pasar
+  al siguiente servidor.
+
+1.17
+
+- Ahora  si se  produce un fallo  en la transferencia  al SMTP  local el
+programa  no acaba:  Copia  el mensaje  al  archivo $HOME/MAIL-numero  y
+continua con el siguiente mensaje (o servidor) si lo hay. 'número' es la
+fecha Unix actúal.
+
+- Comprueba  si se han  producido errores (y  que tipo de  error) cuando
+busca las expresiones regulares en las cabeceras de los mensajes.
+
+1.16
+
+- Se  elimina la concordancia  de patrones  en favor de  las expresiones
+regulares.
+
+-  Ahora  todas  las  expresiones  regulares  que  usemos  para  filtrar
+cabeceras deben  ir en el archivo  $HOME/.jfpopfilters, y ya no  hay que
+poner  RechazarPatron  antes  de  la expresión  regular  (una  expresión
+regular por linea).
+
+- Actualizaciones a la documentación que estaba muy desfasada.
+
+1.15
+
+- Mirar la página  http://personal5.iddeo.es/jajs/jfpop.html para ver la
+lista de cambios en esta versión.
+
+1.14
+
+- Cambios estéticos (el cursor ya no  se apaga todo el rato, solo cuando
+sale el contador de la transferencia, y se vuelve a activar después).
+
+- Se arregla parcialmente  el bug que hacía que ante  un error no pasara
+al siguiente servidor.  Parcialmente porque si hay un error  con el smtp
+local o hay un error al borrar los mensajes si termina directamente (por
+seguridad).
+
+- Arreglo  el bug  que hacía que  se muriese nada  más empezar  si algún
+campo estaba completamente vacío tras los dos puntos o con tabulaciones.
+
+- Otros bugs menores
+
+1.13
+
+- Añadir @localhost  al nombre de usuario  al que se envía  por SMTP los
+mensajes para aquellos  MTAs o configuraciones de MTAs  que rechazan los
+mensajes si no tienen dominio aún siendo para un usuario local.
+
+- Paso a utilizar las funciones strlcpy y strlcat en algunos puntos para
+mayor seguridad y rendimiento.
+
+1.12
+
+- Incorporando los cambios desde 1.11
+
+1.11.2
+
+-  Supuesto bug  que  podía dejar  el  From del  mail  vacío en  algunas
+circunstancias supuestamente areglado.
+
+1.11
+
+- Empiezo a  hacerlo compatible con el sendmail. Como  me funcionaba con
+el smail  no me  había dado cuenta  de que había  hecho el  programa muy
+dependiente de ese  MTA concreto. De momento lo he  probado con el smail
+(a fondo), qmail (un par de veces), y sendmail (algunas veces).
+
+- Añado una  opción (-k) para reactivar  el cursor, por si  acaso se nos
+muere el programa en medio de la ejecución y nos deja el cursor apagado.
+
+1.10.1
+
+-  Cambios estéticos:  Desactiva  el cursor  al empezar  y  lo vuelve  a
+activar al terminar.
+
+- Arreglo un bug que hacía que el programa se bloquease con el Qmail.
+
+- Pongo (por fin) comprobaciones en  las transferencias al MTA local. La
+poítica por defecto si el MTA protesta  es abortar para que no se borren
+los  mensajes del  servidor  remoto. En  futuras  versiones se  trataran
+algunos mensajes de error del MTA individualmente, y los mensajes que no
+acepte el JFPop los escribirá a un archivo de seguridad.
+
+1.10
+
+- Tremenda  reorganización: Haga varios wrappers  (verbose, parsecmdopt,
+etc), muevo las inicializaciones de  cadenas a leelinea y compañía, creo
+la función Sendf que combina sprintf + Send, etc, etc, etc, etc. También
+paso a utilizar  leelinea en las funciones de envío  smtp (aún utilizaba
+Recv).
+
+- Más seguridad: Todos los sprintf han sido sustituidos por el vsnprintf
+de Sendf (que  evita posibles desbordamientos de buffer) o  por la misma
+función en algún otro wrapper.
+
+- A  partir de esta  versión ya no se  pueden especificar los  datos del
+servidor POP3 en la línea de comandos: Ha de hacerse desde el archivo de
+configuración. El resto de posibles parámetros no los toco. Actualizo la
+documentación para reflejar esos cambios.
+
+1.9.2
+
+- Añado  la barrita giratoria  al lado  del porcentaje (harto  de buscar
+bugs :)
+
+- Más reorganización:  Cambio la mayoría de los bzero's  por memset's, y
+cambios cosméticos para que el compilador no de ningún warning.
+
+- Una escueta página man que te dice "Leete el LEEME".
+
+1.9.1
+
+-   Arreglo  un   bug   interactuando  con   el   sendmail  en   algunas
+circunstancias.
+
+1.9
+
+-  Enlazado con  la  librería libgc5,  que es  un  recolector de  basura
+conservativo: Mejor manejo de la memoria.
+
+1.8.3
+
+- Reorganización:  Función mensaje  que de  forma inteligente  envía una
+cadena con formato al  syslog, al printf o al fprintf.  Más que nada por
+eliminar  el  lio  de  if's  armado  cuando  añadí  la  opción  de  modo
+silencioso: Falta  mejorarla para  que también maneje  los perror  y los
+herror.
+
+- Corregido un bug que hacía que el archivo mbox no fuera correcto si el
+local era diferente a C.
+
+-  Reorganización:   Pongo  las   funciones  que   no  tienen   que  ver
+especificamente con  el protocolo  POP3 en  general.c. Creo  main.h para
+agrupar  las cabeceras  más  comunes a  parser.c,  pop3f.c y  popclie.c.
+Cambio el nombre de popf3.c a pop3.c y lo mismo con pop3.h
+
+1.8.2
+
+- Corrijo  un bug serio con  las opciones multiservidor y  reorganizo un
+poco el parser.c
+
+1.8.1
+
+- Empieza  la reorganización,  lo primero, añado  una función  Malloc en
+wrap_func.c que comprueba el valor de retorno: Sustituyo los mallocs por
+esa función en el resto de los archivos.
+
+1.8
+
+- Primera internacionalización, primera traducción al inglés.
+
+1.7
+
+- Se añade  el parámetro -B para  que pueda redirigir toda  la salida al
+syslog en lugar  de a la consola, para operar  en scripts que comprueben
+periodicamente el correo.
+
+- Se corrige un  bug que hacía que el programa fallase  si el nombre del
+SMTP era más corto que "localhost" (ya me vale...).
+
+- Se hace que  en las expresiones regulares, y en el  campo From para el
+FJMail, SI cuenten los espacios tras los : del comando.
+
+- Ligero cambios en la síntaxis  del archivo de configuración: * "Si", y
+"Yes" han de ir con la primera  letra en mayúscula en todas las opciones
+booleanas. * La  opción "UsarMTAlocal" ya ahora debe aceptar  un "Si" un
+"Yes" o un "No", SI NO HAY PARÁMETRO  NO SE USARÁ EL MTA LOCAL Y PODRÍAN
+PERDERSE LOS MENSAJES.
+
+-  Se corrige  un bug  grave: Si  ponías espacios  en los  patrones para
+eliminar spam, no funcionaban.
+
+-  Las expresiones  regulares deberían  funcionar correctamente  en esta
+versión
+
+1.6
+
+- Ahora además elimina los  mensajes por expresiones regulares además de
+por patrones.
+
+1.5
+
+-  Se añade  soporte  para eliminar  mensajes  comparando sus  cabeceras
+contra patrones
+
+1.4
+
+- Se añade la opción 'RedirigirA:'.
+
+- Se corrigen algunos bugs que  podrían causar fallos de segmentación en
+algunas situaciones exóticas.
+
+- Se mejora la seguridad en el manejo de memoria

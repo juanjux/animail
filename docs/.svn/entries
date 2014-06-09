@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="42"
+   name=""
+   committed-date="2003-08-10T21:51:37.692662Z"
+   url="file:///home/juanjux/svn/animail/trunk/docs"
+   last-author="juanjux"
+   kind="dir"
+   uuid="0633dc62-ccbe-0310-82bd-f270b313dea3"
+   revision="44"/>
+<entry
+   committed-rev="10"
+   name="animail-down"
+   text-time="2002-10-27T04:04:13.000000Z"
+   committed-date="2002-10-27T04:03:46.131672Z"
+   checksum="6V86fYIB71qYfKrBNeS26A=="
+   last-author="juanjux"
+   kind="file"
+   prop-time="2002-10-27T04:04:13.000000Z"/>
+<entry
+   committed-rev="28"
+   name="animailrc"
+   text-time="2003-07-28T18:41:21.000000Z"
+   committed-date="2003-07-28T18:46:38.975277Z"
+   checksum="dfac3664a206c971ef402fa9ec65302a"
+   last-author="juanjux"
+   kind="file"
+   prop-time="2002-10-27T04:04:13.000000Z"/>
+<entry
+   committed-rev="10"
+   name="docs-es.html"
+   text-time="2002-10-27T04:04:13.000000Z"
+   committed-date="2002-10-27T04:03:46.131672Z"
+   checksum="Fkd+OoNeOUxcjUqZi2FCxg=="
+   last-author="juanjux"
+   kind="file"
+   prop-time="2002-10-27T04:04:13.000000Z"/>
+<entry
+   committed-rev="60"
+   name="changelog.txt"
+   text-time="2003-12-02T12:43:04.000000Z"
+   committed-date="2003-12-02T12:54:37.782239Z"
+   checksum="c58acb8729b05c6e63b6d2de948c2b42"
+   last-author="root"
+   kind="file"
+   revision="60"/>
+<entry
+   committed-rev="10"
+   name="copyright.txt"
+   text-time="2002-10-27T04:04:13.000000Z"
+   committed-date="2002-10-27T04:03:46.131672Z"
+   checksum="S1IA1nkRKuRIUenv1o+PmQ=="
+   last-author="juanjux"
+   kind="file"
+   prop-time="2002-10-27T04:04:13.000000Z"/>
+<entry
+   committed-rev="10"
+   name="animail.2.gz"
+   text-time="2002-10-27T04:04:13.000000Z"
+   committed-date="2002-10-27T04:03:46.131672Z"
+   checksum="KMUnYcOukLZHO8F3IWDwiA=="
+   last-author="juanjux"
+   kind="file"
+   prop-time="2002-10-27T04:04:13.000000Z"/>
+<entry
+   name="doc-es"
+   kind="dir"/>
+<entry
+   committed-rev="47"
+   name="docs.html"
+   text-time="2003-11-17T20:55:03.000000Z"
+   committed-date="2003-11-17T21:00:48.775344Z"
+   checksum="1d301a50497570f960e6b9a968cf88a1"
+   last-author="root"
+   kind="file"
+   revision="47"/>
+<entry
+   committed-rev="52"
+   name="credits.txt"
+   text-time="2003-11-18T18:45:27.000000Z"
+   committed-date="2003-11-26T21:32:05.039774Z"
+   checksum="e80bec2b30cfcb74800038821574daba"
+   last-author="root"
+   kind="file"
+   prop-time="2002-10-27T04:04:13.000000Z"
+   revision="52"/>
+<entry
+   committed-rev="10"
+   name="animail-up"
+   text-time="2002-10-27T04:04:13.000000Z"
+   committed-date="2002-10-27T04:03:46.131672Z"
+   checksum="boocEN3Z8I4Z6H2qF0Q0Kg=="
+   last-author="juanjux"
+   kind="file"
+   prop-time="2002-10-27T04:04:13.000000Z"/>
+</wc-entries>

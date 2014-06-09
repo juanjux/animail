@@ -1,0 +1,142 @@
+#   generic animailrc
+#       Copy this file to the directory $HOME/.animail/
+#       al fill at least the first three fields
+# (c) 1998-2002 Juan José Alvarez Martínez
+
+#-------------- Datos mínimos para que el programa funcione
+#       Servidor Pop
+
+<Server>
+Address: pop.anything.org
+NombreUsuario: username
+Passwd: pass
+</Server>
+
+
+#------------------------ a more complete example
+#<Server>
+#Alias: other
+#Address: pop.other.org
+#Protocol: POP3
+#SSL: Yes
+#Port: 110
+#UserName: username2
+#Passwd: pass2
+#KeepOnServer: yes
+#ResendTo: juanjux@localhost,yuanyo@localhost,other@otherdomain.org
+#</Server>
+
+#------------------------ Another one
+#<Server>
+#Alias: another-IMAP
+#Address: imap.another.org
+#Protocol: IMAP4
+#UserName: otherusername
+#Passwd: OtherPass
+#KeepOnServer: No
+#</Server>
+
+#------------------------ a postfilter block to use Animail with SpamBayes:
+#<PostFilter>
+#PostFilterName: SpamBayes
+#Path: /usr/bin/sb_filter.py
+#KillerProgramOutput: ^X-Spambayes-Classification: spam;.*$
+#SavePostFilteredMails: stdout
+#</PostFilter>
+
+
+#------------------------ a postfilter block to use Animail with SpamAssassin:
+#<PostFilter>
+#PostFilterName: SpamAssassin
+#Path: /usr/bin/spamassassin
+#Options: -P -a
+#KillerProgramOutput: ^X-Spam-Flag: YES.*$
+#SavePostFilteredMails: stdout
+#</PostFilter>
+
+#------------------------ a postfilter block to use Animail with Bogofilter
+#<PostFilter>
+#PostFilterName: Bogofilter
+#InputMessageByStdin: Yes
+#Path: /usr/bin/bogofilter 
+#KillerReturnValues: 0
+#ShowFilterOutput: No
+#SavePostFilteredMails: yes
+#</PostFilter>
+#----------------- Global Options
+<Global>
+
+# Maximum size of the file. The files that exceed this limit 
+# will be deleted from the server. 10485760 bytes = 10 megabytes
+
+#TamañoMaximo: 10485760
+
+# Maximun number of messages to download: The files exceeding this limit
+# will be leave on the server on this session
+
+#MaxNumber: 200
+
+# If we're going to use a local MTA for the message delivery (we need to 
+# have installed sendmail, smail, exim, qmail or any other SMTP server 
+# running on the port 25),this is the recommended (and default) delivery option. 
+
+#Deliver_LocalMTA: Yes
+
+# If we prefer to use a mbox file:
+
+#Deliver_MBox: Yes
+
+# If we prefer a maildir directory:
+
+#Deliver_Maildir. /home/juanjux/Maildir
+
+# We can also made an external command made the delivery for us. The command
+# must accept RFC822 messages on his standart input. The destination address will
+# be passed as the first parameter to the command. (For example procmail -f or 
+# sendmail -bm)
+		 
+#Deliver_pipe: procmail -f
+
+# Useful to download and start reading first the smaller messages while the
+# bigger ones arrive
+#    mirando el buzón) mientras se descargan los más grandes.
+
+#DownloadOrder: FirstSmall
+
+#---- Normal order of download
+
+#DownloadOrder: Arrival
+
+# If we want to download first some big important file and don't want to 
+# wait for those 200 little messages from linux-kernel@vger.rutgers.edu
+# to download
+
+#DownloadOrder: FirstBig
+
+# If we want to filter messages based on regular expressions matching the
+# headers:
+
+#FilterFile: path/to/the/filterfile
+
+# There are more (and more advanced) filtering options, take a look at the
+# filtering section in the docs.
+
+#  Maximum time in seconds downloading messages from a server before 
+#  starting with the next (useful it the remote server has tendency to 
+#  hang)
+
+#Timeout: 1800
+
+# Option to colorize the Animail output
+#Colorize: No
+
+# If the local SMTP server rejects a message using one of the following
+# SMTP error codes delete the mail from the server it was downloaded from 
+# instead of just leaving the message undeleted. This is usually used in 
+# conjunction with SMTP server anti-spam features, thus the name.
+# SMTPSpamCodes: 550,554
+
+# Option to log the mails filtered by SpamAssassin to /home/user/spambox:
+# PostFilteredMailsMBox: /home/user/spambox
+</Global>
+

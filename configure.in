@@ -1,0 +1,18 @@
+dnl Process this file with autoconf to produce a configure script.
+dnl Check: cp -R, msgfmt, shell, rm -rf
+AC_INIT([animail],[2.1.0],[animail-unstable.tar.gz])
+
+dnl Checks for programs.
+AC_PROG_LN_S
+AC_PROG_INSTALL
+PY_INIT()
+
+dnl Checks for libraries.
+
+dnl Checks for header files.
+
+dnl Checks for typedefs, structures, and compiler characteristics.
+
+dnl Checks for library functions.
+
+AC_OUTPUT(Makefile)

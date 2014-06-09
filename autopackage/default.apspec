@@ -1,0 +1,63 @@
+# -*-shell-script-*-
+
+[Meta]
+RootName: @juanjoalvarez.net/animail:2.0.9
+DisplayName: Animail Mail Downloader
+ShortName: animail
+Maintainer: Juanjo Alvarez Martinez <juanjo@juanjoalvarez.net>
+Packager: Juanjo Alvarez <juanjo@juanjoalvarez.net>
+Summary: Mail downloader utility and spam filter aggregator
+SoftwareVersion: 2.0.9
+
+# Only uncomment InterfaceVersion if your package exposes interfaces to other software,
+# for instance if it includes DSOs or python/perl modules
+# InterfaceVersion: 0.0
+Language: es
+
+
+DisplayName[es]: Programa de descarga de correo Animail
+PackageVersion: 1
+
+[Description]
+Animail is a mail downloader utility that understand POP3/POP3-SSL IMAP4/IMAP4-SSL 
+and maildir/mbox/sendmail/local SMTP as delivery options. What makes it interesting is
+the nice output, the easy configuration and the way it can be quickly setup to use use
+any number of external (and some internal) spam filters together.
+
+[Description:es]
+Animail es un programa para descargar el correo que entiende los protocolos POP3/POP3-SSL,
+IMAP4/IMAP4-SSL y los métodos de entrega a maildir/mbox/sendmail o SMTP local. Lo que lo 
+hace interesante es la salida con formato y colores, la configuración sencilla y que 
+permite ser configurado rápidamente para usar varios filtros de spam (publicidad) externos y 
+algunos internos combinados.
+
+[BuildPrepare]
+prepareBuild
+
+[BuildUnprepare]
+unprepareBuild
+
+[Imports]
+echo '*' | import
+
+[Prepare]
+# Dependency checking
+require @python.org/python 2.0
+
+[Install]
+# Put your installation script here
+installExe bin/*
+
+mkdirs "$prefix/lib/animail" 
+copyFiles lib/animail/* "$prefix/lib/animail"
+
+mkdirs "$prefix/share/locale/es/LC_MESSAGES" "$prefix/share/locale/de/LC_MESSAGES" 
+copyFiles share/locale/es/LC_MESSAGES/animail.mo "$prefix/share/locale/es/LC_MESSAGES/"
+copyFiles share/locale/de/LC_MESSAGES/animail.mo "$prefix/share/locale/de/LC_MESSAGES/"
+
+copyFiles share/doc "$prefix/share"
+installMan share/man/man2/animail.2.gz
+
+[Uninstall]
+# Usually just the following line is enough to uninstall everything
+uninstallFromLog

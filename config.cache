@@ -1,0 +1,41 @@
+# This file is a shell script that caches the results of configure
+# tests run on this system so they can be shared between configure
+# scripts and configure runs.  It is not useful on other systems.
+# If it contains results you don't want to keep, you may remove or edit it.
+#
+# By default, configure uses ./config.cache as the cache file,
+# creating it if it does not exist already.  You can give configure
+# the --cache-file=FILE option to use a different cache file; that is
+# what configure does when it calls configure scripts in
+# subdirectories, so they share the cache.
+# Giving --cache-file=/dev/null disables caching, for debugging configure.
+# config.status only pays attention to the cache file if you give it the
+# --recheck option to rerun configure.
+#
+ac_cv_path_PYTHON=${ac_cv_path_PYTHON=/usr//bin/python}
+ac_cv_path_install=${ac_cv_path_install='/usr//bin/install -c'}
+ac_cv_prog_LN_S=${ac_cv_prog_LN_S='ln -s'}
+py_cv_python_exec_prefix=${py_cv_python_exec_prefix=/usr}
+py_cv_python_library_dir=${py_cv_python_library_dir=/lib/python2.3/site-packages}
+py_cv_python_makefile_CC=${py_cv_python_makefile_CC='gcc -pthread'}
+py_cv_python_makefile_CCSHARED=${py_cv_python_makefile_CCSHARED=-fPIC}
+py_cv_python_makefile_EXEC_PREFIX=${py_cv_python_makefile_EXEC_PREFIX=/usr}
+py_cv_python_makefile_LDFLAGS=${py_cv_python_makefile_LDFLAGS=}
+py_cv_python_makefile_LDLAST=${py_cv_python_makefile_LDLAST=}
+py_cv_python_makefile_LDSHARED=${py_cv_python_makefile_LDSHARED='$(CC) -shared'}
+py_cv_python_makefile_LIBC=${py_cv_python_makefile_LIBC=}
+py_cv_python_makefile_LIBM=${py_cv_python_makefile_LIBM=-lm}
+py_cv_python_makefile_LIBS=${py_cv_python_makefile_LIBS='-lpthread -ldl -lutil'}
+py_cv_python_makefile_LINKCC=${py_cv_python_makefile_LINKCC='$(PURIFY) $(CXX)'}
+py_cv_python_makefile_LINKFORSHARED=${py_cv_python_makefile_LINKFORSHARED='-Xlinker -export-dynamic'}
+py_cv_python_makefile_MACHDEP=${py_cv_python_makefile_MACHDEP=linux2}
+py_cv_python_makefile_OPT=${py_cv_python_makefile_OPT='-DNDEBUG -O2 -fomit-frame-pointer -pipe -march=i586 -mcpu=pentiumpro -g'}
+py_cv_python_makefile_PREFIX=${py_cv_python_makefile_PREFIX=/usr}
+py_cv_python_makefile_RANLIB=${py_cv_python_makefile_RANLIB=ranlib}
+py_cv_python_makefile_SET_CCC=${py_cv_python_makefile_SET_CCC=}
+py_cv_python_makefile_SGI_ABI=${py_cv_python_makefile_SGI_ABI=}
+py_cv_python_makefile_SO=${py_cv_python_makefile_SO=.so}
+py_cv_python_makefile_vars=${py_cv_python_makefile_vars=found}
+py_cv_python_module_dir=${py_cv_python_module_dir=/lib/python2.3/site-packages}
+py_cv_python_prefix=${py_cv_python_prefix=/usr}
+py_cv_python_version=${py_cv_python_version=2.3}

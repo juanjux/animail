@@ -1,0 +1,12 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:538: checking whether ln -s works
+configure:589: checking for a BSD compatible install
+configure:659: checking for python
+configure:706: checking python version
+configure:738: checking python installation prefix
+configure:767: checking python installation exec_prefix
+configure:786: checking definitions in Python library makefile
+configure:916: checking location of python library
+configure:941: checking location of python shared modules

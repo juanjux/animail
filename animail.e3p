@@ -1,0 +1,40 @@
+#
+# Project file for project "animail"
+# Saved: 2003-08-04, 04:19:13
+#
+# Copyright (C) 2003 Juanjo Álvarez Martínez <juanjux@yahoo.es>
+#
+
+VERSION = 0.1 
+
+AUTHOR = Juanjo Álvarez Martínez 
+
+EMAIL = juanjux@yahoo.es 
+
+SOURCES = setup.py \
+	borrame.py \
+	src%os.sep%qtif.py \
+	src%os.sep%configlib.py \
+	src%os.sep%logger.py \
+	src%os.sep%configwin.py \
+	src%os.sep%smtp.py \
+	src%os.sep%mailserver.py \
+	src%os.sep%timeoutsocket.py \
+	src%os.sep%general.py \
+	src%os.sep%update_config.py \
+	src%os.sep%imapslib.py \
+	src%os.sep%imap.py \
+	src%os.sep%AnimailMain.py \
+	src%os.sep%__init__.py \
+	src%os.sep%postfilter.py \
+	src%os.sep%pop3.py \
+	src%os.sep%popslib.py 
+
+FORMS = src%os.sep%interface.ui 
+
+TRANSLATIONS = /usr/bin/animail_es.ts 
+
+MAINSCRIPT = /usr/bin/animail 
+
+VCS = None 
+

@@ -1,0 +1,1529 @@
+<!DOCTYPE UI><UI>
+<class>window</class>
+<widget>
+    <class>QDialog</class>
+    <property stdset="1">
+        <name>name</name>
+        <cstring>window</cstring>
+    </property>
+    <property stdset="1">
+        <name>geometry</name>
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>451</width>
+            <height>412</height>
+        </rect>
+    </property>
+    <property stdset="1">
+        <name>caption</name>
+        <string>Form1</string>
+    </property>
+    <widget>
+        <class>QPushButton</class>
+        <property stdset="1">
+            <name>name</name>
+            <cstring>but_undo</cstring>
+        </property>
+        <property stdset="1">
+            <name>geometry</name>
+            <rect>
+                <x>260</x>
+                <y>380</y>
+                <width>93</width>
+                <height>26</height>
+            </rect>
+        </property>
+        <property stdset="1">
+            <name>text</name>
+            <string>Undo all</string>
+        </property>
+    </widget>
+    <widget>
+        <class>QPushButton</class>
+        <property stdset="1">
+            <name>name</name>
+            <cstring>but_save</cstring>
+        </property>
+        <property stdset="1">
+            <name>geometry</name>
+            <rect>
+                <x>160</x>
+                <y>380</y>
+                <width>93</width>
+                <height>26</height>
+            </rect>
+        </property>
+        <property stdset="1">
+            <name>text</name>
+            <string>Save config</string>
+        </property>
+    </widget>
+    <widget>
+        <class>QPushButton</class>
+        <property stdset="1">
+            <name>name</name>
+            <cstring>but_cancel</cstring>
+        </property>
+        <property stdset="1">
+            <name>geometry</name>
+            <rect>
+                <x>360</x>
+                <y>380</y>
+                <width>93</width>
+                <height>26</height>
+            </rect>
+        </property>
+        <property stdset="1">
+            <name>text</name>
+            <string>Cancel</string>
+        </property>
+    </widget>
+    <widget>
+        <class>QTabWidget</class>
+        <property stdset="1">
+            <name>name</name>
+            <cstring>tab</cstring>
+        </property>
+        <property stdset="1">
+            <name>geometry</name>
+            <rect>
+                <x>10</x>
+                <y>0</y>
+                <width>440</width>
+                <height>380</height>
+            </rect>
+        </property>
+        <widget>
+            <class>QWidget</class>
+            <property stdset="1">
+                <name>name</name>
+                <cstring>tab_servers</cstring>
+            </property>
+            <attribute>
+                <name>title</name>
+                <string>Servers</string>
+            </attribute>
+            <widget>
+                <class>QCheckBox</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>CheckBox1</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>160</x>
+                        <y>100</y>
+                        <width>130</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>Use user defined port</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QLabel</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>label_address</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>160</x>
+                        <y>10</y>
+                        <width>90</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>Adress</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QLabel</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>label_username</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>160</x>
+                        <y>40</y>
+                        <width>90</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>Username</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QLabel</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>label_passwd</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>160</x>
+                        <y>70</y>
+                        <width>90</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>Password</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QLineEdit</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>edit_address</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>290</x>
+                        <y>10</y>
+                        <width>110</width>
+                        <height>22</height>
+                    </rect>
+                </property>
+            </widget>
+            <widget>
+                <class>QLineEdit</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>edit_username</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>290</x>
+                        <y>40</y>
+                        <width>110</width>
+                        <height>22</height>
+                    </rect>
+                </property>
+            </widget>
+            <widget>
+                <class>QLineEdit</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>edit_passwd</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>290</x>
+                        <y>70</y>
+                        <width>110</width>
+                        <height>22</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>echoMode</name>
+                    <enum>Password</enum>
+                </property>
+            </widget>
+            <widget>
+                <class>QLabel</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>label_port</cstring>
+                </property>
+                <property stdset="1">
+                    <name>enabled</name>
+                    <bool>false</bool>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>160</x>
+                        <y>130</y>
+                        <width>90</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>Port</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QSpinBox</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>spin_port</cstring>
+                </property>
+                <property stdset="1">
+                    <name>enabled</name>
+                    <bool>false</bool>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>290</x>
+                        <y>130</y>
+                        <width>110</width>
+                        <height>21</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>maxValue</name>
+                    <number>65536</number>
+                </property>
+                <property stdset="1">
+                    <name>value</name>
+                    <number>110</number>
+                </property>
+            </widget>
+            <widget>
+                <class>QLabel</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>label_protocol</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>160</x>
+                        <y>160</y>
+                        <width>90</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>Protocol</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QCheckBox</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>check_ssl</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>160</x>
+                        <y>190</y>
+                        <width>130</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>Server uses SSL</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QComboBox</class>
+                <item>
+                    <property>
+                        <name>text</name>
+                        <string>POP3</string>
+                    </property>
+                </item>
+                <item>
+                    <property>
+                        <name>text</name>
+                        <string>IMAP4</string>
+                    </property>
+                </item>
+                <item>
+                    <property>
+                        <name>text</name>
+                        <string>APOP</string>
+                    </property>
+                </item>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>combo_protocol</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>290</x>
+                        <y>160</y>
+                        <width>88</width>
+                        <height>22</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>editable</name>
+                    <bool>false</bool>
+                </property>
+            </widget>
+            <widget>
+                <class>QPushButton</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>but_remove_server</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>240</x>
+                        <y>320</y>
+                        <width>93</width>
+                        <height>26</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>Remove server</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QPushButton</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>but_modify_server</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>340</x>
+                        <y>320</y>
+                        <width>93</width>
+                        <height>26</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>Modify server</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QListBox</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>list_servers</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>10</x>
+                        <y>10</y>
+                        <width>140</width>
+                        <height>240</height>
+                    </rect>
+                </property>
+            </widget>
+            <widget>
+                <class>QCheckBox</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>check_keep</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>160</x>
+                        <y>220</y>
+                        <width>170</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>Keep messages on the server</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QComboBox</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>combo_resend</cstring>
+                </property>
+                <property stdset="1">
+                    <name>enabled</name>
+                    <bool>false</bool>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>200</x>
+                        <y>260</y>
+                        <width>110</width>
+                        <height>22</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>editable</name>
+                    <bool>true</bool>
+                </property>
+            </widget>
+            <widget>
+                <class>QPushButton</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>but_add_resend</cstring>
+                </property>
+                <property stdset="1">
+                    <name>enabled</name>
+                    <bool>false</bool>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>320</x>
+                        <y>260</y>
+                        <width>50</width>
+                        <height>26</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>Add</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QPushButton</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>but_remove_resend</cstring>
+                </property>
+                <property stdset="1">
+                    <name>enabled</name>
+                    <bool>false</bool>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>380</x>
+                        <y>260</y>
+                        <width>50</width>
+                        <height>26</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>Remove</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QCheckBox</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>check_resend</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>10</x>
+                        <y>260</y>
+                        <width>190</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>Resend messages of this server, to:</string>
+                </property>
+            </widget>
+            <widget>
+                <class>Line</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>Line1</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>-20</x>
+                        <y>300</y>
+                        <width>450</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>orientation</name>
+                    <enum>Horizontal</enum>
+                </property>
+            </widget>
+            <widget>
+                <class>QPushButton</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>but_add_server</cstring>
+                </property>
+                <property stdset="1">
+                    <name>enabled</name>
+                    <bool>true</bool>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>140</x>
+                        <y>320</y>
+                        <width>93</width>
+                        <height>26</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>Add server</string>
+                </property>
+            </widget>
+        </widget>
+        <widget>
+            <class>QWidget</class>
+            <property stdset="1">
+                <name>name</name>
+                <cstring>tab_delivery</cstring>
+            </property>
+            <attribute>
+                <name>title</name>
+                <string>Delivery</string>
+            </attribute>
+            <widget>
+                <class>QButtonGroup</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>butGroup_delivery</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>10</x>
+                        <y>10</y>
+                        <width>420</width>
+                        <height>340</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>title</name>
+                    <string>Delivery options</string>
+                </property>
+                <widget>
+                    <class>QLabel</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>label_mbox</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>enabled</name>
+                        <bool>false</bool>
+                    </property>
+                    <property stdset="1">
+                        <name>geometry</name>
+                        <rect>
+                            <x>30</x>
+                            <y>70</y>
+                            <width>56</width>
+                            <height>20</height>
+                        </rect>
+                    </property>
+                    <property stdset="1">
+                        <name>text</name>
+                        <string>MBox file</string>
+                    </property>
+                </widget>
+                <widget>
+                    <class>QLineEdit</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>edit_mbox</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>enabled</name>
+                        <bool>false</bool>
+                    </property>
+                    <property stdset="1">
+                        <name>geometry</name>
+                        <rect>
+                            <x>140</x>
+                            <y>70</y>
+                            <width>110</width>
+                            <height>22</height>
+                        </rect>
+                    </property>
+                </widget>
+                <widget>
+                    <class>QToolButton</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>toolbut_maildir</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>enabled</name>
+                        <bool>false</bool>
+                    </property>
+                    <property stdset="1">
+                        <name>geometry</name>
+                        <rect>
+                            <x>260</x>
+                            <y>120</y>
+                            <width>20</width>
+                            <height>20</height>
+                        </rect>
+                    </property>
+                    <property stdset="1">
+                        <name>text</name>
+                        <string>...</string>
+                    </property>
+                </widget>
+                <widget>
+                    <class>QLabel</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>label_pipe</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>enabled</name>
+                        <bool>false</bool>
+                    </property>
+                    <property stdset="1">
+                        <name>geometry</name>
+                        <rect>
+                            <x>30</x>
+                            <y>180</y>
+                            <width>56</width>
+                            <height>20</height>
+                        </rect>
+                    </property>
+                    <property stdset="1">
+                        <name>text</name>
+                        <string>Command</string>
+                    </property>
+                </widget>
+                <widget>
+                    <class>QLabel</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>label_maildir</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>enabled</name>
+                        <bool>false</bool>
+                    </property>
+                    <property stdset="1">
+                        <name>geometry</name>
+                        <rect>
+                            <x>30</x>
+                            <y>120</y>
+                            <width>90</width>
+                            <height>20</height>
+                        </rect>
+                    </property>
+                    <property stdset="1">
+                        <name>text</name>
+                        <string>Maildir directory</string>
+                    </property>
+                </widget>
+                <widget>
+                    <class>QRadioButton</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>radio_smtp</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>geometry</name>
+                        <rect>
+                            <x>10</x>
+                            <y>20</y>
+                            <width>220</width>
+                            <height>20</height>
+                        </rect>
+                    </property>
+                    <property stdset="1">
+                        <name>text</name>
+                        <string>To a local SMTP server</string>
+                    </property>
+                    <property stdset="1">
+                        <name>buttonGroupId</name>
+                        <number>0</number>
+                    </property>
+                </widget>
+                <widget>
+                    <class>QRadioButton</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>radio_mbox</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>geometry</name>
+                        <rect>
+                            <x>10</x>
+                            <y>50</y>
+                            <width>120</width>
+                            <height>20</height>
+                        </rect>
+                    </property>
+                    <property stdset="1">
+                        <name>text</name>
+                        <string>To a mbox file</string>
+                    </property>
+                </widget>
+                <widget>
+                    <class>QRadioButton</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>radio_maildir</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>geometry</name>
+                        <rect>
+                            <x>10</x>
+                            <y>100</y>
+                            <width>130</width>
+                            <height>20</height>
+                        </rect>
+                    </property>
+                    <property stdset="1">
+                        <name>text</name>
+                        <string>To a Maildir directory</string>
+                    </property>
+                    <property stdset="1">
+                        <name>buttonGroupId</name>
+                        <number>0</number>
+                    </property>
+                </widget>
+                <widget>
+                    <class>QRadioButton</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>radio_pipe</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>geometry</name>
+                        <rect>
+                            <x>10</x>
+                            <y>150</y>
+                            <width>230</width>
+                            <height>20</height>
+                        </rect>
+                    </property>
+                    <property stdset="1">
+                        <name>text</name>
+                        <string>Pipe each downloaded mail to a command</string>
+                    </property>
+                    <property stdset="1">
+                        <name>buttonGroupId</name>
+                        <number>0</number>
+                    </property>
+                </widget>
+                <widget>
+                    <class>QToolButton</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>toolbut_mbox</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>enabled</name>
+                        <bool>false</bool>
+                    </property>
+                    <property stdset="1">
+                        <name>geometry</name>
+                        <rect>
+                            <x>260</x>
+                            <y>70</y>
+                            <width>20</width>
+                            <height>20</height>
+                        </rect>
+                    </property>
+                    <property stdset="1">
+                        <name>text</name>
+                        <string>...</string>
+                    </property>
+                </widget>
+                <widget>
+                    <class>QLineEdit</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>edit_maildir</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>enabled</name>
+                        <bool>false</bool>
+                    </property>
+                    <property stdset="1">
+                        <name>geometry</name>
+                        <rect>
+                            <x>140</x>
+                            <y>120</y>
+                            <width>110</width>
+                            <height>22</height>
+                        </rect>
+                    </property>
+                </widget>
+                <widget>
+                    <class>QLineEdit</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>edit_pipe</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>enabled</name>
+                        <bool>false</bool>
+                    </property>
+                    <property stdset="1">
+                        <name>geometry</name>
+                        <rect>
+                            <x>140</x>
+                            <y>180</y>
+                            <width>110</width>
+                            <height>22</height>
+                        </rect>
+                    </property>
+                </widget>
+            </widget>
+        </widget>
+        <widget>
+            <class>QWidget</class>
+            <property stdset="1">
+                <name>name</name>
+                <cstring>tab_filtering</cstring>
+            </property>
+            <attribute>
+                <name>title</name>
+                <string>Filtering</string>
+            </attribute>
+            <widget>
+                <class>QCheckBox</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>check_regular</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>10</x>
+                        <y>10</y>
+                        <width>190</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>Activate regular expresion filtering</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QFrame</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>frame_filters</cstring>
+                </property>
+                <property stdset="1">
+                    <name>enabled</name>
+                    <bool>false</bool>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>10</x>
+                        <y>40</y>
+                        <width>240</width>
+                        <height>150</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>frameShape</name>
+                    <enum>StyledPanel</enum>
+                </property>
+                <property stdset="1">
+                    <name>frameShadow</name>
+                    <enum>Raised</enum>
+                </property>
+                <widget>
+                    <class>QLineEdit</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>edit_filters</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>geometry</name>
+                        <rect>
+                            <x>110</x>
+                            <y>10</y>
+                            <width>110</width>
+                            <height>22</height>
+                        </rect>
+                    </property>
+                </widget>
+                <widget>
+                    <class>QPushButton</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>but_add_filters</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>geometry</name>
+                        <rect>
+                            <x>110</x>
+                            <y>40</y>
+                            <width>99</width>
+                            <height>26</height>
+                        </rect>
+                    </property>
+                    <property stdset="1">
+                        <name>text</name>
+                        <string>Add filter</string>
+                    </property>
+                </widget>
+                <widget>
+                    <class>QPushButton</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>but_remove_filters</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>geometry</name>
+                        <rect>
+                            <x>110</x>
+                            <y>70</y>
+                            <width>99</width>
+                            <height>26</height>
+                        </rect>
+                    </property>
+                    <property stdset="1">
+                        <name>text</name>
+                        <string>Remove filter</string>
+                    </property>
+                </widget>
+                <widget>
+                    <class>QPushButton</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>but_change_filters</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>geometry</name>
+                        <rect>
+                            <x>110</x>
+                            <y>100</y>
+                            <width>99</width>
+                            <height>26</height>
+                        </rect>
+                    </property>
+                    <property stdset="1">
+                        <name>text</name>
+                        <string>Change filter</string>
+                    </property>
+                </widget>
+                <widget>
+                    <class>QListBox</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>list_filters</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>geometry</name>
+                        <rect>
+                            <x>10</x>
+                            <y>10</y>
+                            <width>96</width>
+                            <height>120</height>
+                        </rect>
+                    </property>
+                </widget>
+            </widget>
+            <widget>
+                <class>QCheckBox</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>check_htmlfilter</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>10</x>
+                        <y>200</y>
+                        <width>150</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>Filter all HTML mail</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QCheckBox</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>check_maxnumber</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>10</x>
+                        <y>320</y>
+                        <width>160</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>Don't download more than</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QCheckBox</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>check_autoreply_filter</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>10</x>
+                        <y>230</y>
+                        <width>230</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>Auto reply to filtered messages with the file:</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QCheckBox</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>check_autoreply_html</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>10</x>
+                        <y>260</y>
+                        <width>220</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>Auto reply to HTML messages with the file:</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QLineEdit</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>edit_autoreply_html</cstring>
+                </property>
+                <property stdset="1">
+                    <name>enabled</name>
+                    <bool>false</bool>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>240</x>
+                        <y>260</y>
+                        <width>110</width>
+                        <height>22</height>
+                    </rect>
+                </property>
+            </widget>
+            <widget>
+                <class>QCheckBox</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>check_maxsize</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>10</x>
+                        <y>290</y>
+                        <width>160</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>Filter messages greater than:</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QSpinBox</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>spin_maxsize</cstring>
+                </property>
+                <property stdset="1">
+                    <name>enabled</name>
+                    <bool>false</bool>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>180</x>
+                        <y>290</y>
+                        <width>70</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+            </widget>
+            <widget>
+                <class>QSpinBox</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>spin_maxnumber</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>180</x>
+                        <y>320</y>
+                        <width>70</width>
+                        <height>21</height>
+                    </rect>
+                </property>
+            </widget>
+            <widget>
+                <class>QLabel</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>label_maxsize</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>260</x>
+                        <y>290</y>
+                        <width>56</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>bytes</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QLabel</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>label_maxnumber</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>258</x>
+                        <y>317</y>
+                        <width>130</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>messages in a single session</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QToolButton</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>tool_autoreply_filter</cstring>
+                </property>
+                <property stdset="1">
+                    <name>enabled</name>
+                    <bool>false</bool>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>360</x>
+                        <y>230</y>
+                        <width>20</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>...</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QLineEdit</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>edit_autoreply_filter</cstring>
+                </property>
+                <property stdset="1">
+                    <name>enabled</name>
+                    <bool>false</bool>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>240</x>
+                        <y>230</y>
+                        <width>110</width>
+                        <height>22</height>
+                    </rect>
+                </property>
+            </widget>
+            <widget>
+                <class>QToolButton</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>tool_autoreply_html</cstring>
+                </property>
+                <property stdset="1">
+                    <name>enabled</name>
+                    <bool>false</bool>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>360</x>
+                        <y>260</y>
+                        <width>20</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>...</string>
+                </property>
+            </widget>
+        </widget>
+        <widget>
+            <class>QWidget</class>
+            <property stdset="1">
+                <name>name</name>
+                <cstring>tab_misc</cstring>
+            </property>
+            <attribute>
+                <name>title</name>
+                <string>Misc</string>
+            </attribute>
+            <widget>
+                <class>QCheckBox</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>check_colorize</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>10</x>
+                        <y>10</y>
+                        <width>220</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>Use ANSI codes to colorize Animail output</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QCheckBox</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>check_download_order</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>10</x>
+                        <y>40</y>
+                        <width>110</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>Download order:</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QComboBox</class>
+                <item>
+                    <property>
+                        <name>text</name>
+                        <string>Smaller messages first</string>
+                    </property>
+                </item>
+                <item>
+                    <property>
+                        <name>text</name>
+                        <string>Bigger messages first</string>
+                    </property>
+                </item>
+                <item>
+                    <property>
+                        <name>text</name>
+                        <string>Server arrival oder</string>
+                    </property>
+                </item>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>combo_download_order</cstring>
+                </property>
+                <property stdset="1">
+                    <name>enabled</name>
+                    <bool>false</bool>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>120</x>
+                        <y>40</y>
+                        <width>170</width>
+                        <height>22</height>
+                    </rect>
+                </property>
+            </widget>
+        </widget>
+    </widget>
+</widget>
+<connections>
+    <connection>
+        <sender>check_regular</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>frame_filters</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>CheckBox1</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>label_port</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>CheckBox1</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>spin_port</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>check_resend</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>combo_resend</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>check_resend</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>but_add_resend</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>check_resend</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>but_remove_resend</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>radio_mbox</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>label_mbox</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>radio_mbox</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>edit_mbox</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>radio_mbox</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>toolbut_mbox</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>radio_maildir</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>label_maildir</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>radio_maildir</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>edit_maildir</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>radio_maildir</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>toolbut_maildir</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>radio_pipe</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>label_pipe</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>radio_pipe</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>edit_pipe</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>check_download_order</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>combo_download_order</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+</connections>
+<tabstops>
+    <tabstop>but_undo</tabstop>
+    <tabstop>but_save</tabstop>
+    <tabstop>tab</tabstop>
+    <tabstop>CheckBox1</tabstop>
+    <tabstop>list_servers</tabstop>
+    <tabstop>edit_address</tabstop>
+    <tabstop>edit_username</tabstop>
+    <tabstop>edit_passwd</tabstop>
+    <tabstop>spin_port</tabstop>
+    <tabstop>check_ssl</tabstop>
+    <tabstop>check_keep</tabstop>
+    <tabstop>combo_protocol</tabstop>
+    <tabstop>combo_resend</tabstop>
+    <tabstop>but_add_resend</tabstop>
+    <tabstop>but_remove_resend</tabstop>
+    <tabstop>but_add_server</tabstop>
+    <tabstop>but_remove_server</tabstop>
+    <tabstop>but_modify_server</tabstop>
+    <tabstop>edit_mbox</tabstop>
+    <tabstop>edit_maildir</tabstop>
+    <tabstop>edit_pipe</tabstop>
+    <tabstop>radio_smtp</tabstop>
+    <tabstop>radio_mbox</tabstop>
+    <tabstop>radio_maildir</tabstop>
+    <tabstop>radio_pipe</tabstop>
+    <tabstop>check_regular</tabstop>
+    <tabstop>list_filters</tabstop>
+    <tabstop>edit_filters</tabstop>
+    <tabstop>but_add_filters</tabstop>
+    <tabstop>but_remove_filters</tabstop>
+    <tabstop>but_change_filters</tabstop>
+    <tabstop>check_htmlfilter</tabstop>
+    <tabstop>check_maxnumber</tabstop>
+    <tabstop>check_autoreply_filter</tabstop>
+    <tabstop>check_autoreply_html</tabstop>
+    <tabstop>edit_autoreply_html</tabstop>
+    <tabstop>check_maxsize</tabstop>
+    <tabstop>spin_maxsize</tabstop>
+    <tabstop>spin_maxnumber</tabstop>
+    <tabstop>edit_autoreply_filter</tabstop>
+    <tabstop>check_colorize</tabstop>
+    <tabstop>check_download_order</tabstop>
+    <tabstop>combo_download_order</tabstop>
+    <tabstop>but_cancel</tabstop>
+</tabstops>
+</UI>

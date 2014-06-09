@@ -1,0 +1,55 @@
+This is a mail delivery agent that I developed between 2003 and 2004 because I 
+didn't really like the alternatives. Since I stopped using locally delivered mail
+I didn't develop it further (but it's pretty complete and have some users).
+
+Somebody offered to maintain it but didn't develop it at all, so if you want to take over
+it you're invited to fork the codebase.
+
+The original description:
+
+Animail is a POP3/APOP/IMAP4Rev1 (with or without SSL, IMAP4 from version 1.1.2
+and up) client with some interesting options:
+
+- You can activate several filters to message size, maximun number of messages
+to download, or delete messages on the server based on a set of regular
+expressions written in a config file if they match the message header (in this
+case it will only download the header, not the entire message).
+
+- It can be combined with other mail filters (like SpamAssassin or Bogofilter)
+in a easy, elegant and documented way. This way Animail uses those programs
+like 'plugins' and can extends without limits his filtering capabilities,
+aplying those other filters-plugins to the mails just after they are downloaded
+and just before they are delivered, giving those other filters the change to
+decide if a mail is or is not spam.
+
+- It allows downloading mail from several mail servers and those can be written
+to a local mailbox with mbox format, a QMail style directory, or better, be
+resent to a local SMTP like Sendmail (any SMTP is valid).
+
+- It can forward the downloaded mail to another email adress (if we have the
+SMTP option activated), or to a coma separeted list of adresses.
+
+- We can configure the download order of the messages based on his size
+(arrival order, first the bigger messages or first the smaller messages). This
+allows us, for example, to get first the smaller messages so we can start
+reading them while a multimegabyte message is being downloaded.
+
+- It has a silent mode with redirects all output to the system log instead of
+to the console. This is useful if we want to make script that periodically
+checks for mail (2 examples of this scripts are included in the distribution).
+
+- The program output is a lot more friendly that the one of Fetchmail and
+others MDAs. When it download a message shows the message origin, and a
+percentual indicator of the download of the message, over a total given in
+bytes, kilobytes, megabytes, terabytes depending of the message size (tired of
+huge bytesize digits? tired of dots?) [Current version supports colored output]
+
+- It has a good speed. In a fast computer (x86 350+), working in text mode and
+with the -t switch enabled it can be faster than Fetchmail. The faster is the
+computer, the bigger is the difference. This only applies to local networks, on
+internet they are equally slow (internet is the bottleneck).
+
+- To quickly configure Animail after installation create a .animail directory
+on your home dir, copy the file /usr/share/doc/animail/animailrc and edit to
+your taste.
+

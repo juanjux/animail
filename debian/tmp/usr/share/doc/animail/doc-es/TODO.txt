@@ -1,0 +1,61 @@
+Para la 2.0:
+
+* Terminar de actualizar la docu en español
+* ¿Traducciones?
+
+Para la 2.1 (2.2 estable):
+
+* Priorizar mensajes según expresiones regulares (portar).
+
+* Hacer que los postfiltros se puedan aplicar también a las 
+  cabeceras de los mensajes cuando tan sólo tenemos estas (haciendo
+  de esta forma de postfiltros-prefiltros :) )
+
+* Que el buzón donde se guardan los mensajes filtrados por los
+  postfiltros pueda configurarse por separado para cada uno de ellos.
+
+* Que allí donde se hagan uniones de rutas se use os.path.join en lugar
+  de hacerlo a pelo.
+
+* Algunos módulos están metiendo la ruta 'tmp' a pelo: Deberían utilizar
+  tempfile._candidate_tempdir_list()[0] -> no, mejor la versión moderna
+
+* Soporte IPV6, sobre todo al analizar las direcciones de email
+
+* Utilizar el módulo email nuevo para parsear las direcciones de correo
+  de modo que pueda echarle las culpas de los fallos a otro.
+
+* Soporte IpSec?
+
+* Utilizar las características de Python 2.1,2.2 y 2.3.
+
+* Modo demonio de operación global
+
+* Que con IMAP puedan seleccionarse otras carpetas aparte de INBOX
+  (portar).
+
+* Soporte para buzones MH. Tenemos una maravillosa MHLib con unos
+  maravillosos métodos constructor(mailbox, profile), mh.error,
+  mh.setcontext(folder) para seleccionar la carpeta de correo actúal,
+  mh.makefolder para hacerla si no existe, mh.openfolder() que devuelve
+  un objeto de tipo folder, folder.error(), folder.getcurrent(),
+  folder.createmessage(numero,fichero) (hará falta saber como se pone el
+  número). (parece que la útima biblioteca no tiene
+  folder.createmessage(), es posible que haya que hacerlo a mano).
+
+* Distintos niveles de modo 'verboso'
+
+* Implementar lo de que pregunte antes de filtrar
+
+* Que cuando se muestren las direcciones tempránamente se muestren 
+  bien los carácteres de 8 bits (portar)
+ 
+* Terminar programa de configuración gráfico Qt (Qt rulez)
+
+* Kerberos, TLS, SASL, etc.
+
+* POP3 Pipelining si el servidor lo soporta?
+
+* Transferencia ETRN? ¿Alguien usa esto?
+
+* Multihilo _real_. 

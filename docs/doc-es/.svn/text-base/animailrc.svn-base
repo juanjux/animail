@@ -1,0 +1,133 @@
+#   .animailrc genérico.
+#       Copia este archivo a tu directorio de usuario con el
+#       nombre .animailrc, y rellena al menos los tres primeros campos.
+# (c) 1999-2000 Juan José Alvarez Martínez
+
+#-------------- Datos mínimos para que el programa funcione
+#       Servidor Pop
+
+<Servidor>
+Direccion: pop.cualquiera.es
+NombreUsuario: id_en_el_servidor
+Clave: clave
+</Servidor>
+
+
+#------------------------ ejemplo con todas las opciones
+#<Servidor>
+#Direccion: pop.terra.es
+#Protocolo: POP3
+#SSL: No
+#Puerto: 110
+#NombreUsuario: pepitolopez.terra.es
+#Clave: clave
+#Alias: Correo de terra
+#MantenerEnServidor: no
+#ReenviarA: juanito@localhost
+#</Servidor>
+
+#--------------- Pueden ponerse más servidores
+# La opción ReenviarA hace exactamente eso: Reenvia los mensajes transferidos
+# del servidor donde pongamos el comando al usuario especificado. Para ello
+# debemos tener activada la opción "UsarMTALocal".
+
+# La opción Puerto especifica el puerto al que conectar en el
+# servidor (casi siempre es el 110 para POP3 o 143 para IMAP4).
+
+#<Servidor>
+#Direccion: otropop.servidor.com
+#Puerto: 110
+#NombreUsuario: otra_id
+#ReenviarA: quienquieras@otrohost.pok
+#Clave: otra_clave
+#</Servidor>
+
+#----------------- Opciones globales
+<Global>
+
+#	Máximo tamaño del archivo: Los archivos que superen este tamaño
+#   no se descargarán (bytes). 10485760 bytes = 10 Megabytes
+#   Los mensajes que no se bajen serán borrados en el servidor.
+
+#TamañoMaximo: 10485760
+
+#	Máximo número de archivos: Los archivos a partir de este número se 	
+#   dejarán en el servidor en esta sóla sesión
+
+#NumeroMaximo: 200
+
+#	Si vamos a usar un MTA local para la entrega de archivos (debemos
+#	tener instalado sendmail, smail, exim o similares: Se utiliza el interfaz
+#	SMTP, no el comando ejecutable, luego cualquier servidor SMTP debería
+#	funcionar. Deberá estar también en el puerto estándar (25).
+#	Es la opción recomendada, y es excluyente con "ArchivoBuzon" o "Maildir".
+
+UsarMTALocal: Si
+
+#  Buzón de salida en el caso de que no reenviemos los mensajes al MTA local.
+#  De momento es uno para todos los servidores POP3 en futuras versiones
+#  podría  ser uno por cada servidor.
+
+#ArchivoBuzon: /home/juanjux/mbox
+
+#  En caso de utilizar maildir en lugar de mbox
+#  Activa el envio de mensajes a Maildir (como el usado por QMail)
+#  y  especifica la ruta hacia el directorio Maildir.
+
+#Maildir: $HOME/Maidir   
+
+#  Usar el comando especificado por "ComandoSendmail" para enviar los mensajes
+#  bajados en lugar de usar el protocolo SMTP. El valor por defecto para
+#  "ComandoSendmail" es  /usr/sbin/sendmail -bm. La dirección de destino 
+#  de cada email se añade antes de abrir el pipe de modo que si el
+#  comando necesita un parametro en especial para aceptar la dirección de
+#  destino necesitas añadirlo ( por ejemplo, un ejemplo con procmail podría
+#  ser   procmail  [ parametros ] -f ).
+		 
+#UsarSendmail: no
+
+#  Comando usado para enviar los mensajes bajados si se activa la
+#  opción UsarSendmail. Por defecto es  /usr/sbin/sendmail -bm, pero puede
+#  ser cualquier otro comando que acepte los mensajes RFC822  por la 
+#  entrada estándar.
+			
+#ComandoSendmail: /usr/sbin/sendmail -bm
+
+#    Orden de bajada puede ser Arrival, FirstBig, o FirstSmall
+#    En español, Llegada, PrimeroPequeños, PrimeroGrandes
+#    Chula la opción ¿eh?
+
+#   Util para ir leyendo los mensajes más pequeños (si hacemos runq o vamos
+#    mirando el buzón) mientras se descargan los más grandes.
+
+#OrdenDeTransferencia: PrimeroPequeños
+
+#---- Orden normal: El de los MDA aburridos.
+
+#OrdenDeTransferencia: Llegada
+
+#---- Puede que estemos impacientes por recibir algún gran archivo, y no
+#     queremos descargar todos esos 200 mensajillos de
+#     linux-kernel@vger.rutgers.edu que puede tener delante.
+
+#OrdenDeTransferencia: PrimeroGrandes
+
+#---- Si queremos filtrar mensajes basándonos en expresiones regulares sobre
+#     sus cabeceras:
+
+FicheroFiltros: ruta al archivo de filtros
+
+#	La sintaxis de este archivo es , una expresión regular por cada
+#   linea del archivo (ojo que los espacios cuentan)
+
+#  Tiempo máximo que puede estar  descargando mensajes de un servidor
+#  antes  de  pasar  al  siguiente  (útil si  tu  servidor  remoto  tiene
+#  tendencia a empanarse).
+
+Timeout: 1800
+
+#  Opción para colorear la salida de animail en consola, ayuda a distinguir los 
+#  distintos campos en la ventana de resumen (más útil de lo que parece). 
+Colorear: si
+</Global>
+

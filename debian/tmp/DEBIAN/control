@@ -1,0 +1,10 @@
+Package: animail
+Version: 2.0
+Section: mail
+Priority: optional
+Architecture: all
+Depends: python2 | python2.1 | python2.2 | python2.3 | python2.4
+Installed-Size: 884
+Maintainer: Juan Jose Alvarez <juanjux@yahoo.es>
+Description: POP3/IMAP4/SSL Mail Retrieval utility with featuritis
+ Really.

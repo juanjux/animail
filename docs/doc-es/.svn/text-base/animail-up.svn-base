@@ -1,0 +1,12 @@
+#!/bin/sh
+
+while true;
+do 
+# Sustituir la ruta por la que estemos utilizando si no hemos instalado el
+# Animail de un paquete Debian o Red Hat.
+	/usr/bin/animail -B; 
+	sendmail -q;
+# Sustituimos 180 por el tiempo que queramos que pase entre intervalos de
+# comprobación de correo.
+	sleep 180;
+done	

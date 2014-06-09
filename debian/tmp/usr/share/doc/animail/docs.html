@@ -1,0 +1,802 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+    <META name="generator" content=
+    "HTML Tidy for Linux/x86 (vers 1st February 2002), see www.w3.org">
+    <META http-equiv="CONTENT-TYPE" content="text/html; charset=iso-8859-15">
+
+    <TITLE>Animail Documentation</TITLE>
+
+    <CENTER>
+      <P><FONT size="5" style="font-size: 20pt;"><B>Animail</B></FONT>
+    </CENTER>
+
+    <H2>Table of Contents</H2>
+    <B><A href="#1:Opciones">1. Command line options</A><BR>
+     <A href="#2:Filtrado">2. The filtering system</A><BR>
+     <blockquote>
+     <A href="#21:OtrosFiltros">2.1. Using Animail with other filters
+     (SpamAssassin, etc)</A><BR>
+     </blockquote>
+     <A href="#3:Referencia">3. Animailrc configuration reference</A><BR>
+     <blockquote>
+     <A href="#31:Servidor">3.1. Server options</A><BR>
+     <A href="#32:Globales">3.2. Global options</A><BR>
+     <A href="#33:PostFiltros">3.3. Post-Filter options</A><BR>
+     </blockquote>
+     <A href="#4:Trucos">4. Tricks</A><BR>
+    </B> 
+
+    <H2><B>1. Command line options</B></H2>
+
+    <P><B>--help or -H</B>
+
+    <P>Show help
+
+    <P><B>-o [arrival | small | bug] or --download-order=[arrival | small | big]</B>
+
+    <UL>
+      <LI>
+        <P>arrival Download messages by server arrival order
+
+      <LI>
+        <P>small Download first the smaller messages
+
+      <LI>
+        <P>big Download first the bigger messages
+    </UL>
+
+    <P><B>-f [file] or --mbox-file=[file]</B>
+
+    <UL>
+      <LI>
+        <P>file mbox format file where mail must be stored
+    </UL>
+
+    <P><B>-v or --verbose</B>
+
+    <P>Verbose mode
+
+    <P><B>-s [size] or --max-size=[size]</B>
+
+    <P>Maximum size (bytes) of messages to be downloaded
+
+    <P><B>-n [max] or --max-to-download=[max]</B>
+
+    <P>Maximun number of messages to download
+
+    <P><B>-S or --deliver-smtp</B>
+
+    <P>Resend the messages to the local SMTP
+
+    <P><B>-B or --syslog-output</B>
+
+    <P>Write all the output to the syslog
+
+    <P><B>-t or --quiet</B>
+
+    <P>Quiet mode
+
+    <P><B>-F or --only-filter</B>
+
+    <P>Don't download, only filter
+
+    <P><B>-l or --no-summary</B>
+
+    <P>Don't show the summary
+
+    <P><B>-C or --check</B>
+
+    <P>Check for new mail, and print how many mails we have in each remote mailbox but
+    don't download them. The output is very easy to parse by other programs. The program
+    also returns 1 if there is new mail and 0 in the opposite.
+
+    <P><B>-M or --fetchmail</B>
+
+    <P>The same that -C but with a fetchmail-compatible output.
+
+	<p><b>-O or --only-from=</b>
+
+	<p>Only download messages from the given comma separated list of servers on this run. 
+	The servers parameter is a server alias NOT a server address (so you must configure
+	an 'Alias:' command in the animailrc for each server you will eventually want to use 
+	with this).
+
+    <P><BR>
+
+
+    <H2><A name="2:Filtrado"></A>2. The filtering system</H2>
+    The filtering system relies on three elements:<BR>
+     
+
+    <OL>
+      <LI>The accept file
+
+      <LI>The deny file
+
+      <LI>The postergated messages
+    </OL>
+    The accept file is (like the deny file) a file in which each line is a regular
+    expression (man regexp). If the header of the message currently being downloaded
+    match one of those regular expressions, the message is automatically accepted,
+    without having to check the deny file. Those expressions Those regular expressions
+    will usually be the ones matching the messages from out friends, work partnerts,
+    mailing list we're subscribed to, etc. 
+
+    <P>The path to the accept file is specified in the animailrc file with:<BR>
+     AcceptFile: /path/to/acceptfile
+
+    <P>Just including the above command in the animailrc activates his use.
+
+    <P>The deny file has the same format that the accept file, but insted of making the
+    messages matching one of their regular expressions to be accepted has the reverse
+    effect: They are deleted from the server without even downloading his body. The
+    regular expressions we write in this file will usually match the email addresses of
+    known spammers. Of course, using regular expression syntax we can match anything
+    contained in the header, not only the 'From' address but also the number of people in
+    the Cc: field and almost any other thing we can think of (regular expressions are
+    extremelly powerfull).
+
+    <P>The path to the deny file is specified in the animailrc file with:<BR>
+     Filterfile: /path/to/filterfile
+
+    <P>Just including the above command in the animailrc activated his use.
+
+    <P>So depending of we using one, both or none of the above files we're going to have
+    one or other filtering system. If we only define the deny file (Animail only allowed
+    this until version 1.1.28) we are going to be using a 'black list' scheme. This
+    scheme worked very well in 1998 when Animail started to be developed, because there
+    weren't soo many spammers and most of the spam come from a few addresses.
+    Unfortunately nowadays this filtering system is not enough because there are a lot of
+    spammers and they change frecuently his address. A solution to this oculd be to try
+    some very generic regular expressions to filter subsentences like 'lot of money' o
+    'life for ever' in the subject, but unfortunately this can result in legitimate email
+    being deleted (for example, a friend sending us an email with the subject "I found
+    work for you which can make you earn lots of money".
+
+    <P>Trying to a find a solution for this, Animail (version 1.1.28 and up) allows
+    another two filtering systems (inspired by the idea the software <A href=
+    "http://tmda.sf.net">TMDA</A> is using but applied to a different level. TMDA is
+    distributed with a BSD license, but Animail doesn't share any code with it.):<BR>
+
+
+    <OL>
+      <LI>To deny anything not in the accept file.
+
+      <LI>To put messages not in the accept file or in the filter file in a 'postergated'
+      state and send a polite message back asking for a confirmation
+    </OL>
+
+    <P>The first option is very aggresive, but can be interesting for people that only
+    want to receive email from limited sources (like mailing list and some friends). To
+    use this option besides having specified the path to the accept file we need to add
+    to the global section of the animailrc:<BR>
+     NotInAcceptFile: Delete
+
+    <P>The second option, undoubtedly more usefull for most people, is that each time we
+    receive and email from a source not in the accept or deny file that message is put
+    'on hold' in the animailDelayed directory under the .animail directory of out home
+    dir, and a polite reply is sent specifiying why is message has not been delivered yet
+    (anti spam measures) and asking to reply to that autoreply so his address is added to
+    the accept file. When Animail receive that reply all the messages 'on hold' are
+    delivered, and the original address is added to the accept file (we can configure
+    Animail not to add automatically the address, see the <A href="#32:Globales">global
+    options reference</A>.)
+
+    <P>Is important to note that is we're using this filtering system we've to add the
+    different mailing list address we're subscribed to the accept file, and some other
+    strings matching some automatically generated messages we want to receive (like
+    "MAILER-DAEMON", "subscri", etc).
+
+    <P>Anyway when the operation summary is shown, we can see what email address have
+    been put on hold and looking for some days those address we can figure what strings
+    to put on the accept file (we can manually read the messages put on hold opening the
+    mbox files under .animail/animailDelayed with our favourite mail reader.)
+
+    <H3><B><A name="21:OtrosFiltros"></A>2.1 Combining Animail with other
+    filters (SpamAssassin, procmail, etc)</B></H3><BR>
+
+    <p> As the tittle of this section suggests, Animail can be used with
+    other external filters to combine his filtering skills with the ones
+    already on Animail. Those filters (you can specify any number of
+    them) will be called just after downloading a message and just
+    before delivering it; depending of the return value of some output
+    of that filter the message will be delivered, ignored, or copied to
+    a log mailbox (so you can see if those filters are not deleting
+    important mail). All the commands discussed on the examples of this
+    subsection are detailed on the <a href="#33:PostFiltros">&lt;PostFilter&gt; command block
+    reference</a>.
+    
+    <p>
+    Doing it is very easy: You just have to create a new PostFilter
+    block and configure in a way suitable for the program you are using.
+    You can also add options to copy the filtered messages to a log
+    mailbox, to copy the output of the post-filter instead of the
+    original message to that mailbox (this is useful for programs which
+    output is the original message modified, like <a
+    href="http://spamassassin.taint.org/">SpamAssassin</a>). It is
+    more easy to see with a few examples:
+    <p>
+    <b>PostFilter block for <a
+    href="http://spamassassin.taint.org/">SpamAssassin</a>:</b><br>
+    <code>
+    &lt;PostFilter&gt;<br>
+    PostFilterName: SpamAssassin<br>
+    Path: /usr/bin/spamassassin<br>
+    KillerProgramOutput: ^X-Spam-Flag: YES.*$<br>
+    SavePostFilteredMails: stdout<br>
+    &lt;PostFilter&gt;<br>
+    </code>
+
+    <p> The first command, after the tag, tells the name of the filter
+    (for the program output). The 'Path' command is the path to the
+    filter executable and third is a regular expression that if match
+    with the program output will filter the message. The last command
+    tells Animail to save the standart output of spamassasin in a special mailbox
+    ('spambox'). That's all. Well, not exactly; you also have to put
+    this on the global section:
+
+    <p>
+    <code>
+    PostFilteredMailsMbox: /home/yourhome/spambox<br>
+    </code>
+
+    <p>
+    This command specifies the spambox to use to save filtered mails.
+
+    <p>
+    More examples:
+
+    <p>
+    <b>PostFilter block for spamc (SpamAssassin C client):</b><br>
+    <code>
+    &lt;PostFilter&gt;<br>
+    PostFilterName: SpamAssassin-spamc<br>
+    Path: /usr/bin/spamc<br>
+    KillerReturnValues: 1<bR>
+    SavePostFilteredMails: stdout<br>
+    &lt;PostFilter&gt;<br>
+    </code>
+
+    <p>
+    <b>PostFilter block for <a
+    href="http://www.tuxedo.org/~esr/bogofilter/">Bogofilter</a>:</b><br>
+    <code>
+    &lt;PostFilter&gt;<br>
+    PostFilterName: Bogofilter<br>
+    Path: /usr/bin/bogofilter<br>
+    KillerReturnValues: 0<br>
+    SavePostFilteredMails: no<br>
+    &lt;PostFilter&gt;<br>
+    </code>
+
+    <p><b>How to add a new postfilter block for other commands:</b>
+    The first thing you have to see is if that program read the mails
+    from his standart input or are specified as a file to his command
+    line, maybe after some parameter. In the first case you don't have
+    to specify nothing to Animail; stdin input is the default. In the
+    second case, you must write inside the postfilter section:
+    <code>InputMessageByStdin: No</code> and in the <code>Options</code>
+    command you have to put a '%M' control code where you would usally
+    write the path to the message (along with other possible options).
+    Now you have to look how the filter reports when a program is spam
+    or not; Animail can handle to cases: Where the program returns some
+    special return code if the message if spam (like 'Bogofilter'
+    returning 0) or if the program output by his standard output or
+    standard error some text when it finds a spam message (this is the
+    case with SpamAssassin, which outputs X-Spam-Flag: YES). In the
+    first case the command to use is <code>KillerReturnValues:</code>,
+    which parameter is a comma separated list (that could contain a
+    single element) of numeric return codes, and in the second case is
+    <code>KillerProgramOutput</code> followed by one regular expression
+    that have to match the program output that reports spam. Maybe a
+    program can report spam in both ways (like SpamAssassin spamc
+    client); in this case you're safe writing both commands on the
+    config file (they are not exclusive). Finally you have to decide if
+    you want to see the filter output after every run (if there is some
+    output, that is) or you want to hide that output (that will still be
+    parsed by Animail if <code>KillerProgramOutput</code> is specified).
+    This is done with the <code>ShowFilterOutput</code> command that can
+    have the values yes/no, defaulting to 'no'.
+
+    <p>
+    Finally you have to decide if you want the filtered messages to be
+    copied to another mailbox (I call it 'spambox') where you could
+    check later for false positives (not spam tagged as spam). This is
+    done with the <code>SavePostFilteredMails</code> command that can
+    have the values 'yes' for coying the original mail to the spambox,
+    no for don't, and 'output' to copy the filter program output instead
+    of the original mail (this is useful with filters like SpamAssassin
+    that print on his standard output a new version of the email of his
+    standard input). If you set this command to anything besides 'no'
+    you will also have to set the globa section command
+    <code>PostFilteredMailsMBox</code> to a writable path, or Animail
+    will issue a warning every time a spam-message is to be copied.
+
+    <H2><B><A name="3:Referencia"></A>3. Animailrc configuration reference</B></H2>
+
+    <P><B>Note:</B> This file must exist in each Animail user home directory under the
+    directory .animail/ , there is not a system-wide configuration file.
+
+    <P>This file is composed of one or more server groups and optionally
+    postfilter groups and a global group.
+    Each server groups defines the options for a specified server and the global option
+    group defines... well, the global options. The postfilter groups
+    specify the options for using an external programs as a help for the
+    filtering system.
+
+    <P>Servers groups are delimited between the starting tag <B>&lt;Server&gt;</B> and
+    the ending tag <B>&lt;/Server&gt;</B> , and global the global options groups by
+    <B>&lt;Global&gt;</B> and <B>&lt;/Global&gt;</B> , so the general structure for an
+    animailrc file could be:
+
+    <P>&lt;Server&gt;
+
+    <P>[Server commands here]
+
+    <P>&lt;/Server&gt;
+
+    <P><BR>
+
+
+    <P>&lt;Server&gt;
+
+    <P>[Another server commands here]
+
+    <P>&lt;/Server&gt;
+
+    <P>... [More Server options group if you need to download mail from more servers]<BR>
+    <BR>
+
+    <p>&lt;PostFilter&gt;
+    <p>[Postfilter commands here]
+    <p>&lt;/PostFilter&gt;
+
+    <p>&lt;PostFilter&gt;
+    <p>[Another postfilter commands here]
+    <p>&lt;/PostFilter&gt;
+
+    <P>&lt;Global&gt;
+
+    <P>[Global options here]
+
+    <P>&lt;/Global&gt;<BR>
+    <BR>
+
+
+    <P>The commands of each groups must be separated from threir parameters by a color.
+    All commands and boolean (yes/no) parameters are case insensitive.
+
+    <P><BR>
+
+    <h2><center><a name="3:Referencia"></a><b>3. Options
+    Reference</b></h2></center>
+    <p><br>
+
+    <CENTER>
+      <H3><A name="31:Servidor"></A><B>3.1 &lt;Server&gt; options</B></H3>
+    </CENTER>
+
+    <P><B>1. Address:</B><BR>
+     <I><B>Parameter: String / IP Address in point notation</B></I><BR>
+     <I><B>Default value: localhost</B></I><BR>
+     Internet address of the incoming mail server to use.
+
+    <P><B>2. Protocol:</B><BR>
+     <I><B>Parameter: Protocol string (POP3, IMAP4, APOP)<BR>
+     Default value: POP3</B></I><BR>
+     Protocol to use. Currently supported protocols are POP3, APOP and IMAP4.
+
+    <P><B>3. SSL:</B><BR>
+     <I><B>Parámeter: Boolean (yes/no)<BR>
+     Default value: no</B></I><BR>
+     This options tells Animail to use the Secure Socket Layer protocol for the transfers
+    if the remote server supports it. Currently only works with POP3.
+
+    <P><B>4. Port:<BR>
+    </B> <I><B>Parameter: Numeric</B></I><BR>
+     <I><B>Default value: 110 for POP3, 995 for POP3+SSL, 143 for IMAP4</B></I><BR>
+     Port to use with the mail server.
+
+    <P><B>5. UserName:</B><BR>
+     <I><B>Parámeter: String</B></I><BR>
+     <I><B>Default value: None</B></I><BR>
+     Username to use with the mail server account.
+
+    <P><B>6. Password:</B><BR>
+     <I><B>Parameter: String</B></I><BR>
+     <I><B>Default value: None</B></I><BR>
+     Password to use with the mail server account.
+
+    <P><B>7. KeepOnServer:</B><BR>
+     <I><B>Parámeter: Boolean (yes/no)</B></I><BR>
+     <I><B>Default value: no</B></I><BR>
+     Specify if the messages must be deleted of the mailserver after the download or not.
+    This is useful to experiment without the risk of losing messages.
+
+    <P><B>8. ResendTo:</B><BR>
+     <I><B>Parameter: String list, comma separated of usernames or email
+    addresses</B></I><BR>
+     <I><B>Default value: Local user running Animail</B></I><BR>
+     Tells Animail to forward all downloaded messages to the given user or email address.
+    If this option is not activated messages will be forwarded to the user running
+    Animail. The parameter can be a single address or a comma separated list of
+    addresses.<BR>
+     Note: Depending of the local mail server configuration, it's posible that the domain
+    must be specified even with local users (adding a @localhost suffix after the
+    username.)
+	<p><B>9. Deliver_mbox:</b><br>
+	<i><b>Parameter: String (path to file)</b></i><br>
+	<i><b>Default value: $HOME/mbox</b></i><br>
+     This option overrides the globally configured delivery option for this server.
+    Activate delivery of this server messages to a Mbox-style mailbox (standar Unix
+    format which can be readed with most conventional Unix mail clients), and specifies
+    the path to the mbox file.
+
+    <P><B>10. Deliver_maildir:</B><BR>
+     <I><B>Parameter: String (path to a directory)</B></I><BR>
+     <I><B>Default value: $HOME/Maildir/</B></I><BR>
+     This option overrides the globally configured delivery option for this server.
+    Activate delivery of this server messages to a Maildir mailbox (as used by QMail) and
+    specifies the path to the Maildir directory.
+
+    <P><B>11. Deliver_localmta:</B><BR>
+     <I><B>Parameter: Boolean (yes/no)</B></I><BR>
+     <I><B>Default value: yes</B></I><BR>
+     This option overrides the globally configured delivery option for this server.
+    Activate delivery of this server messages to a local MTA (localhost, port 25) using
+    the SMTP protocol. This is the recommended (and default) way of operation.
+
+    <P><B>12. Deliver_pipe:</B><BR>
+     <I><B>Parameter: String (command line)</B></I><BR>
+     <I><B>Default value: /usr/sbin/sendmail -bm</B></I>
+
+    <P>This option overrides the globally configured delivery option for this server.
+
+    <P>Activate delivery of this server messages to the command specified with the
+    parameter. The default parameter value is
+    /usr/bin/sendmail -bm.<BR>
+	If this option is found with a value Animail will use the command specified to deliver
+	downloaded messages instead of using the SMTP protocol or any of the other delivery methods
+	(currently mbox and maildir). The parameter can be any command that accepts RFC822 messages
+	on his standart input. The address of the destination of each email will be appended to the command
+	before opening the pipe so if the command needs an special parameter to accept the destination 
+	address you need to pass it (for example, a line for procmail could be procmail [parámeters] -f).
+
+    <P><BR>
+
+
+    <CENTER>
+      <H3><a name="32:Global"></A><B>3.2 &lt;Global&gt; options</B></H3>
+    </CENTER>
+    <B>1. MaxSize:</B><BR>
+     <I><B>Parameter: Numeric (in bytes)</B></I> <BR>
+     <I><B>Default value: Unlimited</B></I> <BR>
+     This command specifies the maximum size of a message to be downloaded. Those
+    messages that won't be downloaded will be deleted on the server. 
+
+    <P><B>2. MaxNumber:</B><BR>
+     <I><B>Parameter: Numeric (number of emails)</B></I><BR>
+     <I><B>Default value: Unlimited</B></I><BR>
+    <BR>
+     Limits the number of messages to download in a session. Those messages that won't be
+    downloaded will be left on the server. If this option is omited there is no limit to
+    the number of messages to download in a session.
+
+    <P><B>3. Deliver_mbox:</B><BR>
+     <I><B>Parameter: String (path to file)</B></I><BR>
+     <I><B>Default value: $HOME/mbox</B></I><BR>
+     Activate delivery of messages to a Mbox-style mailbox (standar Unix format which can
+    be readed with most conventional Unix mail clients), and specifies the path to the
+    mbox file.<BR>
+	
+     This option can be overriden for some servers specifiying different delivery options
+    inside that servers options block.
+
+    <P><B>4. Deliver_maildir:</B><BR>
+     <I><B>Parameter: String (path to a directory)</B></I><BR>
+     <I><B>Default value: $HOME/Maildir/</B></I><BR>
+     Activate delivery of messages to a Maildir mailbox (as used by QMail) and specifies
+    the path to the Maildir directory.<BR>
+	
+     This option can be overriden for some servers specifiying different delivery options
+    inside that servers options block.
+
+    <P><B>5. DownloadOrder:</B><BR>
+     <I><B>Parameter: String (arrival, firsbig of firstsmall)</B></I><BR>
+     <I><B>Default value: arrival</B></I><BR>
+     Specify the messages download order based on his size. It can have three parameters:
+
+    <P><BR>
+
+
+    <UL>
+      <LI><B>Arrival:</B> Messages will be downloaded in the order of arrival to the
+      server, without considering his size.
+
+      <LI><B>FirstBig:</B> Bigger messages will be downloaded first.
+
+      <LI><B>FirstSmall:</B> Smaller messages will be downloaded first.
+    </UL>
+
+    <P><B>6. Deliver_localmta:</B><BR>
+    <BR>
+     <I><B>Parameter: Boolean (yes/no)</B></I><BR>
+     <I><B>Default value: yes</B></I><BR>
+     Activate delivery of messages to a local MTA (localhost, port 25) using the SMTP
+    protocol. This is the recommended (and default) way of operation.<BR>
+     This option can be overriden for some servers specifiying different delivery options
+    inside that servers options block.
+
+
+    <P><B>7. Deliver_pipe:</B><BR>
+     <I><B>Parameter: String (command line)</B></I><BR>
+     <I><B>Default value: /usr/sbin/sendmail -bm</B></I>
+
+    <P>Activate delivery of this server messages to the command specified with the
+    parameter. The default parameter value is
+    /usr/bin/sendmail -bm.<BR>
+	If this option is found with a value Animail will use the command specified to deliver
+	downloaded messages instead of using the SMTP protocol or any of the other delivery methods
+	(currently mbox and maildir). The parameter can be any command that accepts RFC822 messages
+	on his standart input. The address of the destination of each email will be appended to the command
+	before opening the pipe so if the command needs an special parameter to accept the destination 
+	address you need to pass it (for example, a line for procmail could be procmail [parámeters] -f).<br>
+	This option can be overriden for some servers specifiying different delivery options inside
+	that servers options block.
+
+    <P><B>8. FilterFile:</B><BR>
+     <I><B>Parameter: Path to file<BR>
+     Default value: none</B></I><BR>
+     Using this option you tell Animail to turn on regular expression filtering. Regular
+    expressions must be written in the file specified in the path, one regular expression
+    in each line.
+
+    <P><B>9. AcceptFile:</B><BR>
+     <I>Parameter: Path to file<BR>
+     Default value: none</I><BR>
+     Using this option you tell Animail to auto accept the messages matching the regular
+    expressions in that file. That regular expressions must be written one in each line.
+    (See <A href="2#:Filtrado">Filtering</A>.)
+
+    <P><B>10. NotInAcceptFile:</B><BR>
+     <I>Parameter: string ('none', 'reply', 'ignore' or 'delete')<BR>
+     Default value: 'none'</I><BR>
+     Specifies with action to do when a message that is not in the accept or in the
+    filter file is received. If the parameter is 'delete' the file will be deleted from
+    the server and if it is 'reply' a reply will be sent to the sender asking for a
+    confirmation (see <A href="2#:Filtrado">Filtering</A>.). If the value is 'none' the
+    message will be normally delivered and if it is 'ignore' it will not be delivered, but it will also 
+    don't be deleted from the server.
+
+    <P><B>11. ReplyAddress:<BR>
+     <I>Parameter: string (email address)<BR>
+     Default value: nothing (it must be specified)</I></B><BR>
+     Address Animail will use as the Reply-To: of the auto messages to send.
+
+    <P><B>12. ReplySubject:<BR>
+     <I>Parameter: string (email subject)<BR>
+     Default value: 'Auto-generated message'</I></B><BR>
+     Subject to be used in the auto-replys to messages not in the accept or in the deny
+    files. Animail will add the address specified in the ReplyAddress command to the end
+    of that subject string so it can't get confused by others animails' messages.
+
+    <P><B>13. ConfirmSubject:<BR>
+     <I>Parameter: string (email subject)<BR>
+     Default value: 'Ok, your messages have been delivered'</I></B><BR>
+     Subject to be used in the replys to email confirmations.
+
+    <P><B>14. FileWithReply:<BR>
+     <I>Parameter: string (path to file<BR>
+     Default value: None (in this case the default message will be the one that can be
+    read in the file general.py of the Animail distribution)</I></B><BR>
+     File with the body of the message to be sent in the replies to emails not in the
+    accept or in the filter file asking the user to a confirmation just replying to this
+    message, so his email can be finally delivered and his address added to the accept
+    file. If this command is not specified a polite message in several languages
+    (currently english, spanish and italian, looking for help with more translations)
+    will be used.
+
+    <P><B>15. FileWithConfirmation:<BR>
+     <I>Parameter: string (path to file)<BR>
+     Default value: None (in this case the default message will be the one that can be
+    read in the file general.py of the Animail distribution)</I></B><BR>
+     File with the body of the message to be sent in the replies to users confirmations.
+    If this command is not specified a polite message in several languages (currently
+    english, spanish and italian, looking for help with more translations) will be used.
+
+    <P><B>16. AutoAcceptConfirmations:<BR>
+     <I>Parameter: Boolean (yes/no)<BR>
+     Default value: Yes</I></B><BR>
+     This option specifies if after a confirmation to an Animail request for confirmation
+    the sender must be automatically added to the accept file.
+
+    <P><B>17. OnlyOneReply:<BR>
+     <I>Parameter: Boolean (yes/no)<BR>
+     Default value: No</I></B><BR>
+     Animail keeps a list of replied addresses in the file $HOME/.animail/repliedList.dat
+    (DON'T EDIT THAT FILE!!). This option makes Animail only send a reply to the first
+    message coming from an address not matching a regular expression in the accept or in
+    the filter file (the operation summary will continue to show the postergated
+    messages).
+
+    <P>To prevent excesive startup time and memory usage, the list of replied messages
+    has a maximum size of 500 entries (older entries will be removed when that sized is
+    exceeded).
+
+    <P><B>18. Timeout:</B><BR>
+     <I><B>Parameter: Numeric (time in seconds)</B></I><BR>
+     <I><B>Default value: 60</B></I><BR>
+     Limit how many seconds the program can wait to receive data from a socket (the time
+    the connection with a server is halted). After this timeout has expired the
+    connection is closed and Animail continues with the next server. The default value for this parameter
+    is to issue a timeout after 60 seconds, use 'Timeout:0' to disable using a timeout on sockets.
+
+    <P><B>19. Mailer:</B><BR>
+
+
+    <P>[deprecated]<BR>
+     <I><B>Parameter: String (command)</B></I><BR>
+     <I><B>Default value: None</B></I><BR>
+     Mailer to use for reading messages (clicking on the "Read" button in the graphical
+    summary window).
+
+    <P><B>20. Colorize:</B><BR>
+     <I><B>Parameter: Boolean (yes/no)</B></I><BR>
+     <I><B>Default value: yes</B></I><BR>
+     Apply nice ANSI colors to the console output.<BR>
+    <BR>
+
+    <P><B>21. Reconnect:</B><BR>
+    <i><b>Parameter: Boolean (yes/no)</b></i><br>
+    <i><b>Default value: yes</b></i><br>
+    When some server fail (for whatever reason) during the operation, Animail will try
+    to reconnect to that server at the end of the session to delete already downloaded
+    messages so the next time we try to download messages from that servers you wont have 
+    duplicated messages on you mail spool. Enabled by default.
+
+    <p><b>22. WaitBeforeReconnection:</b><br>
+    <i><b>Parameter: Numeric (time in seconds)</b></i><br>
+    <i><b>Default value: 30</b></i><br>
+    Time before reconnecting to a failed server (see the Reconnect option). This time start
+    counting in the moment that the server failed. This is necessary because some servers (usually
+    POP3 servers) don't allow the clients to do more than one connection at a time, and the
+    server needs some time to know that the connection is lost and close that session.
+
+    <p><b>23. PostFilteredMailsMBox:</b><br>
+    <I><b>Parameter: String (Path to mailbox file)</B></i><br>
+    <i><b>Default value: None</b></i><br>
+    This options tell Animail to save the message filtered by the
+    post-filters (see the <a href="#21:OtrosFiltros">Using Animail with
+    other filters</a> and <a href="#33:PostFiltros">Post-Filter
+    options</a> sections) on a mailbox ('spambox') file. For this option
+    to be useful you must also set the 'SavePostFilteredMails' option of
+    one or more <a href="#33:PostFiltros">&lt;PostFilter&gt; command
+    blocks</a> to 'Yes', 'Output' or 'Stdout'.
+
+    <p><b>24. SMTPSpamCodes: </b><br>
+    <i><b>Parameter: Comma separated list of three-digits SMTP codes</b></i><br>
+    <i><b>Default value: None</b></i><br>
+    Using this option will instruct Animail to delete from the server
+    they were downloaded the messages to which the local SMTP server
+    issue an SMTP error code matching one of the codes on this option
+    list, insted of leaving the offending message in the server as would
+    happen with other error codes. This is usually used to enable the
+    local SMTP anti-spam features, thus the option name.
+
+    <p><br>
+
+    <CENTER>
+        <h3><a name="33:PostFiltros"></a><b>3.3 &lt;PostFilter&gt;
+        options</B></h3>
+    </center>
+
+    <p><b>1. PostFilterName:</b><br>
+    <I><b>Parameter: String </B></i><br>
+    <i><b>Default value: None (must be specified)</b></i><br>
+    Name for the filter. It will be using whenever Animail needs to name
+    this filter in his output.
+
+    <p><b>2. Path:</b><br>
+    <I><b>Parameter: String (file path) </B></i><br>
+    <i><b>Default value: None (must be specified)</b></i><br>
+    This is the path to the filter program. It must be a file, and that
+    file must have permissions to allow Animail reading and executing
+    it.
+
+    <p><b>3. InputMessageStdin:</b><br>
+    <I><b>Parameter: Boolean (Yes/No) </B></i><br>
+    <i><b>Default value: Yes</b></i><br>
+    This switch tells Animail is the email must be feed to the
+    postfilter program using the program standard input. Since most mail
+    filters operate this way, the default value is 'Yes'. If you set
+    this option to 'No', read the description of the 'Options' command..
+
+    <p><b>4. Options:</b><br>
+    <I><b>Parameter: String (program arguments) </B></i><br>
+    <i><b>Default value: None</b></i><br>
+    This options set the arguments to be passed to the postfilter
+    program. If you set InputStdin to 'No' you probably need to specify
+    the path to the mail message to the filter in his options string.
+    This is done substituting the flag '%M' in this string by the actual
+    path of the mail message. For example, if you are using a filter
+    that don't accept mails in his standart input but need that mail to
+    be specified after a '-f' switch, this command argument would be:
+    <code>Options: -f %M</code>.
+
+    <p><b>5. KillerReturnValues:</b><br>
+    <I><b>Parameter: Comma separated list of numbers</B></i><br>
+    <i><b>Default value: None</b></i><br>
+
+    This options specifies a comma separated list of numbers (can be a
+    single token) being those numbers return values that in case of
+    matching (one or more of them) against the filter return value will
+    cause the mail to be filtered. You can specify this option and
+    the 'KillerProgramOutput' option at the same time.
+
+    <p><b>6. KillerProgramOutput:</b><br>
+    <I><b>Parameter: String (regular expression)</B></i><br>
+    <i><b>Default value: None</b></i><br>
+
+    This option specifies a regular expression that would be checked
+    against the filter program output and in case of match would cause
+    the mail to be filtered. You can specify this option and
+    the 'KillerReturnValues' option at the same time.
+
+    <p><b>7. ShowFilterOutput:</b><br>
+    <I><b>Parameter: Boolean (Yes/No) </B></i><br>
+    <i><b>Default value: No</b></i><br>
+    This options specifies if the program filter output (stantard output
+    and standard error) must be shown. 
+    
+    <p><b>8. SavePostFilteredMails:</b><br>
+    <I><b>Parameter: Boolean or String (Yes/No/Output/Stdout) </B></i><br>
+    <i><b>Default value: No</b></i><br>
+    This options specifies if the mails filtered by the post-filters
+    must be copied to a mbox file ('spambox' file). The possible values
+    are: 'Yes' if the original message must be copied to the spambox,
+    'No' if don't, 'Output' if the filter program output is what is
+    to be copied to the spambox, instead of the original message and
+    'Stdout' which does the same that 'Output' but don't include the
+    error output (stderr) which will be printed.
+
+    <p>
+    If this option is set to 'Yes' or 'Output' you must also give a
+    value to the option 'PostFilteredMailsMBox' of the <a
+    href="#32:Globales">&lt;global&gt; options</a> section.
+
+    <H2><B>3. Random tips</B></H2>
+    <B>3.1 Binding Animail filtering to a Mutt macro</B> <BR>
+     <BR>
+     Put this in your .muttrc: <BR>
+     <BR>
+     macro index X |~/bin/macrospam\n <BR>
+     macro pager X |~/bin/macrospam\n <BR>
+     <BR>
+     Now create a new file called macrospam in ~/bin with the text: <BR>
+     <BR>
+     #!/bin/bash <BR>
+     grep 'From:' $s | grep -v 'Resent'&gt;&gt; ~/.animailfilters <BR>
+     <BR>
+     and make it executable with: <BR>
+     <BR>
+     chmod +x ~bin/macrospam <BR>
+     <BR>
+     Now, pressing X in Mutt will add the currently selected mail to the Animail
+    filterfile. 
+
+    <P><BR>
+
+
+    <P><BR>
+
+
+    <P><BR>
+
+
+    <P align="right"><I><B>Versión 1.1.30</B></I>
+
+    <P align="right"><B><I>© 1998-2002 Juanjo Álvarez &lt;<A href=
+    "mailto:juanjux@yahoo.es">juanjux@yahoo.es</A>&gt;</I></B>
+
+    <P align="right"><I><B>Yes, my english is really bad[TM]</B></I>
+

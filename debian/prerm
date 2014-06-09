@@ -1,0 +1,6 @@
+#!/bin/sh
+# Automatically added by dh_installdocs
+if [ \( "$1" = "upgrade" -o "$1" = "remove" \) -a -L /usr/doc/animail21 ]; then
+	rm -f /usr/doc/animail21
+fi
+# End automatically added section

@@ -1,0 +1,858 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2003-12-07 02:02+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: AnimailMain.py:31
+#, c-format
+msgid "animail: No mail for %s in %s"
+msgstr ""
+
+#: AnimailMain.py:33
+#, c-format
+msgid "1 message for %s in %s"
+msgstr ""
+
+#: AnimailMain.py:35
+#, c-format
+msgid "%d messages for %s in %s"
+msgstr ""
+
+#: AnimailMain.py:145
+#, c-format
+msgid "Trying to connect (%s)"
+msgstr ""
+
+#: AnimailMain.py:147 AnimailMain.py:276
+#, c-format
+msgid "Authentificating (%s)"
+msgstr ""
+
+#: AnimailMain.py:150
+#, c-format
+msgid "Retrieving stats (%s)"
+msgstr ""
+
+#: AnimailMain.py:158
+#, c-format
+msgid "You have %d new messages (%s)"
+msgstr ""
+
+#: AnimailMain.py:161
+#, c-format
+msgid "Creating messages list (%s)"
+msgstr ""
+
+#: AnimailMain.py:163
+#, c-format
+msgid "No new messages (%s)"
+msgstr ""
+
+#: AnimailMain.py:203
+msgid "No more messages"
+msgstr ""
+
+#: AnimailMain.py:207
+msgid "Exiting..."
+msgstr ""
+
+#: AnimailMain.py:216
+#, c-format
+msgid "Connection error (%s): "
+msgstr ""
+
+#: AnimailMain.py:219
+#, c-format
+msgid "SSL connection error (%s): "
+msgstr ""
+
+#: AnimailMain.py:222
+#, c-format
+msgid "Temporary name resolution error (%s): "
+msgstr ""
+
+#: AnimailMain.py:225
+#, c-format
+msgid "Name resolution error (%s): "
+msgstr ""
+
+#: AnimailMain.py:228
+#, c-format
+msgid "Protocol Error (%s): "
+msgstr ""
+
+#: AnimailMain.py:231
+#, c-format
+msgid "Timeout expired (%s): "
+msgstr ""
+
+#: AnimailMain.py:234
+#, c-format
+msgid "Configuration error (%s): "
+msgstr ""
+
+#: AnimailMain.py:237
+#, c-format
+msgid "IMAP error (%s): "
+msgstr ""
+
+#: AnimailMain.py:243
+msgid "Thread exited"
+msgstr ""
+
+#: AnimailMain.py:246
+#, c-format
+msgid "Unhandled exception (%s)! This is probably a bug, please"
+msgstr ""
+
+#: AnimailMain.py:247
+msgid "send an email to <juanjux@yahoo.es> with the following message:"
+msgstr ""
+
+#: AnimailMain.py:265
+#, c-format
+msgid "Trying to clean downloaded messages from %s"
+msgstr ""
+
+#: AnimailMain.py:271
+#, c-format
+msgid "Waiting %d seconds before connecting again to the server"
+msgstr ""
+
+#: AnimailMain.py:274
+#, c-format
+msgid "(Re)Connecting to %s"
+msgstr ""
+
+#: AnimailMain.py:279
+#, c-format
+msgid "Starting downloaded messages deletion (%s)"
+msgstr ""
+
+#: AnimailMain.py:282
+msgid "Something bad happened again! Bye server bye..."
+msgstr ""
+
+#: AnimailMain.py:285
+msgid "The exception text was:"
+msgstr ""
+
+#: AnimailMain.py:309
+#, c-format
+msgid "Warning: Error opening the replied messages list file! (%s)"
+msgstr ""
+
+#: AnimailMain.py:317 AnimailMain.py:330 AnimailMain.py:346
+msgid ""
+"Warning: Could not get the system TMP directory for checking the lockfile, "
+"continuing anyway"
+msgstr ""
+
+#: AnimailMain.py:323
+#, c-format
+msgid ""
+"Error: Another Animail session seems to be active. If not (check with ps aux|"
+"grep animail) delete the file  %s"
+msgstr ""
+
+#: AnimailMain.py:340
+#, c-format
+msgid "Warning: Could not create the lockfile: %s"
+msgstr ""
+
+#: AnimailMain.py:354
+#, c-format
+msgid "Error trying to delete the lockfile %s: %s continuing anyway"
+msgstr ""
+
+#: configlib.py:107
+#, c-format
+msgid "Critical Error: Can't deliver mail to unexistent mbox!! (%s)"
+msgstr ""
+
+#: configlib.py:110
+#, c-format
+msgid "Critical Error: Destination mbox (%s) can't be a symlink"
+msgstr ""
+
+#: configlib.py:118
+#, c-format
+msgid "Error trying to open the filter file (%s):"
+msgstr ""
+
+#: configlib.py:130
+msgid "Error compiling regular expression from the filters file\n"
+msgstr ""
+
+#: configlib.py:131 configlib.py:150
+#, c-format
+msgid "the offending regex was: %s"
+msgstr ""
+
+#: configlib.py:138
+#, c-format
+msgid "Error trying to open the accept file (%s):"
+msgstr ""
+
+#: configlib.py:149
+msgid "Error compiling regular expression from the accepted file\n"
+msgstr ""
+
+#: configlib.py:201
+msgid "option --download-order supplied with invalid value."
+msgstr ""
+
+#: configlib.py:217
+msgid "option --max-to-download suplied with invalid value."
+msgstr ""
+
+#: configlib.py:245
+#, c-format
+msgid "%s:error: %s"
+msgstr ""
+
+#: configlib.py:317
+#, c-format
+msgid "Error: %s/.animail is not a directory!"
+msgstr ""
+
+#: configlib.py:323
+#, c-format
+msgid "Config file %sanimailrc not found!"
+msgstr ""
+
+#: configlib.py:327
+#, c-format
+msgid ""
+"Warning: animailrc file should be on %sanimailrc (current location is in %s)"
+msgstr ""
+
+#: configlib.py:330
+#, c-format
+msgid ""
+"Warning: animailrc file should be on %sanimailrc (current location is %s)"
+msgstr ""
+
+#: configlib.py:336
+#, c-format
+msgid "Error trying to open the config file %s: %s"
+msgstr ""
+
+#: configlib.py:340
+msgid ""
+"ERROR: For security reasons the animailrc config file must have 600 perms!"
+msgstr ""
+
+#: configlib.py:341
+msgid "(to change the permissions you can do: chmod 600 animailrc)"
+msgstr ""
+
+#: configlib.py:345
+msgid ""
+"WARNING: Config file don't exists or it's empty. Please configure Animail"
+msgstr ""
+
+#: configlib.py:350
+#, c-format
+msgid "I can't read the config file (%s)!"
+msgstr ""
+
+#: configlib.py:383
+#, c-format
+msgid "Error (line %d), the parameter of '%s' is empty"
+msgstr ""
+
+#: configlib.py:393
+#, c-format
+msgid "Config file error (line %d): <server> inside another <server>"
+msgstr ""
+
+#: configlib.py:397
+#, c-format
+msgid "Config file error (line %d): <global> inside <server>"
+msgstr ""
+
+#: configlib.py:401
+#, c-format
+msgid "Config file error (line %d): </global> inside <server>"
+msgstr ""
+
+#: configlib.py:405
+#, c-format
+msgid "Config file error (line %d): <postfilter> inside <server>"
+msgstr ""
+
+#: configlib.py:409
+#, c-format
+msgid "Config file error (line %d): </postfilter> inside <server>"
+msgstr ""
+
+#: configlib.py:455 configlib.py:464 configlib.py:474 configlib.py:487
+#: configlib.py:496
+#, c-format
+msgid ""
+"Error (line %d), more than one delivery option in the same <server> block"
+msgstr ""
+
+#: configlib.py:536
+#, c-format
+msgid "Error in config file [server section, line %d] (%s)"
+msgstr ""
+
+#: configlib.py:538 configlib.py:886
+msgid "I don't understand: "
+msgstr ""
+
+#: configlib.py:539
+msgid "(Maybe a <global> or <postfilter> command in a <server> section?)"
+msgstr ""
+
+#: configlib.py:544
+#, c-format
+msgid "Config file error (line %d): <global> inside another <global>"
+msgstr ""
+
+#: configlib.py:548
+#, c-format
+msgid "Config file error (line %d): <server> inside <global>"
+msgstr ""
+
+#: configlib.py:552
+#, c-format
+msgid "Config file error (line %d): </server> inside <global>"
+msgstr ""
+
+#: configlib.py:556
+#, c-format
+msgid "Config file error (line %d): <postfilter> inside <global>"
+msgstr ""
+
+#: configlib.py:560
+#, c-format
+msgid "Config file error (line %d): </postfilter> inside <global>"
+msgstr ""
+
+#: configlib.py:596 configlib.py:608 configlib.py:638 configlib.py:650
+#: configlib.py:666
+#, c-format
+msgid ""
+"Error (line %d), more than one delivery option in the same <Global> block"
+msgstr ""
+
+#: configlib.py:633
+#, c-format
+msgid "Error in download order config (%s), line %d"
+msgstr ""
+
+#: configlib.py:707
+#, c-format
+msgid "Error in 'NotInAcceptFile' config (%s), line %d"
+msgstr ""
+
+#: configlib.py:737
+#, c-format
+msgid "Couldn't open or create the postfiltered messages log mbox file (%s)!!!"
+msgstr ""
+
+#: configlib.py:738
+msgid "Please check the permissions of the file and his directory"
+msgstr ""
+
+#: configlib.py:744 configlib.py:755
+#, c-format
+msgid "Error in config file [global section, line %d] (%s)"
+msgstr ""
+
+#: configlib.py:745
+msgid "The value of SMTPSpamCodes must be a comma separated list of numeric"
+msgstr ""
+
+#: configlib.py:746
+msgid "three digit codes; either some code includes a non-numeric character"
+msgstr ""
+
+#: configlib.py:747
+msgid "or some code is not three-digits length (or both)"
+msgstr ""
+
+#: configlib.py:756 configlib.py:855
+msgid "I don't understand: '"
+msgstr ""
+
+#: configlib.py:757
+msgid "(Maybe a <server> or <postfilter> command in a <global> section?)"
+msgstr ""
+
+#: configlib.py:762
+#, c-format
+msgid "Config file error (line %d): <postfilter> inside another <postfilter>"
+msgstr ""
+
+#: configlib.py:765
+#, c-format
+msgid "Config file error (line %d): <server> inside <postfilter>"
+msgstr ""
+
+#: configlib.py:769
+#, c-format
+msgid "Config file error (line %d): </server> inside <postfilter>"
+msgstr ""
+
+#: configlib.py:772
+#, c-format
+msgid "Config file error (line %d): <global> inside <postfilter>"
+msgstr ""
+
+#: configlib.py:775
+#, c-format
+msgid "Config file error (line %d): </global> inside <postfilter>"
+msgstr ""
+
+#: configlib.py:796 configlib.py:805
+#, c-format
+msgid "Error in configfile [postfilter section, line %d]:"
+msgstr ""
+
+#: configlib.py:797
+msgid "the argument for KillerReturnValues must be a NUMBER or "
+msgstr ""
+
+#: configlib.py:798
+msgid "a comma separated list of NUMBERS"
+msgstr ""
+
+#: configlib.py:806
+msgid "invalid regular expression as argumento to KillerProgramOutput"
+msgstr ""
+
+#: configlib.py:824
+#, c-format
+msgid "Error in configfile [postfiler section, line %d]:"
+msgstr ""
+
+#: configlib.py:828
+msgid "No Path given to the post-filter"
+msgstr ""
+
+#: configlib.py:834
+msgid "No PostFilterName given to this filter"
+msgstr ""
+
+#: configlib.py:845
+msgid "Both KillerReturnValues and KillerProgramOutput non specified"
+msgstr ""
+
+#: configlib.py:846
+msgid "You must specify at least one of them"
+msgstr ""
+
+#: configlib.py:854
+#, c-format
+msgid "Error in config file [postfilter section, line %d] (%s)"
+msgstr ""
+
+#: configlib.py:856
+msgid "(Maybe a <server> or <global> command in a <postfilter> section?)"
+msgstr ""
+
+#: configlib.py:875
+#, c-format
+msgid "Config file error (line %d): </server> outside <server>"
+msgstr ""
+
+#: configlib.py:879
+#, c-format
+msgid "Config file error (line %d): </global> outside <global>"
+msgstr ""
+
+#: configlib.py:882
+#, c-format
+msgid "Config file error (line %d): </postfilter> outside <postfilter>"
+msgstr ""
+
+#: configlib.py:885
+#, c-format
+msgid "Error in config file (%s, line %d)"
+msgstr ""
+
+#: configlib.py:887
+msgid "(Maybe a command outside of a <server> or <global> group?)"
+msgstr ""
+
+#: configlib.py:892
+msgid ""
+"Error in config file, 'reply to messages not in the accept file' enabled"
+msgstr ""
+
+#: configlib.py:893
+msgid "but no ReplyAddress specified"
+msgstr ""
+
+#: general.py:193
+msgid "ISAY: (Piping the message to the program)"
+msgstr ""
+
+#: imap.py:91 pop3.py:51
+#, c-format
+msgid "Looking header %d (%s)"
+msgstr ""
+
+#: imap.py:100 pop3.py:59
+msgid "Server address not given!!"
+msgstr ""
+
+#: imap.py:106
+#, c-format
+msgid ""
+"SSL error while trying to connect to the server (%s), be sure that you have "
+"configured the correct port for IMAP4-SSL(usually 993)"
+msgstr ""
+
+#: imap.py:128 pop3.py:118
+#, c-format
+msgid "Getting message list (%s)"
+msgstr ""
+
+#: imap.py:149 pop3.py:137
+msgid "Message number limit reached"
+msgstr ""
+
+#: imap.py:171 pop3.py:188
+#, c-format
+msgid "From: %s"
+msgstr ""
+
+#: imap.py:212 pop3.py:200
+msgid "Downloaded: "
+msgstr ""
+
+#: logger.py:122
+msgid ""
+"\n"
+"####### Operation summary #######\n"
+"\n"
+msgstr ""
+
+#: logger.py:128
+msgid ""
+"\n"
+"--- Server: "
+msgstr ""
+
+#: logger.py:132
+msgid "* Total messages: "
+msgstr ""
+
+#: logger.py:136
+msgid "* Total volume on server: "
+msgstr ""
+
+#: logger.py:140
+msgid "* Filtered messages: "
+msgstr ""
+
+#: logger.py:144
+msgid "\tTotal filtered volume: "
+msgstr ""
+
+#: logger.py:148
+msgid "* Downloaded messages: "
+msgstr ""
+
+#: logger.py:152
+msgid "\tDownloaded Volume: "
+msgstr ""
+
+#: logger.py:156
+msgid "* Postergated messages: "
+msgstr ""
+
+#: logger.py:160
+msgid "\tPostergated Volume: "
+msgstr ""
+
+#: logger.py:165
+msgid ""
+"\n"
+"* Patterns of filtered messages:\n"
+msgstr ""
+
+#: logger.py:173
+msgid "* Origin of downloaded messages:\n"
+msgstr ""
+
+#: logger.py:181
+msgid "* Origin of postergated messages:\n"
+msgstr ""
+
+#: logger.py:189
+msgid "* Incidents:\n"
+msgstr ""
+
+#: mailserver.py:107
+#, c-format
+msgid ""
+"The SMTP rejected the message using a configured SMTPSpamCode (%d): Deleting "
+"it from the remote server (SMTP: %s)"
+msgstr ""
+
+#: mailserver.py:150
+#, c-format
+msgid "Failure writing to mbox file '%s' (%s)"
+msgstr ""
+
+#: mailserver.py:160
+#, c-format
+msgid "Failure writing or opening the mbox file '%s' (%s)"
+msgstr ""
+
+#: mailserver.py:181
+#, c-format
+msgid "Maildir '%s' was not found"
+msgstr ""
+
+#: mailserver.py:193 mailserver.py:195
+msgid "already exist"
+msgstr ""
+
+#: mailserver.py:213
+msgid "failure writing file "
+msgstr ""
+
+#: mailserver.py:218
+#, c-format
+msgid "failure renaming '%s' to '%s'"
+msgstr ""
+
+#: mailserver.py:243
+#, c-format
+msgid "Message %d size exceed limit (%d), deleting it"
+msgstr ""
+
+#: mailserver.py:245
+#, c-format
+msgid "Message %d deleted, size limit reached"
+msgstr ""
+
+#: mailserver.py:266 mailserver.py:473
+#, c-format
+msgid "Ignoring message %d: DONTDELETETHISMESSAGE type message"
+msgstr ""
+
+#: mailserver.py:275
+#, c-format
+msgid "We've an address confirmation from %s, recovering postergated messages"
+msgstr ""
+
+#: mailserver.py:282
+#, c-format
+msgid "%s Address added to auto-accept file"
+msgstr ""
+
+#: mailserver.py:286
+#, c-format
+msgid "SMTP Error delivering confirmation to %s, reply not sent: %s"
+msgstr ""
+
+#: mailserver.py:303
+#, c-format
+msgid "Deleting message %d: Don't match anything in accept file"
+msgstr ""
+
+#: mailserver.py:324
+#, c-format
+msgid "Deleting message %d: Header match %s"
+msgstr ""
+
+#: mailserver.py:334
+#, c-format
+msgid "Message %d (from %s) not in accept file: postergating it"
+msgstr ""
+
+#: mailserver.py:351
+#, c-format
+msgid "SMTP Error delivering reply to %s, reply not sent: %s"
+msgstr ""
+
+#: mailserver.py:354
+#, c-format
+msgid "Message %d (from %s) not in accept file: ignoring it"
+msgstr ""
+
+#: mailserver.py:381
+#, c-format
+msgid "%d mails recovered from %s"
+msgstr ""
+
+#: mailserver.py:384
+#, c-format
+msgid "Error trying to delete the delayed mbox of the address %s"
+msgstr ""
+
+#: mailserver.py:385
+msgid "The mailbox won't be deleted, if you want to read those messages"
+msgstr ""
+
+#: mailserver.py:386
+#, c-format
+msgid "open it manually (.animail/animailDelayed/%s)"
+msgstr ""
+
+#: mailserver.py:387
+msgid "The error was: "
+msgstr ""
+
+#: mailserver.py:452
+#, c-format
+msgid "Downloading message %d (%.2f %s), Left: %d (%s)"
+msgstr ""
+
+#: mailserver.py:462
+msgid "\rDownloaded: "
+msgstr ""
+
+#: mailserver.py:508
+#, c-format
+msgid "Executing postfilter %s on message..."
+msgstr ""
+
+#: mailserver.py:512
+#, c-format
+msgid "%s (Postfiltered by'%s')"
+msgstr ""
+
+#: mailserver.py:521
+msgid "Deleting message"
+msgstr ""
+
+#: mailserver.py:525
+msgid ""
+"The local SMTP rejected this message so it won't be deleted from the mail "
+"server:"
+msgstr ""
+
+#: mailserver.py:532
+msgid ""
+"Socket error sending to the local SMTP, it won't be deleted from the mail "
+"server:"
+msgstr ""
+
+#: mailserver.py:542
+msgid ""
+"CRITICAL ERROR. There was an error delivering to MBox, aborting, message "
+"won't be deleted from the mail server: "
+msgstr ""
+
+#: mailserver.py:546
+msgid ""
+"CRITICAL ERROR. There was an error delivering to Maildir, aborting, message "
+"won't be deleted from the mail server: "
+msgstr ""
+
+#: mailserver.py:550
+msgid "Socket error on SSL connection:"
+msgstr ""
+
+#: pop3.py:66
+#, c-format
+msgid ""
+"SSL error while trying to connect to the server (%s), be sure that you have "
+"configured the correct port for POP3-SSL(usually 995)"
+msgstr ""
+
+#: pop3.py:146
+msgid "Deleting already downloaded messages from POP3 server..."
+msgstr ""
+
+#: pop3.py:148
+#, c-format
+msgid "Deleting message %s"
+msgstr ""
+
+#: postfilter.py:41
+#, c-format
+msgid ""
+"Output of the post-filter '%s' was:\n"
+"%s"
+msgstr ""
+
+#: postfilter.py:47
+#, c-format
+msgid "Uh, something bad happened while trying to use the post-filter %s"
+msgstr ""
+
+#: postfilter.py:48
+msgid "Error was:\n"
+msgstr ""
+
+#: postfilter.py:51
+msgid "Not using filter"
+msgstr ""
+
+#: postfilter.py:56
+#, c-format
+msgid ""
+"Killer return code of filter %s matched for this message, won't be delivered"
+msgstr ""
+
+#: postfilter.py:62
+#, c-format
+msgid ""
+"Killer output from filter %s matched for this message, won't be delivered"
+msgstr ""
+
+#: postfilter.py:80
+#, c-format
+msgid "Warning: SavePostFilteredMails activated for this %s PostFilter but no"
+msgstr ""
+
+#: postfilter.py:81
+msgid "PostFilteredMailsMBox configured: Won't save the email"
+msgstr ""
+
+#: postfilter.py:83
+#, c-format
+msgid "Saving message to %s..."
+msgstr ""
+
+#: postfilter.py:101
+#, c-format
+msgid "Sorry, couldn't save the filtered message to %s: %s"
+msgstr ""
+
+#: postfilter.py:109
+msgid "Error: In log_filtered_mail value is not 1, 2 or 3"
+msgstr ""
+
+#: smtp.py:23
+#, c-format
+msgid "Reply succesfully send to %s"
+msgstr ""
+
+#: smtp.py:43
+#, c-format
+msgid "Confirmation succesfully send to %s"
+msgstr ""
+
+#: smtp.py:72
+msgid "Closing SMTP connection"
+msgstr ""
+
+#: smtp.py:74
+msgid "SMTP Error: Already Closed"
+msgstr ""
+
+#: smtp.py:82
+msgid "ISAY: (Sending the message to the SMTP)"
+msgstr ""

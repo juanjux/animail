@@ -1,0 +1,60 @@
+.TH "Animail" "1" "2.0" "Juanjo Álvarez" ""
+.SH "ANIMAIL"
+.LP 
+animail \- POP3/IMAP4 Mail retrieval utility with filtering features
+.SH "SYNTAX"
+.LP 
+animail [\fI\-h|\-\-help\fP] [\fI\-F|\-\-only\-filter\fP] [\fI\-l|\-\-no\-summary\fP] [\fI\-o|\-\-download\-order= arrival|small|big\fP] [\fI\-f|\-\-mbox\-file=file\fP] [\fI\-v|\-\-verbose\fP] [\fI\-s|\-\-max\-size=size\fP] [\fI\-n|\-\-max\-to\-download=max\fP] [\fI\-B|\-\-syslog\-output\fP] [\fI\-t|\-\-quiet\fP]
+.br 
+
+.SH "DESCRIPTION"
+.LP 
+Animail is an MDA that retrieves mail from a mail server (using POP3/APOP or IMAP4 with or without SSL) and deliver it to the local system in a (configurable) variety of ways like: talking to a local SMTP server, writing the messages to a mbox file, storing it in a maildir directory or using an external command to do the delivery.
+.br 
+This manual page only details the command line parameters; you must configure animail creating a $HOME/.animail/animailrc file before using it (see the docs.html file and/or the included animailrc example for documentation on doing this).
+.SH "OPTIONS"
+.LP 
+.TP 
+\fB\-h|\-\-help\fR
+Output help information and exit.
+.TP 
+\fB\-F|\-\-only\-filter\fR
+Don't download any mail in this session, only filter.
+.TP 
+\fB\-l|\-\-no\-summary\fR
+Don't show the operation summary. By default Animail will show a operation summary 
+at the end of his run showing some stadistics like the number of downloaded messages 
+,their origins, sizes, filtered messages, etc. With this option that summary is not shown.
+.TP 
+\fB\-o|\-\-download\-order=arrival|small|big>\fR
+Size based order in which messages will be downloaded from the server.
+.TP 
+\fB\-v|\-\-verbose\fR
+Enable verbose mode
+.TP 
+\fB\-s|\-\-max\-size=size\fR
+Delete message bigger than the specified size from the server
+.TP 
+\fB\-n|\-\-max\-to\-download=max\fR
+Don't download more than 'max' size on this session
+.TP 
+\fB\-B|\-\-syslog\-output\fR
+Redirect all program output to the system log
+.TP 
+\fB\-t|\-\-quiet\fR
+Don't show the downloaded percent while downloading messages
+
+.SH "FILES"
+.LP 
+\fI$HOME/.animail/animailrc\fP 
+.br 
+\fI/var/log/mail.log\fP 
+.SH "ENVIRONMENT VARIABLES"
+.LP 
+.TP 
+\fBHOME\fP
+Specifies the home directory
+
+.SH "AUTHORS"
+.LP 
+Juanjo Álvarez Martínez <juanjux@yahoo.es>

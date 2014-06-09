@@ -1,0 +1,8 @@
+#!/bin/sh
+# Automatically added by dh_installdocs
+if [ "$1" = "configure" ]; then
+	if [ -d /usr/doc -a ! -e /usr/doc/animail21 -a -d /usr/share/doc/animail21 ]; then
+		ln -sf ../share/doc/animail21 /usr/doc/animail21
+	fi
+fi
+# End automatically added section

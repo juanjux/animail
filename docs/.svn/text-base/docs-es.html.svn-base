@@ -1,0 +1,602 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   
+  <meta name="generator"
+ content="HTML Tidy for Linux/x86 (vers 1st February 2002), see www.w3.org">
+   
+  <meta http-equiv="CONTENT-TYPE"
+ content="text/html; charset=iso-8859-15">
+  <title>Animail Documentation</title>
+</head>
+  <body>
+ 
+<center>        
+<p><font size="5" style="font-size: 20pt;"><b>Animail</b></font>     </p>
+ </center>
+        
+<h2>Tabla de Contenidos</h2>
+      <b><a href="#1:Opciones">1. Opciones de linea de comandos</a><br>
+       <a href="#2:Filtrado">2. El sistema de filtrado</a><br>
+       <a href="#3:Referencia">3. Referencia de configuración del animailrc</a><br>
+       <a href="#31:Servidor">1. Opciones de servidor</a><br>
+       <a href="#32:Globales">2. Opciones globales</a><br>
+       <a href="#4:Trucos">4. Trucos</a><br>
+      </b>        
+<h2><b>1. Opciones de linea de comandos</b></h2>
+        
+<p><b>--help or -H</b>      </p>
+ 
+<p>Muestra una pequeña ayuda      </p>
+ 
+<p><b>-o [arrival | small | bug] or --download-order=[arrival | small | big]<br>
+ </b></p>
+ 
+<p>Esta opción especifica el orden en el que serán descargados los mensajes 
+del servidor:<br>
+       </p>
+ 
+<ul>
+        <li>              
+    <p>arrival Descargará los mensajes por orden de llegada al servidor 
+      </p>
+   </li>
+   <li>              
+    <p>small Descargará primero los mensajes más pequeños        </p>
+   </li>
+   <li>              
+    <p>big Descargará primero los mensajes más grandes     </p>
+   </li>
+ 
+</ul>
+        
+<p><b>-f [archivo] or --mbox-file=[archivo]</b></p>
+ 
+<p>Fichero con formato mbox en el que el correo debe almacenarse. Utilicese 
+principalmente para pruebas     </p>
+ 
+<ul>
+        <li><br>
+          </li>
+ 
+</ul>
+        
+<p><b>-v or --verbose</b>      </p>
+ 
+<p>Modo explicativo      </p>
+ 
+<p><b>-s [size] or --max-size=[size]</b>      </p>
+ 
+<p>Tamaño máximo en bytes que podrá tener un mensaje antes de ser descargado
+      </p>
+ 
+<p><b>-n [max] or --max-to-download=[max]</b>      </p>
+ 
+<p>Máximo número de mensajes a descargar      </p>
+ 
+<p><b>-S or --deliver-smtp</b>      </p>
+ 
+<p>Reenviar los mensajes al SMTP local      </p>
+ 
+<p><b>-B or --syslog-output</b>      </p>
+ 
+<p>Escribir toda la salida del programa al syslog      </p>
+ 
+<p><b>-t or --quiet</b>      </p>
+ 
+<p>Modo silencioso      </p>
+ 
+<p><b>-F or --only-filter</b>      </p>
+ 
+<p>No descargar, sólo filtrar      </p>
+ 
+<p><b>-l or --no-summary</b>      </p>
+ 
+<p>No mostrar el resumen al final de la operación      </p>
+ 
+<p><b>-C or --check</b>      </p>
+ 
+<p>Comprueba si hay correo nuevo y escribe cuandos correos tenemos en cada 
+buzón local, pero no lo descarga. La salida es muy sencilla de analizar por 
+un programa, además Animail devolverá 1 si hay correo nuevo y 0 en el caso 
+contrario      </p>
+ 
+<p><b>-M or --fetchmail</b>      </p>
+ 
+<p>Igual que -C pero con una salida compatible con la de fetchmail  	</p>
+ 
+<p><b>-O or --only-from=</b>  	</p>
+ 
+<p>Sólo descargar mensajes de la lista de servidores (separados por comas) 
+dada como parámetro. Los servidores deben especificarse por su alias NO por 
+su dirección (así que es necesario configurar el animailrc para especificar 
+'Alias:' a los servidores que quiera poder utilizar con este parámetro).
+      </p>
+ 
+<p><br>
+        </p>
+ 
+<h2><a name="2:Filtrado"></a>2. El sistema de filtrado</h2>
+ El sistema de filtrado se basa en tres elementos:<br>
+              
+<ol>
+        <li>El fichero de aceptados        </li>
+   <li>El fichero de denegados o fichero de filtros        </li>
+   <li>Los mensajes postergados     </li>
+ 
+</ol>
+ El fichero de aceptados es (al igual que el fichero de denegados) un fichero 
+en el que cada linea es una expresión regular (man regexp). Si la cabecera 
+del mensaje que se está descargando actúalmente concuerda con una de esas 
+expresiones regulares, el mensaje se acepta automáticamente, sin tener que 
+pasar por el fichero de filtros. Estas expresiones regulares normalmente van
+a ser las que permitirán que los mensajes de amigos, conocidos, compañeros 
+de trabajo, <b>listas de correo, </b>etc pasen siempre directametne a nuestro 
+sistema de correo.        
+<p>La ruta al fichero de aceptados se especifica en el animailrc con:<br>
+       FicheroAceptados: /ruta/a/ficheroaceptados      </p>
+ 
+<p>Simplemente el hecho de incluir el comando anterior en el animailrc activará 
+el uso del fichero.      </p>
+ 
+<p>El fichero de denegados tiene el mismo formato que el de aceptados, pero 
+en lugar de hacer que los mensajes que concuerden con una de sus expresiones 
+regulares sean automáticamente aceptados tiene el efecto contrario: Con borrados 
+del servidor sin llegar a descargar su cuerpo. Las expresiones regulares que
+escribamos en este archivo normalmente concordarán con las direcciones de
+correo de los spammers (gente que envía correo basura) que conozcamos. Por
+supuesto, utilizando la síntaxis de expresiones regulares podemos concordar 
+cualquier cosa contenida en la cabecera, no sólo la dirección del 'From' sino
+también cosas como por ejemplo el número de personas en el campo 'Cc:' y
+casi cualquier cosa en la que podamos pensar (las expresiones regulares son
+extremadamente poderosas).</p>
+ 
+<p>La ruta al fichero de denegados se especifica en el animailrc con:<br>
+       FicheroFiltros: /ruta/a/ficherofiltros      </p>
+ 
+<p>Simplemente incluír el comando anterior en el animailrc activará su uso.<br>
+       </p>
+ 
+<p>De modo que dependiendo de si estamos usando uno, los dos o ninguno de 
+los ficheros anteriores podemos tener un sistema de filtrado u otro. Si sólo 
+definimos el fichero de denagados (Animail sólo permitía esto hasta la versión 
+1.1.28) estaremos utilizando un esquema de 'lista negra'. Este esquema funcionaba 
+bastante bien en 1998 cuando Animail empezó a ser desarrollado porque no había
+tantos spammers y la mayoría eran repetitivos. Desgraciadamente hoy en día
+este esquema de filtrado no basta porque hay muchos spammers que cambian frecuentemente
+de dirección. Una solución a esto podría ser intentar suerte con un conjunto
+de expresiones regulares muy genéricas para filtrar subfrases como 'mucho
+dinero' o 'viva para siempre' en el asunto, pero desgraciadamente esto puede
+tener como consecuencia que podamos perder algún email legítimo (por ejemplo,
+un amigo podría mandarnos un email con el asunto "He encontrado un trabajo
+para ti que te podría hacer ganar mucho dinero".</p>
+ 
+<p>Intentando encontrar una solución para esto Animail (desde la versión 1.1.28
+y superioreS) permite otros dos sistemas de filtrado (inspirados por la idea
+que el programa <a href="http://tmda.sf.net">TMDA</a> utiliza, pero aplicada
+a un nivel distinto). TMDA se distribuye con licencia BSD pero Animail no
+comparte ni una línea de código con el (o puede que sí, no me he mirado su
+código :). Estos dos esquemas de filtrado posibles son:</p>
+ 
+<p><br>
+ 1. Denegar cualquier cosa que no esté en el fichero de aceptados.<br>
+ 2. Poner los mensajes que no estén en el fichero de aceptados ni en el de 
+denegados en estado 'postergado' y envíar un mensaje educado de vuelta requiriendo 
+una confirmación.<br>
+ </p>
+ 
+<p>Esta opción es muy agresiva, pero puede resultar interesante para personas 
+que sólo quieren recibir email de unas fuentes limitadas (como listas de correo
+y algunos amigos o compañeros de trabajo). Para utilizar esta opción además
+de haber especificado la ruta al fichero de aceptados necesitamos añadir
+a la sección global del animailrc:<br>
+ </p>
+ 
+<p>NoEnFicheroAceptados: Borrar<br>
+ </p>
+ 
+<p>La segunda opción, indudáblemente más útil para la mayoría de la gente, 
+consiste en que cada vez que recibamos un email de alguien que no esté en 
+el fichero de aceptados ni en el de denegados ese mensaje se pone 'a la espera' 
+en el directorio 'animailDelayed' bajo el directorio .animail de nuestro directorio
+de usuario, y se envia una respuesta educada a la dirección de origen especificando
+porque el mensaje aún no ha sido entregado (medidas anti-spam) y pidiendo
+una respuesta a esa mensaje que en el caso de producirse hará que la dirección
+de origen sea añadida automáticamente al fichero de aceptados y todos los
+emails provenientes de la misma sean entregados al sistema de correo (también
+puede configurarse Animail para que las direcciones que se confirman no seán
+automáticamente añadidas al fichero de aceptados, consulte la <a
+ href="#32:Globales">referencia de opciones globales</a>.)<br>
+ <br>
+ Es importante destacar que si va vamos a utilizar este sistema de filtrado, 
+tenemos que añadir nosotros mismos al fichero de aceptados las direcciones 
+de las distintas listas de correo a las que estemos subscritos, así como cualquier
+otra expresión regular que concuerde con mensajes automáticamente generados
+que no puedan responder a las confirmaciones (como "MAILER-DAEMON", "subscri",
+etc).<br>
+ </p>
+ 
+<p>En cualquier caso, cuando se muestra el resumen de la operación podemos 
+ver que direcciones de email se han puesto a la espera y mirando durante algunos
+días esas direcciones podremos saber que expresiones regulares debemos poner
+en el fichero de aceptados (también podemos leer manualmente los mensajes 
+puestos a la espera abriendo los ficheros mbox bajo el directorio .animail/animailDelayed 
+con nuestro lector de correo favorito):      </p>
+ 
+<h2><b><a name="3:Referencia"></a>3. Referencia de configuracióm del animailrc</b></h2>
+        
+<p><b><br>
+ Nota: </b>Este fichero debe existir en cada directorio de usuario de cada 
+usuario de Animail bajo el directorio oculto .animail<b>/ </b>puesto que no
+hay (aún) ningún fichero de configuración para todo el sistema.      </p>
+ 
+<p>Este archivo está compuesto de uno o más grupos de servidor, y opcionalmente,
+de un grupo global. Cada grupo de servidor define las opciones para un servidor
+o cuenta de servidor determinado y las opciones globales definen opciones
+que se aplicarán a todos los servidores.</p>
+<p>Los grupos de servidores se delimitan entre la etiqueta iniciar <b>&lt;Servidor&gt;
+</b>y la etiqueta final <b>&lt;/Servidor&gt;</b>, y el grupo global por <b>
+&lt;Global&gt; </b>y <b>&lt;/Global&gt;</b>, de modo que la estructura general
+para un archivo animailrc podría ser:</p>
+<p>&lt;Servidor&gt;      </p>
+ 
+<p>[Opciones de servidor]      </p>
+ 
+<p>&lt;/Servidor&gt;      </p>
+ 
+<p><br>
+        </p>
+ 
+<p>&lt;Servidor&gt;      </p>
+ 
+<p>[Opciones de otro servidor o cuenta]      </p>
+ 
+<p>&lt;/Servidor&gt;      </p>
+ 
+<p>... [Más grupos de servidor si necesita descargar correo de más servidores
+o cuentas]<br>
+      <br>
+        </p>
+ 
+<p>&lt;Global&gt;      </p>
+ 
+<p>[Opciones globales]      </p>
+ 
+<p>&lt;/Global&gt;      </p>
+<p>Los comandos de cada grupo deben separarse de sus parámetro por un carácter
+'dos puntos' (:). Los nombres de todas las opciones y sus parámetros (incluyendo
+los de las opciones booleanas, es decir, los que pueden tener un parámetro
+si/no) son indiferentes a mayúsculas y minúsculas.<br>
+        </p>
+ 
+<p><br>
+        </p>
+ 
+<center>        
+<h3><a name="31:Servidor"></a><b>3.1 Opciones de &lt;Servidor&gt; </b></h3>
+      </center>
+        
+<p><b>1. Direccion:</b><br>
+       <i><b>Parámetro: Cadena o dirección IP en notación de puntos</b></i><br>
+       <i><b>Valor por defecto: localhost</b></i><br>
+Dirección de internet del servidor de correo entrante a utilizar.      </p>
+ 
+<p><b>2. Protocolo:</b><br>
+       <i><b>Parámetro: Cadena de protocolo (POP3, IMAP4, APOP)<br>
+       Valor por defecto: POP3</b></i><br>
+Protocolo a utilizar. Los protocolos actúalmente soportados son POP3, APOP
+e IMAP4. También están soportadas sus variantes SSL (ver la siguiente opción).
+      </p>
+ 
+<p><b>3. SSL:</b><br>
+       <i><b>Parámetro: Booleano (si/no)<br>
+       Valor por defecto: no</b></i><br>
+Esta opción indica que se deben utilizar sockets SSL para la comunicación
+con el servidor entrante, si el servidor soporta esta opción.       </p>
+ 
+<p><b>4. Puerto:<br>
+      </b> <i><b>Parámetro: Numérico</b></i><br>
+       <i><b>Valor por defecto: 110 para POP3, 995 para POP3+SSL, 143 para
+IMAP4</b></i><br>
+Puerto a utilizar con el servidor de correo entrante.      </p>
+ 
+<p><b>5. NombreUsuario:</b><br>
+       <i><b>Parámetro: Cadena</b></i><br>
+       <i><b>Valor por defecto: Ninguno</b></i><br>
+Nombre de usuario a utilizar para la autentificación de la cuenta de correo
+con el servidor de correo.      </p>
+ 
+<p><b>6. Clave:</b><br>
+       <i><b>Parámetro: Cadena</b></i><br>
+       <i><b>Valor por defecto: Ninguno</b></i><br>
+Clave a utilizar para la autentificación de la cuenta de correo con el servidor
+de correo.      </p>
+ 
+<p><b>7. MantenerEnServidor:</b><br>
+       <i><b>Parámetro: Booleano (si/no)</b></i><br>
+       <i><b>Valor por defecto: no</b></i><br>
+Especifica si los mensajes deben ser borrados del servidor después de haber
+sido transferidos. Esto es útil para experimentar sin el riesgo de perder
+mensajes.      </p>
+ 
+<p><b>8. ReenviarA:</b><br>
+       <i><b>Parametro: Lista de cadenas separadas por comas de nombres de
+usuario o direcciones de email</b></i><br>
+<i><b>Valor por defecto:</b><b>  Usuario local ejecutando Animail<br>
+</b></i></p>
+<p>Esta opción le indica a Animail que reenvia todos los mensajes descargados
+al usuario o usuarios indicados, o a la dirección de correo o direcciones
+de correo indicadas. Si esta opción no está activada los mensajes se dirigiran
+al usuario que está ejecutando Animail. El parámetro puede ser una dirección
+o una lista de direcciones separadas por comas.<br>
+</p>
+<p>Nota: Dependiendo de la configuración del servidor de correo local es
+posible que tenga que especificarse el dominio (lo que va después de la @)
+incluso con usuarios locales (añadiendo un sufijo @localhost tras el nombre
+de usuario.)<br>
+</p>
+<p><b>9. Entrega_mbox:</b><br>
+  	<i><b>Parámetro: Cadena (ruta a fichero)</b></i><br>
+  	<i><b>Valor por defecto: $HOME/mbox</b></i></p>
+<p>Esta opción sobreescribe el tipo de entrega configurado globalmente para
+este servidor. La mera presencia del comando activa la entrega de los mensajes
+descargados en este servidor a un fichero con formato mbox (el formato estándar
+de correo de Unix que puede ser leido por la mayoría de los clientes de correo
+convencionales) y el parámetro especifica la ruta a ese fichero mbox.</p>
+<p><b>10. Entrega_maildir:</b><br>
+       <i><b>Parámetro: Cadena (ruta a directorio)</b></i><br>
+       <i><b>Valor por defecto: $HOME/Maildir/</b></i></p>
+<p>Esta opción sobreescribe el tipo de entrega configurado globalmente para
+este servidor. La mera presencia del comando activa la entrega de los mensajes
+descargados en este servidor a un directorio con formato Maildir (como el
+utilizado por QMail o Pine) y el parámetro especifica la ruta a dicho directorio
+Maildir.<br>
+       This option overrides the globally configured delivery option for
+this server.     Activate delivery of this server messages to a Maildir mailbox 
+(as used by QMail) and     specifies the path to the Maildir directory. 
+    </p>
+ 
+<p><b>11. Entrega_mtalocal:</b><br>
+       <i><b>Parámetro: Booleano (si/no)</b></i><br>
+       <i><b>Valor por defecto: si<br>
+</b></i></p>
+<p>Esta opción sobreescribe el tipo de entrega configurado globalmente para
+este servidor. La mera prencia del comando activa la entrega de los mensajes
+descargados en este servidor a un servidor de correo (MTA) local (localhost,
+puerto 25) utilizando el protocolo SMTP. Este es el modo de operación recomendado
+(y el utilizado por defecto).<br>
+      </p>
+ 
+<p><b>12. Entrega_tuberia:</b><br>
+       <i><b>Parámetro: Cadena (comando)</b></i><br>
+       <i><b>Valor por defecto: /usr/sbin/sendmail -bm</b></i>      </p>
+ 
+<p>Esta opción sobreescribe el tipo de entrega configurado globalmente para
+este servidor. La mera presencia del comando activa la entrega de los mensajes
+descargados en este servidor al comando ejecutable por la shell especificado
+como parámetro. Dicho comando en primer lugar debe poder aceptar mensajes
+con formato RFC822 por la entrada estándar y se le será añadida como parámetro
+la dirección del originador del correo, de modo que puede que sea necesario
+añadirle al comando algún parámetro para que acepte dicha dirección (por
+ejemplo el valor de esta opción si quisiéramos que Animail enviara todos
+los mensajes descargados a procmail para su post-procesador sería procmail
+[parámetros que deseemos] -f). El valor por defecto es /usr/bin/sendmail
+-bm.<br>
+<br>
+        </p>
+ 
+<center>        
+<p><b>3.2 &lt;Global&gt; options</b>     </p>
+ </center>
+      <b>1. MaxSize:</b><br>
+       <i><b>Parameter: Numeric (in bytes)</b></i> <br>
+       <i><b>Default value: Unlimited</b></i> <br>
+       This command specifies the maximum size of a message to be downloaded. 
+Those     messages that won't be downloaded will be deleted on the server. 
+       
+<p><b>2. MaxNumber:</b><br>
+       <i><b>Parameter: Numeric (number of emails)</b></i><br>
+       <i><b>Default value: Unlimited</b></i><br>
+      <br>
+       Limits the number of messages to download in a session. Those messages 
+that won't be     downloaded will be left on the server. If this option is 
+omited there is no limit to     the number of messages to download in a session.
+      </p>
+ 
+<p><b>3. Deliver_mbox:</b><br>
+       <i><b>Parameter: String (path to file)</b></i><br>
+       <i><b>Default value: $HOME/mbox</b></i><br>
+       Activate delivery of messages to a Mbox-style mailbox (standar Unix 
+format which can     be readed with most conventional Unix mail clients), 
+and specifies the path to the     mbox file.<br>
+  	      This option can be overriden for some servers specifiying different 
+delivery options     inside that servers options block.      </p>
+ 
+<p><b>4. Deliver_maildir:</b><br>
+       <i><b>Parameter: String (path to a directory)</b></i><br>
+       <i><b>Default value: $HOME/Maildir/</b></i><br>
+       Activate delivery of messages to a Maildir mailbox (as used by QMail) 
+and specifies     the path to the Maildir directory.<br>
+  	      This option can be overriden for some servers specifiying different 
+delivery options     inside that servers options block.      </p>
+ 
+<p><b>5. DownloadOrder:</b><br>
+       <i><b>Parameter: String (arrival, firsbig of firstsmall)</b></i><br>
+       <i><b>Default value: arrival</b></i><br>
+       Specify the messages download order based on his size. It can have 
+three parameters:      </p>
+ 
+<p><br>
+        </p>
+ 
+<ul>
+        <li><b>Arrival:</b> Messages will be downloaded in the order of arrival 
+to the       server, without considering his size.        </li>
+   <li><b>FirstBig:</b> Bigger messages will be downloaded first.       
+  </li>
+   <li><b>FirstSmall:</b> Smaller messages will be downloaded first.    
+  </li>
+ 
+</ul>
+        
+<p><b>6. Deliver_localmta:</b><br>
+      <br>
+       <i><b>Parameter: Boolean (yes/no)</b></i><br>
+       <i><b>Default value: yes</b></i><br>
+       Activate delivery of messages to a local MTA (localhost, port 25)
+using the SMTP     protocol. This is the recommended (and default) way of
+operation.<br>
+       This option can be overriden for some servers specifiying different 
+delivery options     inside that servers options block.       </p>
+ 
+<p><b>7. Deliver_pipe:</b><br>
+       <i><b>Parameter: String (command line)</b></i><br>
+       <i><b>Default value: /usr/sbin/sendmail -bm</b></i>      </p>
+ 
+<p>Activate delivery of this server messages to the command specified with 
+the     parameter. The default parameter value is     /usr/bin/sendmail -bm.<br>
+  	If this option is found with a value Animail will use the command specified 
+to deliver 	downloaded messages instead of using the SMTP protocol or any 
+of the other delivery methods 	(currently mbox and maildir). The parameter 
+can be any command that accepts RFC822 messages 	on his standart input. The 
+address of the destination of each email will be appended to the command
+	before opening the pipe so if the command needs an special parameter to
+accept the destination  	address you need to pass it (for example, a line
+for procmail could be procmail [parámeters] -f).<br>
+  	This option can be overriden for some servers specifiying different delivery 
+options inside 	that servers options block.      </p>
+ 
+<p><b>8. FicheroFiltros:</b><br>
+       <i><b>Parámetro: Cadena (ruta a fichero)<br>
+       Valor por defecto: Ninguno</b></i><br>
+</p>
+<p>Usando esta opción se le indica a Animail que active el filtrado por expresiones
+regulares. Las expresiones regulares deben escribirse entonces en el fichero
+indicado en el parámetro, una expresión regular por cada línea.</p>
+<p><b>9. AcceptFile:</b><br>
+       <i>Parameter: Path to file<br>
+       Default value: none</i><br>
+       Using this option you tell Animail to auto accept the messages matching 
+the regular     expressions in that file. That regular expressions must be 
+written one in each line.     (See <a href="2#:Filtrado">Filtering</a>.)
+      </p>
+ 
+<p><b>10. NotInAcceptFile:</b><br>
+       <i>Parameter: string ('none', 'reply' or 'delete')<br>
+       Default value: 'none'</i><br>
+       Specifies with action to do when a message that is not in the accept 
+or in the     filter file is received. If the parameter is 'delete' the file 
+will be deleted from     the server and if it is 'reply' a reply will be sent
+to the sender asking for a     confirmation (see <a href="2#:Filtrado">Filtering</a>
+.)      </p>
+ 
+<p><b>11. ReplyAddress:<br>
+       <i>Parameter: string (email address)<br>
+       Default value: nothing (it must be specified)</i></b><br>
+       Address Animail will use as the Reply-To: of the auto messages to
+send.       </p>
+ 
+<p><b>12. ReplySubject:<br>
+       <i>Parameter: string (email subject)<br>
+       Default value: 'Auto-generated message'</i></b><br>
+       Subject to be used in the auto-replys to messages not in the accept 
+or in the deny     files. Animail will add the address specified in the ReplyAddress 
+command to the end     of that subject string so it can't get confused by 
+others animails' messages.      </p>
+ 
+<p><b>13. ConfirmationSubject:<br>
+       <i>Parameter: string (email subject)<br>
+       Default value: 'Ok, your messages have been delivered'</i></b><br>
+       Subject to be used in the replys to email confirmations.      </p>
+ 
+<p><b>14. FileWithReply:<br>
+       <i>Parameter: string (path to file<br>
+       Default value: None (in this case the default message will be the
+one that can be     read in the file general.py of the Animail distribution)</i></b><br>
+       File with the body of the message to be sent in the replies to emails 
+not in the     accept or in the filter file asking the user to a confirmation 
+just replying to this     message, so his email can be finally delivered and
+his address added to the accept     file. If this command is not specified 
+a polite message in several languages     (currently english, spanish and 
+italian, looking for help with more translations)     will be used.      </p>
+ 
+<p><b>15. FileWithConfirmation:<br>
+       <i>Parameter: string (path to file)<br>
+       Default value: None (in this case the default message will be the
+one that can be     read in the file general.py of the Animail distribution)</i></b><br>
+       File with the body of the message to be sent in the replies to users 
+confirmations.     If this command is not specified a polite message in several 
+languages (currently     english, spanish and italian, looking for help with 
+more translations) will be used.      </p>
+ 
+<p><b>16. AutoAceptarConfirmaciones:<br>
+       <i>Parámetro: Booleano (si/no)<br>
+       Valor por defecto: Si</i></b></p>
+<p>Esta opción especifica que si tras una confirmación a una solicitud del
+Animail de confirmación el servidor debiera ser automáticamente añadido al
+fichero de aceptados.</p>
+<p><b>17. OnlyOneReply:<br>
+       <i>Parameter: Boolean (yes/no)<br>
+       Default value: No</i></b><br>
+       Animail keeps a list of replied addresses in the file $HOME/.animail/repliedList.dat
+     (DON'T EDIT THAT FILE!!). This option makes Animail only send a reply 
+to the first     message coming from an address not matching a regular expression 
+in the accept or in     the filter file (the operation summary will continue 
+to show the postergated     messages).      </p>
+ 
+<p>To prevent excesive startup time and memory usage, the list of replied 
+messages     has a maximum size of 500 entries (older entries will be removed 
+when that sized is     exceeded).      </p>
+ 
+<p><b>18. Timeout:</b><br>
+       <i><b>Parámetro: Numérico (tiempo en segundos)</b></i><br>
+       <i><b>Valor por defecto: Infinito<br>
+</b></i></p>
+<p>Limita cuantos segundos el programa puede esperar a recibir datos de un
+socket (conexión), es decir, cuanto tiempo puede estar congelada la conexión
+con el servidor. Después de que este timeout expire se cierra la conexión
+y Animail continua con el siguiente servidor.<br>
+<br>
+</p>
+<p><b>19. Colorear:</b><br>
+       <i><b>Parámetro: Booleano (si/no)</b></i><br>
+       <i><b>Valor por defecto: si</b></i></p>
+<p>Aplica unos bonitos colores ANSI a la salida por consola de Animail.<br>
+<br>
+        </p>
+ 
+<h2><b>3. Random tips</b></h2>
+      <b>3.1 Binding Animail filtering to a Mutt macro</b> <br>
+       <br>
+       Put this in your .muttrc: <br>
+       <br>
+       macro index X |~/bin/macrospam\n <br>
+       macro pager X |~/bin/macrospam\n <br>
+       <br>
+       Now create a new file called macrospam in ~/bin with the text: <br>
+       <br>
+       #!/bin/bash <br>
+       grep 'From:' $s | grep -v 'Resent'&gt;&gt; ~/.animailfilters <br>
+       <br>
+       and make it executable with: <br>
+       <br>
+       chmod +x ~bin/macrospam <br>
+       <br>
+       Now, pressing X in Mutt will add the currently selected mail to the 
+Animail     filterfile.        
+<p><br>
+        </p>
+ 
+<p><br>
+        </p>
+ 
+<p><br>
+        </p>
+ 
+<p align="right"><i><b>Versión 2.0</b></i>      </p>
+ 
+<p align="right"><b><i>© 1998-2002 Juanjo Álvarez &lt;<a
+ href="mailto:juanjux@yahoo.es">juanjux@yahoo.es</a>&gt;</i></b>      </p>
+ 
+</body>
+</html>

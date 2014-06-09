@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="35"
+   name=""
+   committed-date="2003-07-29T18:43:50.539122Z"
+   url="file:///home/juanjux/svn/animail/trunk/po"
+   last-author="juanjux"
+   kind="dir"
+   uuid="0633dc62-ccbe-0310-82bd-f270b313dea3"
+   revision="44"/>
+<entry
+   committed-rev="35"
+   name="messages.po"
+   text-time="2003-10-21T21:09:53.000000Z"
+   committed-date="2003-07-29T18:43:50.539122Z"
+   checksum="136064cd29774aaf981124521de0b7f3"
+   last-author="juanjux"
+   kind="file"
+   prop-time="2002-10-27T04:04:13.000000Z"/>
+<entry
+   committed-rev="35"
+   name="es.po"
+   text-time="2003-10-21T21:09:53.000000Z"
+   committed-date="2003-07-29T18:43:50.539122Z"
+   checksum="8b45a127efd11162acb79689c35661bf"
+   last-author="juanjux"
+   kind="file"
+   prop-time="2002-10-27T04:04:14.000000Z"/>
+<entry
+   committed-rev="10"
+   name="it.po"
+   text-time="2003-10-21T21:09:53.000000Z"
+   committed-date="2002-10-27T04:03:46.131672Z"
+   checksum="VOqvNn8WIfWm51jUuswvdw=="
+   last-author="juanjux"
+   kind="file"
+   prop-time="2002-10-27T04:04:14.000000Z"/>
+</wc-entries>

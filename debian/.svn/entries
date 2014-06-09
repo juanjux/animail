@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="44"
+   name=""
+   committed-date="2003-10-23T01:06:03.585324Z"
+   url="file:///home/juanjux/svn/animail/trunk/debian"
+   last-author="root"
+   kind="dir"
+   uuid="0633dc62-ccbe-0310-82bd-f270b313dea3"
+   revision="44"/>
+<entry
+   committed-rev="52"
+   name="control"
+   text-time="2003-11-23T19:47:47.000000Z"
+   committed-date="2003-11-26T21:32:05.039774Z"
+   checksum="105f8abdd376629c47d2833132f4d3ed"
+   last-author="root"
+   kind="file"
+   prop-time="2002-10-27T04:04:13.000000Z"
+   revision="52"/>
+<entry
+   committed-rev="47"
+   name="files"
+   text-time="2003-11-17T21:00:14.000000Z"
+   committed-date="2003-11-17T21:00:48.775344Z"
+   checksum="a373a31033b710a0cf38b47f77b86f66"
+   last-author="root"
+   kind="file"
+   revision="47"/>
+<entry
+   committed-rev="52"
+   name="postinst"
+   text-time="2003-11-23T19:48:19.000000Z"
+   committed-date="2003-11-26T21:32:05.039774Z"
+   checksum="6fdd07c7407b5b47824e0f83a9253d17"
+   last-author="root"
+   kind="file"
+   prop-time="2002-10-27T04:04:13.000000Z"
+   revision="52"/>
+<entry
+   committed-rev="52"
+   name="prerm"
+   text-time="2003-11-23T19:48:33.000000Z"
+   committed-date="2003-11-26T21:32:05.039774Z"
+   checksum="98d69430557a1a3d632d0645080fff8c"
+   last-author="root"
+   kind="file"
+   prop-time="2002-10-27T04:04:13.000000Z"
+   revision="52"/>
+<entry
+   committed-rev="52"
+   name="changelog"
+   text-time="2003-11-23T19:47:31.000000Z"
+   committed-date="2003-11-26T21:32:05.039774Z"
+   checksum="7cce2c8ca0abbd63b157bde1dbcf587c"
+   last-author="root"
+   kind="file"
+   revision="52"/>
+<entry
+   committed-rev="10"
+   name="copyright"
+   text-time="2002-10-27T04:04:13.000000Z"
+   committed-date="2002-10-27T04:03:46.131672Z"
+   checksum="DWjRSdGHJQ1dXze3pBG4LA=="
+   last-author="juanjux"
+   kind="file"
+   prop-time="2002-10-27T04:04:13.000000Z"/>
+<entry
+   committed-rev="10"
+   name="rules"
+   text-time="2002-10-27T04:04:13.000000Z"
+   committed-date="2002-10-27T04:03:46.131672Z"
+   checksum="KlZF3SXkrvOu/eMUYUBxaQ=="
+   last-author="juanjux"
+   kind="file"
+   prop-time="2002-10-27T04:04:13.000000Z"/>
+</wc-entries>
