@@ -1,6 +1,6 @@
 This is a mail delivery agent that I developed between 2003 and 2004 because I 
 didn't really like the alternatives. Since I stopped using locally delivered mail
-I didn't develop it further (but it's pretty complete and have some users).
+I didn't develop it further (but it's considered stable, complete and have some users).
 
 Somebody offered to maintain it but didn't develop it at all, so if you want to take over
 it you're invited to fork the codebase.
